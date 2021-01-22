@@ -3,11 +3,15 @@
   <h4 class="mat-card-header" style="text-align: center">
     User registration
   </h4>
-  <div style="display: flex;  justify-content: space-around">
+  <div style="display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: auto; /* Выравниваем по центру */
+  align-content:center;
+  width:25%; border: 3px solid #093911;">
     <div class="card-body">
       <div class="mat-card-body">
         <form #form="ngForm" (ngSubmit)="registerUser(form)">
-
           <div>
             <mat-form-field>
               <input type="email" matInput ngModel #email="ngModel" name="email"
@@ -16,12 +20,12 @@
                      required
                      email
                      appUserUnique>
-                            <mat-error >
-                              email is required and should be valid
-                            </mat-error>
-<!--              <mat-error *ngIf="email.control">-->
-<!--                email {{email.value}} not valid-->
-<!--              </mat-error>-->
+              <!--              <mat-error >-->
+              <!--                email is required-->
+              <!--              </mat-error>-->
+              <mat-error>
+                email {{email.value}} not valid
+              </mat-error>
               <mat-error *ngIf="email.errors?.unique">
                 user with email {{email.value}} exists in the database
               </mat-error>

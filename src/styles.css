@@ -16,10 +16,8 @@ html,body{min-height: 100%; height: 100%;}
 
 }
 .card{
-
   background: #9be7ad;
   color: #093911;
-
 
 }
 .mat-tab-nav-bar, .mat-tab-link, .mat-raised-button {
@@ -27,11 +25,11 @@ html,body{min-height: 100%; height: 100%;}
   background: #9be7ad;
 }
 
-.mat-card-header, card-body{
+.mat-card-header, card-body {
   color: #093911;
-
-
 }
+
+
 .mat-menu-item{
   background: #9be7ad;
   opacity: 0.7;
@@ -47,4 +45,5 @@ html,body{min-height: 100%; height: 100%;}
   height: 20vh;
   overflow-y: auto;
 }
+
 
