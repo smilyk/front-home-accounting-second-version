@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormControl, NgForm, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {RegistrationService} from '../../services/registration.service';
@@ -8,7 +8,8 @@ import {Redirect} from '../../model/Redirect';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class RegisterComponent implements OnInit {
 

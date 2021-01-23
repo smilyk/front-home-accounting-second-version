@@ -1,3 +1,4 @@
+
 table {
   width: 100%;
   color: #093911;
@@ -37,52 +38,27 @@ td, th {
   color: black !important;
 }
 
-/*!** Overrides caret & text color **!*/
-/*.my-form-field.mat-form-field-appearance-legacy .mat-input-element {*/
-/*  caret-color: green;*/
-/*  color: green;*/
-/*}*/
+/*Change text in autofill textbox*/
+input:-webkit-autofill {
+  -webkit-text-fill-color: #093911 !important;
+}
+/* Change the white to any color ;) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+  -webkit-box-shadow: 0 0 0 30px #e7e39b inset !important;
+}
+.mat-focused .mat-form-field-label {
+  color: #027D7C !important;
+}
 
-
-/*!** Overrides underline color **!*/
-/*.my-form-field.mat-form-field-appearance-legacy .mat-form-field-underline,*/
-/*.my-form-field.mat-form-field-appearance-legacy .mat-form-field-ripple,*/
-/*.my-form-field.mat-form-field-appearance-legacy.mat-focused*/
-/*.mat-form-field-underline,*/
-/*.my-form-field.mat-form-field-appearance-legacy.mat-focused*/
-/*.mat-form-field-ripple {*/
-/*  background-color: rgb(206, 26, 26)*/
-/*}*/
-
-/*  .mat-form-field.mat-focused {*/
-/*.mat-form-field-label {*/
-/*  color: #ff884d;*/
-/*}*/
-/*.mat-form-field-ripple {*/
-/*  background-color: #ff884d;*/
-/*}*/
-/*.mat-form-field-required-marker {*/
-/*  color: #ff884d;*/
-/*}*/
-/*.mat-input-element {*/
-/*  color: #ff884d;*/
-/*}*/
-/*}*/
-
-/*//Error*/
-
-/*.mat-input-element {*/
-/*  color: #ff33cc;*/
-/*}*/
-/*.mat-form-field-label {*/
-/*  color: #ff33cc;*/
-/*}*/
-/*.mat-form-field-required-marker {*/
-/*  color: #ff33cc;*/
-/*}*/
-
-/*.mat-form-field-ripple {*/
-/*  background-color: #ff33cc;*/
-/*}*/
-
-
+.mat-form-field-label{
+  color: #093911 !important;
+}
+.mat-form-field-underline {
+  background-color: #093911 !important;;
+}
+.mat-form-field-ripple {
+  background-color: #093911 !important;
+}
