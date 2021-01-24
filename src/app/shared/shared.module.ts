@@ -17,18 +17,23 @@ import {ConfirmPasswordDirective} from '../directives/confirm-password.directive
 import {EmailValidDirective} from '../directives/email-valid.directive';
 import { LoginComponent } from './login/login.component';
 
-
-
-
-
 const routes: Routes =  [
+  // LOGIN AND REGISTRATION
   {path: Redirect.REGISTER, component: RegisterComponent},
   {path: Redirect.LOGIN, component: LoginComponent},
+//   // TODO change to logout component
+//   {path: Redirect.LOGOUT, component: RegisterComponent},
+// //  USERS
+// //  TODO - change to bill.component
+//   {path: Redirect.BILLS, component: RegisterComponent},
+//   // TODO change to users component
+//   {path: Redirect.USERS, component: LoginComponent},
 
 ];
 
 @NgModule({
-  declarations: [NavHomeaccComponent, RegisterComponent, ConfirmPasswordDirective, EmailValidDirective, UserUniqueDirective,
+  declarations: [NavHomeaccComponent, RegisterComponent, ConfirmPasswordDirective,
+    EmailValidDirective, UserUniqueDirective,
     LoginComponent
 ],
   imports: [
@@ -50,7 +55,8 @@ const routes: Routes =  [
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
     {provide: MAT_DIALOG_DATA, useValue: []},
   ],
-  exports: [NavHomeaccComponent, RouterModule, RegisterComponent, UserUniqueDirective, EmailValidDirective,
+  exports: [NavHomeaccComponent, RouterModule, RegisterComponent, UserUniqueDirective,
+    EmailValidDirective,
     ConfirmPasswordDirective, LoginComponent]
 })
 export class SharedModule { }

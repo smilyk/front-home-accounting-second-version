@@ -4,7 +4,7 @@
 <!--    <img class="logo" src="assets/logo_new.png" alt="logo" width="100" height="50">-->
 
 <a mat-tab-link
-   *ngFor="let link of homeLinks"
+   *ngFor="let link of homeLink"
    [routerLink]="link.path"
    routerLinkActive #rla="routerLinkActive"
    [active]=rla.isActive>
@@ -13,13 +13,51 @@
 </a>
 
     <a mat-tab-link
-       *ngFor="let link of loginLinks"
-       [routerLink]="link.path"
+       *ngIf="!isAuth()"
+       [routerLink]="loginLink.path"
        routerLinkActive #rla="routerLinkActive"
-       [active]=rla.isActive>
-      <mat-icon>{{link.icon}}</mat-icon>
-      {{link.label}}
+       [active]="rla.isActive">
+      <mat-icon>{{loginLink.icon}}</mat-icon>
+      {{loginLink.label}}
     </a>
+    <a mat-tab-link
+       *ngIf="!isAuth()"
+       [routerLink]="registerLink.path"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive">
+      <mat-icon>{{registerLink.icon}}</mat-icon>
+      {{registerLink.label}}
+    </a>
+    <label *ngIf="isAuth()" mat-tab-link [matMenuTriggerFor]="appMenu">
+      {{getUserName()}}
+      <mat-icon>
+        menu
+      </mat-icon>
+    </label>
+
+    <mat-menu #appMenu="matMenu">
+      <a mat-menu-item
+         *ngFor="let item of menuItems"
+         [routerLink]="item.path">
+        <mat-icon>{{item.icon}}</mat-icon>
+        {{item.label}}
+      </a>
+    </mat-menu>
+
+    <a mat-button
+       *ngIf="isAuth()" (click)="logout()">
+      <mat-icon>{{logoutLinks.icon}}</mat-icon>
+      {{logoutLinks.label}}
+    </a>
+
+<!--    <a mat-tab-link-->
+<!--       *ngFor="let link of loginLinks"-->
+<!--       [routerLink]="link.path"-->
+<!--       routerLinkActive #rla="routerLinkActive"-->
+<!--       [active]=rla.isActive>-->
+<!--      <mat-icon>{{link.icon}}</mat-icon>-->
+<!--      {{link.label}}-->
+<!--    </a>-->
 <!--    <a mat-tab-link-->
 <!--       *ngFor="let link of homeLinks"-->
 <!--       [routerLink]="link.path"-->

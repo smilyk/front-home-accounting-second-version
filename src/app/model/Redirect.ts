@@ -4,4 +4,5 @@ export class Redirect {
   static USERS = 'users';
   static REGISTER = 'register';
   static LOGIN = 'login';
+  static LOGOUT: 'logout';
 }
