@@ -15,17 +15,21 @@ import {MatInputModule} from '@angular/material/input';
 import {UserUniqueDirective} from '../directives/user-unique.directive';
 import {ConfirmPasswordDirective} from '../directives/confirm-password.directive';
 import {EmailValidDirective} from '../directives/email-valid.directive';
+import { LoginComponent } from './login/login.component';
+
 
 
 
 
 const routes: Routes =  [
   {path: Redirect.REGISTER, component: RegisterComponent},
+  {path: Redirect.LOGIN, component: LoginComponent},
 
 ];
 
 @NgModule({
-  declarations: [NavHomeaccComponent, RegisterComponent, ConfirmPasswordDirective, EmailValidDirective, UserUniqueDirective
+  declarations: [NavHomeaccComponent, RegisterComponent, ConfirmPasswordDirective, EmailValidDirective, UserUniqueDirective,
+    LoginComponent
 ],
   imports: [
     CommonModule,
@@ -46,6 +50,7 @@ const routes: Routes =  [
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
     {provide: MAT_DIALOG_DATA, useValue: []},
   ],
-  exports: [NavHomeaccComponent, RouterModule, RegisterComponent, UserUniqueDirective, EmailValidDirective, ConfirmPasswordDirective]
+  exports: [NavHomeaccComponent, RouterModule, RegisterComponent, UserUniqueDirective, EmailValidDirective,
+    ConfirmPasswordDirective, LoginComponent]
 })
 export class SharedModule { }

@@ -17,7 +17,8 @@ export class NavHomeaccComponent implements OnInit {
       {path: Redirect.HOME, label: 'главная страница', icon: 'home'},
     ];
     loginLinks: NavLink[] = [
-      {path: Redirect.REGISTER, label: 'registration',  icon: 'library_books'}
+      {path: Redirect.REGISTER, label: 'registration',  icon: 'library_books'},
+      {path: Redirect.LOGIN, label: 'login', icon: 'library_books'}
     ];
 
 

@@ -3,4 +3,5 @@ export class Redirect {
   static BILLS = 'bills';
   static USERS = 'users';
   static REGISTER = 'register';
+  static LOGIN = 'login';
 }

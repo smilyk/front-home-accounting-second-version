@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavHomeaccComponent } from './shared/nav-homeacc/nav-homeacc.component';
 import {RouterModule} from '@angular/router';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
@@ -14,10 +13,17 @@ import { ConfirmPasswordDirective } from './directives/confirm-password.directiv
 import { EmailValidDirective } from './directives/email-valid.directive';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import {HttpConfigInterceptor} from './interseptor/httpconfig.interceptor';
+import {ErrorDialogComponent} from './error-dialog/error-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {ErrorDialogService} from './services/error-dialog.service';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ErrorDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,9 +34,14 @@ import {MatInputModule} from '@angular/material/input';
     MatMenuModule,
     MatFormFieldModule,
     MatInputModule,
-    SharedModule
+    SharedModule,
+    MatDialogModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ErrorDialogService,
+    { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true },
+    ],
   exports: [
     ConfirmPasswordDirective,
     EmailValidDirective,
