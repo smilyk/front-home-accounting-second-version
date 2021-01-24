@@ -17,7 +17,7 @@ td, th {
 
 .mat-input-element {
   font: inherit;
-  background: #e7e39b;
+  background: #9be7ad;
   color: #093911;
   border: none;
   outline: none;
@@ -47,7 +47,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active  {
-  -webkit-box-shadow: 0 0 0 30px #e7e39b inset !important;
+  -webkit-box-shadow: 0 0 0 30px #9be7ad inset !important;
 }
 .mat-focused .mat-form-field-label {
   color: #027D7C !important;

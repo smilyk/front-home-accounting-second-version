@@ -20,7 +20,6 @@ export class ErrorDialogService {
       data.reason = 'Authorization is failed. Check your email and password';
     }
     const dialogRef = this.dialog.open(ErrorDialogComponent, {
-      width: '300px',
       data
     });
 

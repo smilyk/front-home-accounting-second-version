@@ -5,7 +5,7 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
-html,body{min-height: 100%; height: 100%;}
+html,body{min-height: 100%; height: 100%; background: #e7e39b}
 
 /*//fone pages*/
 .nav-list{
@@ -44,6 +44,22 @@ html,body{min-height: 100%; height: 100%;}
   opacity: 0.5;
   height: 20vh;
   overflow-y: auto;
+}
+
+/*.dialog_class{*/
+/*  background: #093911;*/
+/*  color: #093911;*/
+/*}*/
+.mat-dialog-container{
+  background: #9be7ad;
+  border-radius: 10px;
+  border: 3px solid #093911;
+  color:#093911;
+}
+
+.mat-button{
+  color:#093911;
+  border: 3px solid #093911;
 }
 
 

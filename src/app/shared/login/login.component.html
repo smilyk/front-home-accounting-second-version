@@ -2,7 +2,7 @@
 
 
   <h4 class="mat-card-header" style="text-align: center">
-    User registration
+    User login
   </h4>
 
   <div style="display: flex;
@@ -10,6 +10,7 @@
   flex-direction: column;
   margin: auto; /* Выравниваем по центру */
   align-content:center;
+  background: #9be7ad;
   width:25%; border: 3px solid #093911;">
 
   <div class="card">
@@ -51,95 +52,3 @@
 </div>
 
 
-<!--<div class="nav-list">-->
-
-<!--  <h4 class="mat-card-header" style="text-align: center">-->
-<!--    User registration-->
-<!--  </h4>-->
-
-<!--        <form #form="ngForm" (ngSubmit)="registerUser(form)">-->
-<!--          <div>-->
-<!--            <mat-form-field>-->
-<!--              <input type="email" matInput ngModel #email="ngModel" name="email"-->
-<!--                     #email=ngModel-->
-<!--                     placeholder="user@user.com"-->
-<!--                     required-->
-<!--                     email-->
-<!--                     appUserUnique>-->
-<!--              &lt;!&ndash;              <mat-error >&ndash;&gt;-->
-<!--              &lt;!&ndash;                email is required&ndash;&gt;-->
-<!--              &lt;!&ndash;              </mat-error>&ndash;&gt;-->
-<!--              <mat-error>-->
-<!--                email {{email.value}} not valid-->
-<!--              </mat-error>-->
-<!--              <mat-error *ngIf="email.errors?.unique">-->
-<!--                user with email {{email.value}} exists in the database-->
-<!--              </mat-error>-->
-<!--            </mat-form-field>-->
-<!--          </div>-->
-
-<!--          <div>-->
-<!--            <mat-form-field>-->
-<!--              <input type="password" matInput ngModel #password="ngModel" name="password"-->
-<!--                     #password=ngModel-->
-<!--                     placeholder="Password"-->
-<!--                     required-->
-<!--                     id="password">-->
-<!--              <mat-error *ngIf="password.errors?.required">-->
-<!--                Password is required-->
-<!--              </mat-error>-->
-<!--            </mat-form-field>-->
-
-<!--          </div>-->
-<!--          <div>-->
-<!--            <mat-form-field>-->
-<!--              <input type="password" matInput ngModel #confirmPassword="ngModel" name="confirm_password"-->
-<!--                     #confirmPassword=ngModel-->
-<!--                     placeholder="Repeat password"-->
-<!--                     required-->
-<!--                     pattern="{{password.value}}"-->
-<!--              >-->
-<!--              <mat-error *ngIf="confirmPassword.errors?.required">-->
-<!--                Password is required-->
-<!--              </mat-error>-->
-<!--              <mat-error *ngIf="confirmPassword.errors?.pattern">-->
-<!--                Passwords are not matched-->
-<!--              </mat-error>-->
-
-<!--            </mat-form-field>-->
-<!--            <span ng-show="form.password != form.confirmPassword"></span>-->
-<!--          </div>-->
-
-<!--          <div>-->
-<!--            <mat-form-field>-->
-<!--              <input type="text" matInput ngModel #firstName="ngModel" name="firstName"-->
-<!--                     #firstName=ngModel-->
-<!--                     placeholder="Ivan"-->
-<!--                     required>-->
-<!--              <mat-error>-->
-<!--                first name is required-->
-<!--              </mat-error>-->
-<!--            </mat-form-field>-->
-<!--          </div>-->
-<!--          <div>-->
-<!--            <mat-form-field>-->
-<!--              <input type="text" matInput ngModel #lastName="ngModel" name="lastName"-->
-<!--                     #lastName=ngModel-->
-<!--                     placeholder="Ivanor"-->
-<!--                     required>-->
-<!--              <mat-error>-->
-<!--                last name is required-->
-<!--              </mat-error>-->
-<!--            </mat-form-field>-->
-<!--          </div>-->
-
-<!--          <div>-->
-<!--            <button mat-raised-button type="submit" *ngIf="form.valid && form.touched">save</button>-->
-<!--            <button mat-raised-button type="reset">reset</button>-->
-<!--            <button mat-raised-button (click)="cancel()">cancel</button>-->
-<!--          </div>-->
-<!--        </form>-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--</div>-->
