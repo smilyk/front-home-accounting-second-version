@@ -31,7 +31,6 @@ export class TokenService {
     const loginUrl = apiUrl + Path.USER_CONTROLLER + Path.LOGIN;
     this.httpClient.post<Credentials>(loginUrl, credentials, {observe: 'response'})
       .subscribe((res: HttpResponse<any>) => {
-        console.log(res.headers.keys());
       });
     return this.httpClient.post<Credentials>(loginUrl, credentials, httpOptions);
   }

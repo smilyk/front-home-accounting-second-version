@@ -15,6 +15,8 @@ export class AuthService {
   }
 
   private static USERUUID_STORAGE_KEY = 'userUuid';
+  private static USER_FIRST_NAME_STORAGE_KEY = 'userFirstName';
+  private static USER_SECOND_NAME_STORAGE_KEY = 'userSecondName';
   static readonly TOKEN_STORAGE_KEY = 'token';
   static readonly EMAIL = 'email';
   static email;
@@ -27,6 +29,8 @@ export class AuthService {
       .subscribe((res: HttpResponse<any>) => {
         this.saveEmail(AuthService.email);
         this.saveUserUuid(res.headers.get('useruuid'));
+        this.saveFirstName(res.headers.get('userfirstname'));
+        this.saveSecondName(res.headers.get('usersecondname'));
         this.saveToken(res.headers.get('authorization'));
         this.router.navigate([this.redirectToUrl]);
         // tslint:disable-next-line:no-unused-expression
@@ -43,6 +47,16 @@ export class AuthService {
     localStorage.setItem(AuthService.USERUUID_STORAGE_KEY, useruuid);
   }
 
+
+  private saveFirstName(userfirstname: string) {
+    localStorage.setItem(AuthService.USER_FIRST_NAME_STORAGE_KEY, userfirstname);
+  }
+
+  private saveSecondName(usersecondname: string) {
+    localStorage.setItem(AuthService.USER_SECOND_NAME_STORAGE_KEY, usersecondname);
+
+  }
+
   private saveEmail(email) {
     localStorage.setItem(AuthService.EMAIL, email);
   }
@@ -55,13 +69,22 @@ export class AuthService {
     return localStorage.getItem(AuthService.EMAIL);
   }
 
+  public getFirstName(): string {
+    return localStorage.getItem(AuthService.USER_FIRST_NAME_STORAGE_KEY);
+  }
+
+  public getSecondName(): string {
+    return localStorage.getItem(AuthService.USER_SECOND_NAME_STORAGE_KEY);
+  }
+
   public logout(): void {
     localStorage.removeItem(AuthService.TOKEN_STORAGE_KEY);
     localStorage.removeItem(AuthService.EMAIL);
     localStorage.removeItem(AuthService.USERUUID_STORAGE_KEY);
+    localStorage.removeItem(AuthService.USER_FIRST_NAME_STORAGE_KEY);
+    localStorage.removeItem(AuthService.USER_SECOND_NAME_STORAGE_KEY);
     this.router.navigate([this.redirectToUrl]);
   }
-
   public isAuth(): boolean {
     return !!this.getToken();
   }
@@ -71,5 +94,4 @@ export class AuthService {
       return undefined;
     }
   }
-
 }
