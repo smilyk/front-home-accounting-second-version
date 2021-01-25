@@ -2,6 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {Router} from '@angular/router';
 import {Redirect} from '../model/Redirect';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-error-dialog',
@@ -18,6 +19,7 @@ export class ErrorDialogComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   // tslint:disable-next-line:typedef
   goToLogin() {
     this.router.navigate([Redirect.HOME]);
