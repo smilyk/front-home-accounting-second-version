@@ -77,6 +77,10 @@ export class AuthService {
     return localStorage.getItem(AuthService.USER_SECOND_NAME_STORAGE_KEY);
   }
 
+  public getUserUuid(): string {
+    return localStorage.getItem(AuthService.USERUUID_STORAGE_KEY);
+  }
+
   public logout(): void {
     localStorage.removeItem(AuthService.TOKEN_STORAGE_KEY);
     localStorage.removeItem(AuthService.EMAIL);

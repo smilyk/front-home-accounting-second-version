@@ -19,6 +19,11 @@ import {HttpConfigInterceptor} from './interseptor/httpconfig.interceptor';
 import {ErrorDialogComponent} from './error-dialog/error-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {ErrorDialogService} from './services/error-dialog.service';
+import {UsersModule} from './users/users/users.module';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatCardModule} from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -34,9 +39,13 @@ import {ErrorDialogService} from './services/error-dialog.service';
     MatMenuModule,
     MatFormFieldModule,
     MatInputModule,
-    SharedModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule,
+    MatRadioModule,
+    UsersModule,
+    MatCheckboxModule,
+    MatCardModule,
   ],
   providers: [
     ErrorDialogService,

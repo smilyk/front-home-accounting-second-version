@@ -16,6 +16,7 @@ import {UserUniqueDirective} from '../directives/user-unique.directive';
 import {ConfirmPasswordDirective} from '../directives/confirm-password.directive';
 import {EmailValidDirective} from '../directives/email-valid.directive';
 import { LoginComponent } from './login/login.component';
+import {BillComponent} from '../users/bill/bill.component';
 
 const routes: Routes =  [
   // LOGIN AND REGISTRATION
@@ -25,10 +26,9 @@ const routes: Routes =  [
 //   {path: Redirect.LOGOUT, component: RegisterComponent},
 // //  USERS
 // //  TODO - change to bill.component
-//   {path: Redirect.BILLS, component: RegisterComponent},
+  {path: Redirect.BILLS, component: BillComponent},
 //   // TODO change to users component
 //   {path: Redirect.USERS, component: LoginComponent},
-
 ];
 
 @NgModule({
