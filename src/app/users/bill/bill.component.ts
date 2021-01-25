@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormControl, NgForm} from '@angular/forms';
 import {Bill} from '../../model/Bill';
 import {BillService} from '../../services/bill.service';
@@ -9,7 +9,8 @@ import {AuthService} from '../../services/auth.service';
 @Component({
   selector: 'app-bill',
   templateUrl: './bill.component.html',
-  styleUrls: ['./bill.component.css']
+  styleUrls: ['./bill.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class BillComponent implements OnInit {
   mainBill = false;
