@@ -23,4 +23,9 @@ export class BillService {
     return this.httpClient.get(apiUrl + Path.BILL_CONTROLLER + Path.VALID
       + name + '/' + this.userUuid);
   }
+
+  getAllBill(): Observable<any> {
+    return this.httpClient.get(apiUrl + Path.BILL_CONTROLLER + Path.ALL_BILLS + this.userUuid);
+  }
 }
+

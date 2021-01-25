@@ -1,0 +1,22 @@
+mat-icon{
+  color:#093911;
+}
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #093911;
+  color:#093911;
+}
+a {
+  color: #093911;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.mat-menu-item {
+  opacity: 0.9;
+}
+
+.mat-menu-content:not(:empty) {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background: #093911;
+}

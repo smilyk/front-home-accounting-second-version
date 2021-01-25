@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Redirect} from '../../model/Redirect';
 import {AuthService} from '../../services/auth.service';
 
@@ -11,7 +11,8 @@ interface NavLink {
 @Component({
   selector: 'app-nav-homeacc',
   templateUrl: './nav-homeacc.component.html',
-  styleUrls: ['./nav-homeacc.component.css']
+  styleUrls: ['./nav-homeacc.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class NavHomeaccComponent implements OnInit {
 
@@ -26,8 +27,8 @@ export class NavHomeaccComponent implements OnInit {
 
   registerLink: NavLink = {path: Redirect.REGISTER, label: 'registration', icon: 'library_books'};
   menuItems: NavLink[] = [
-    {path: Redirect.BILLS, label: 'bills', icon: 'library_books'},
-    {path: Redirect.USERS, label: 'users', icon: 'library_books'}
+    {path: Redirect.BILL_LIST, label: 'my bills', icon: 'payments'},
+    {path: Redirect.BILLS, label: 'add bill', icon: 'account_balance_wallet'},
   ];
   logoutLinks: NavLink =    {path: Redirect.LOGOUT, label: 'Logout', icon: 'person_outline'};
 

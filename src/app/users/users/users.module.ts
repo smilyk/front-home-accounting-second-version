@@ -17,12 +17,15 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import {AppModule} from '../../app.module';
 import {BillUniqueDirective} from '../../directives/bill-unique.directive';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {BillListComponent} from '../bill-list/bill-list.component';
+import {MatTableModule} from '@angular/material/table';
 const routes: Routes =  [
 
 ];
 
 @NgModule({
-  declarations: [BillComponent, BillUniqueDirective
+  declarations: [BillComponent, BillUniqueDirective, BillListComponent
   ],
   imports: [
     CommonModule,
@@ -43,12 +46,14 @@ const routes: Routes =  [
     MatRadioModule,
     MatCheckboxModule,
     MatCardModule,
+    MatPaginatorModule,
+    MatTableModule,
   ],
   providers: [
     {provide: MatDialogRef, useValue: {}},
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
     {provide: MAT_DIALOG_DATA, useValue: []},
   ],
-  exports: [BillComponent, BillUniqueDirective]
+  exports: [BillComponent, BillUniqueDirective, BillListComponent]
 })
 export class UsersModule { }

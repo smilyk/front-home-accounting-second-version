@@ -4,6 +4,7 @@ export class Path {
   static USER_CONTROLLER = 'user/';
   static LOGIN = 'login';
   static BILL_CONTROLLER = 'bill/';
+  static ALL_BILLS = 'allBills/';
 
 }
 

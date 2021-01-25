@@ -30,6 +30,7 @@
     </a>
     <label *ngIf="isAuth()" mat-tab-link [matMenuTriggerFor]="appMenu">
       {{getUserName()}}
+
       <mat-icon>
         menu
       </mat-icon>
@@ -39,7 +40,7 @@
       <a mat-menu-item
          *ngFor="let item of menuItems"
          [routerLink]="item.path">
-        <mat-icon>{{item.icon}}</mat-icon>
+        <mat-icon style="color: #093911">{{item.icon}}</mat-icon>
         {{item.label}}
       </a>
     </mat-menu>

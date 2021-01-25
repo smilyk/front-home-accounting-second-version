@@ -17,6 +17,7 @@ import {ConfirmPasswordDirective} from '../directives/confirm-password.directive
 import {EmailValidDirective} from '../directives/email-valid.directive';
 import { LoginComponent } from './login/login.component';
 import {BillComponent} from '../users/bill/bill.component';
+import {BillListComponent} from '../users/bill-list/bill-list.component';
 
 const routes: Routes =  [
   // LOGIN AND REGISTRATION
@@ -27,6 +28,7 @@ const routes: Routes =  [
 // //  USERS
 // //  TODO - change to bill.component
   {path: Redirect.BILLS, component: BillComponent},
+  {path: Redirect.BILL_LIST, component: BillListComponent}
 //   // TODO change to users component
 //   {path: Redirect.USERS, component: LoginComponent},
 ];
