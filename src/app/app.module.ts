@@ -23,6 +23,7 @@ import {UsersModule} from './users/users/users.module';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
+import { BillUniqueDirective } from './directives/bill-unique.directive';
 
 
 @NgModule({
@@ -41,11 +42,11 @@ import {MatCardModule} from '@angular/material/card';
     MatInputModule,
     MatDialogModule,
     HttpClientModule,
-    SharedModule,
     MatRadioModule,
-    UsersModule,
     MatCheckboxModule,
     MatCardModule,
+    SharedModule,
+    UsersModule,
   ],
   providers: [
     ErrorDialogService,
@@ -55,6 +56,7 @@ import {MatCardModule} from '@angular/material/card';
     ConfirmPasswordDirective,
     EmailValidDirective,
     UserUniqueDirective,
+    BillUniqueDirective,
   ],
   bootstrap: [AppComponent]
 })

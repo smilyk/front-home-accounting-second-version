@@ -22,7 +22,7 @@ export class TokenService {
   }
 
   public getUserByEmail(email: string): Observable<any> {
-    const loginUrl = apiUrl + Path.GET_USER_BY_EMAIL;
+    const loginUrl = apiUrl + Path.USER_CONTROLLER + Path.VALID;
     return this.httpClient.get(loginUrl + `${email}`);
   }
 

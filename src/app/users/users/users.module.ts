@@ -15,12 +15,14 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
+import {AppModule} from '../../app.module';
+import {BillUniqueDirective} from '../../directives/bill-unique.directive';
 const routes: Routes =  [
 
 ];
 
 @NgModule({
-  declarations: [BillComponent,
+  declarations: [BillComponent, BillUniqueDirective
   ],
   imports: [
     CommonModule,
@@ -47,6 +49,6 @@ const routes: Routes =  [
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
     {provide: MAT_DIALOG_DATA, useValue: []},
   ],
-  exports: [BillComponent]
+  exports: [BillComponent, BillUniqueDirective]
 })
 export class UsersModule { }

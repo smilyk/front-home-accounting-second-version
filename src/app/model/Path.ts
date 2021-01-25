@@ -1,5 +1,6 @@
 export class Path {
-  static GET_USER_BY_EMAIL = 'user/valid/';
+
+  static VALID = 'valid/';
   static USER_CONTROLLER = 'user/';
   static LOGIN = 'login';
   static BILL_CONTROLLER = 'bill/';

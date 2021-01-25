@@ -19,9 +19,10 @@
               <!--              TODO unique bill name-->
               <input type="text" matInput ngModel #billName="ngModel" name="billName"
                      placeholder="billName"
-                     required>
-              <mat-error>
-                name of bill is required
+                     required
+                     appBillUnique>
+              <mat-error *ngIf="billName.errors?.unique">
+                bill with name {{billName.value}} exists in the database
               </mat-error>
             </mat-form-field>
           </div>
@@ -35,7 +36,7 @@
 
           <mat-form-field>
             <mat-label>Currency of bill</mat-label>
-            <mat-select ngModel #currencyName = "ngModel" name="currencyName"
+            <mat-select ngModel #currencyName="ngModel" name="currencyName"
                         (selectionChange)="chooseCurrenct($event.value)" [value]="currencyName" required>
               <mat-option value="ALL">all currency</mat-option>
               <mat-option value="USA">american dollar</mat-option>
@@ -49,25 +50,25 @@
 
           <div>
             <mat-form-field *ngIf="currencyNameUSA() || currencyNameAll()">
-              <input  type="text" matInput ngModel #sumUsa="ngModel" name="sumUsa"
-              #sumUsa=ngModel
+              <input type="text" matInput ngModel #sumUsa="ngModel" name="sumUsa"
+                     #sumUsa=ngModel
                      placeholder="american dollar">
             </mat-form-field>
           </div>
 
           <div>
             <mat-form-field *ngIf="currencyNameISR() || currencyNameAll()">
-              <input  type="text" matInput ngModel #description="ngModel" name="sumIsr"
-                      #sumIsr=ngModel
-                      placeholder="shekel israel">
+              <input type="text" matInput ngModel #description="ngModel" name="sumIsr"
+                     #sumIsr=ngModel
+                     placeholder="shekel israel">
             </mat-form-field>
           </div>
 
           <div>
             <mat-form-field *ngIf="currencyNameUKR() || currencyNameAll()">
-              <input  type="text" matInput ngModel #description="ngModel" name="sumUkr"
-                      #sumUkr=ngModel
-                      placeholder="ukrainian hryvna">
+              <input type="text" matInput ngModel #description="ngModel" name="sumUkr"
+                     #sumUkr=ngModel
+                     placeholder="ukrainian hryvna">
             </mat-form-field>
           </div>
 
