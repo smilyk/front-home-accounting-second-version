@@ -27,7 +27,7 @@ const routes: Routes =  [
 //   {path: Redirect.LOGOUT, component: RegisterComponent},
 // //  USERS
 // //  TODO - change to bill.component
-  {path: Redirect.BILLS, component: BillComponent},
+  {path: Redirect.BILL, component: BillComponent},
   {path: Redirect.BILL_LIST, component: BillListComponent}
 //   // TODO change to users component
 //   {path: Redirect.USERS, component: LoginComponent},

@@ -28,7 +28,7 @@ export class NavHomeaccComponent implements OnInit {
   registerLink: NavLink = {path: Redirect.REGISTER, label: 'registration', icon: 'library_books'};
   menuItems: NavLink[] = [
     {path: Redirect.BILL_LIST, label: 'my bills', icon: 'payments'},
-    {path: Redirect.BILLS, label: 'add bill', icon: 'account_balance_wallet'},
+    {path: Redirect.BILL, label: 'add bill', icon: 'account_balance_wallet'},
   ];
   logoutLinks: NavLink =    {path: Redirect.LOGOUT, label: 'Logout', icon: 'person_outline'};
 

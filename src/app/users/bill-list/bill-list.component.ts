@@ -8,6 +8,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {BillService} from '../../services/bill.service';
 import {map} from 'rxjs/operators';
+import {Redirect} from '../../model/Redirect';
 
 @Component({
   selector: 'app-bill-list',
@@ -29,11 +30,6 @@ export class BillListComponent implements OnInit {
               public dialog: MatDialog) {
   }
 
-  // tslint:disable-next-line:typedef
-  private isAuth() {
-    return true;
-  }
-
   ngOnInit(): void {
     this.bills$ = this.billService.getAllBill().pipe(map(
       value => this.array1 = value
@@ -50,10 +46,8 @@ export class BillListComponent implements OnInit {
       this.dataSource.sort = this.sort;
       this.dataSource.filter = this.filter;
     });
-    // if (this.isAuth()) {
     this.displayedColumns = ['billName', 'currencyName', 'description', 'isr_money',
       'usa_money', 'ukr_money', 'delete'];
-    // }
   }
 
   // tslint:disable-next-line:typedef
@@ -67,6 +61,7 @@ export class BillListComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   addBill() {
+    this.router.navigate([Redirect.BILL]);
   }
 
   // tslint:disable-next-line:typedef
