@@ -9,6 +9,7 @@ import {MatSort} from '@angular/material/sort';
 import {BillService} from '../../services/bill.service';
 import {map} from 'rxjs/operators';
 import {Redirect} from '../../model/Redirect';
+import {DeleteBillComponent} from '../../dialogs/delete-bill/delete-bill.component';
 
 @Component({
   selector: 'app-bill-list',
@@ -65,6 +66,16 @@ export class BillListComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  openDialog(name) {
+  openDialog(billName: string) {
+    const dialogRef = this.dialog.open(DeleteBillComponent, {
+      data: {
+        billName
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('dialog was closed');
+      this.ngOnInit();
+    });
+    this.ngOnInit();
   }
 }

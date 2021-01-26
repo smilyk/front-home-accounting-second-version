@@ -27,5 +27,9 @@ export class BillService {
   getAllBill(): Observable<any> {
     return this.httpClient.get(apiUrl + Path.BILL_CONTROLLER + Path.ALL_BILLS + this.userUuid);
   }
+
+  deleteBill(name: string): Observable<any> {
+    return this.httpClient.delete(apiUrl + Path.BILL_CONTROLLER + name + '/' + this.userUuid);
+  }
 }
 
