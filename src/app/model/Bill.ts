@@ -2,10 +2,11 @@
 
 export class Bill{
   userUuid: string;
-  billNAme: string;
+  billName: string;
   description: string;
   sumIsr: number;
   sumUsa: number;
+  sumUkr: number;
   currencyName: string;
   mainBill: boolean;
 }

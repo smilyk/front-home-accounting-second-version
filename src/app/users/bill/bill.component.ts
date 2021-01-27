@@ -14,10 +14,6 @@ import {AuthService} from '../../services/auth.service';
 })
 export class BillComponent implements OnInit {
   mainBill = false;
-
-  // // currencyName = new FormControl();
-  // // currencyList: string[] = ['all currency', 'israel shekel', 'american dollar', 'ukrainian hryvna'];
-  // checked: false;
   x: any;
   hi = 'an';
 

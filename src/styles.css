@@ -1,25 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 
-html,body{min-height: 100%; height: 100%; background: #e7e39b}
+html, body {
+  min-height: 100%;
+  height: 100%;
+  background: #e7e39b
+}
 
 /*//fone pages*/
-.nav-list{
+.nav-list {
   height: 90vh;
   overflow-y: auto;
   background: #e7e39b;
   color: #093911;
 
 }
-.card{
+
+.card {
   background: #9be7ad;
   color: #093911;
 
 }
+
 .mat-tab-nav-bar, .mat-tab-link, .mat-raised-button {
   color: #093911;
   background: #9be7ad;
@@ -30,7 +42,7 @@ html,body{min-height: 100%; height: 100%; background: #e7e39b}
 }
 
 
-.mat-menu-item{
+.mat-menu-item {
   background: #9be7ad;
   opacity: 0.7;
   color: #093911;
@@ -38,7 +50,7 @@ html,body{min-height: 100%; height: 100%; background: #e7e39b}
 
 }
 
-.footer__wrapper{
+.footer__wrapper {
   color: #093911;
   background: #9be7ad;
   opacity: 0.5;
@@ -50,22 +62,28 @@ html,body{min-height: 100%; height: 100%; background: #e7e39b}
 /*  background: #093911;*/
 /*  color: #093911;*/
 /*}*/
-.mat-dialog-container{
+.mat-dialog-container {
   background: #9be7ad;
   border-radius: 10px;
   border: 3px solid #093911;
-  color:#093911;
+  color: #093911;
 }
 
-.mat-button{
-  color:#093911;
+.mat-button {
+  color: #093911;
   border: 3px solid #093911;
 }
 
-.mat-menu-item:hover{
+.mat-menu-item:hover {
   color: #093911;
   background: #e7e39b !important;
   border: 3px solid #093911;
+}
+
+button {
+  float: right;
+  color: #093911;
+  background: #9be7ad;
 }
 
 

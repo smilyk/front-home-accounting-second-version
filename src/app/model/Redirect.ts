@@ -1,9 +1,12 @@
 export class Redirect {
+  // home
   static HOME = '';
-  static BILL = 'bill';
-  static USERS = 'users';
+  // user
   static REGISTER = 'register';
   static LOGIN = 'login';
   static LOGOUT = 'logout';
+  // bill
   static BILL_LIST = 'bills';
+  static BILL = 'bill';
+  static BILL_DETAILS = 'bill/details/';
 }

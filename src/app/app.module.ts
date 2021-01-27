@@ -1,19 +1,19 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AppComponent} from './app.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {SharedModule} from './shared/shared.module';
-import { UserUniqueDirective } from './directives/user-unique.directive';
-import { ConfirmPasswordDirective } from './directives/confirm-password.directive';
-import { EmailValidDirective } from './directives/email-valid.directive';
+import {UserUniqueDirective} from './directives/user-unique.directive';
+import {ConfirmPasswordDirective} from './directives/confirm-password.directive';
+import {EmailValidDirective} from './directives/email-valid.directive';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import {HttpConfigInterceptor} from './interseptor/httpconfig.interceptor';
 import {ErrorDialogComponent} from './error-dialog/error-dialog.component';
@@ -23,10 +23,9 @@ import {UsersModule} from './users/users/users.module';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
-import { BillUniqueDirective } from './directives/bill-unique.directive';
-import { BillListComponent } from './users/bill-list/bill-list.component';
-import { DeleteBillComponent } from './dialogs/delete-bill/delete-bill.component';
-
+import {BillUniqueDirective} from './directives/bill-unique.directive';
+import {DeleteBillComponent} from './dialogs/delete-bill/delete-bill.component';
+import { BillDetailsComponent } from './users/bill-details/bill-details.component';
 
 
 @NgModule({
@@ -34,6 +33,7 @@ import { DeleteBillComponent } from './dialogs/delete-bill/delete-bill.component
     AppComponent,
     ErrorDialogComponent,
     DeleteBillComponent,
+    BillDetailsComponent,
   ],
   imports: [
     BrowserModule,

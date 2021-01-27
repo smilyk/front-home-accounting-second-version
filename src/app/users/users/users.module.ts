@@ -15,14 +15,15 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
-import {AppModule} from '../../app.module';
 import {BillUniqueDirective} from '../../directives/bill-unique.directive';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {BillListComponent} from '../bill-list/bill-list.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {Redirect} from '../../model/Redirect';
+import {BillDetailsComponent} from '../bill-details/bill-details.component';
 const routes: Routes =  [
-
+  {path: Redirect.BILL_DETAILS + ':id' , component: BillDetailsComponent}
 ];
 
 @NgModule({

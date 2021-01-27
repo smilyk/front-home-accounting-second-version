@@ -38,7 +38,7 @@ export class BillListComponent implements OnInit {
       value => this.array1 = value
     )).subscribe(bill => {
       this.array1.sort((a, b) => {
-        if (a.billNAme < b.billNAme) {
+        if (a.billName < b.billName) {
           return -1;
         } else {
           return 0;
@@ -50,7 +50,7 @@ export class BillListComponent implements OnInit {
       this.dataSource.filter = this.filter;
     });
     this.displayedColumns = ['main', 'billName', 'currencyName', 'description', 'isr_money',
-      'usa_money', 'ukr_money', 'delete'];
+      'usa_money', 'ukr_money', 'details', 'delete'];
   }
 
   // tslint:disable-next-line:typedef
@@ -68,7 +68,6 @@ export class BillListComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-
   openDialog(billName: string) {
     const dialogRef = this.dialog.open(DeleteBillComponent, {
       data: {
@@ -81,8 +80,13 @@ export class BillListComponent implements OnInit {
     });
     this.ngOnInit();
   }
-
+  // tslint:disable-next-line:typedef
   isMain(row) {
     return row.mainBill;
+  }
+  // tslint:disable-next-line:typedef
+  details(billName) {
+    console.log(billName + ' bbbb')
+    this.router.navigate([Redirect.BILL_DETAILS + `${billName}`], billName);
   }
 }
