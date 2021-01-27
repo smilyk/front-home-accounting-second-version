@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Component, Input, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {Bill} from '../../model/Bill';
 import {Observable, Subscription} from 'rxjs';
@@ -18,6 +18,8 @@ import {DeleteBillComponent} from '../../dialogs/delete-bill/delete-bill.compone
   encapsulation: ViewEncapsulation.None
 })
 export class BillListComponent implements OnInit {
+  @Input ( 'matTooltip' )
+  message: 'string';
   displayedColumns: any;
   dataSource: MatTableDataSource<Bill>;
   bills$: Subscription;
@@ -47,7 +49,7 @@ export class BillListComponent implements OnInit {
       this.dataSource.sort = this.sort;
       this.dataSource.filter = this.filter;
     });
-    this.displayedColumns = ['billName', 'currencyName', 'description', 'isr_money',
+    this.displayedColumns = ['main', 'billName', 'currencyName', 'description', 'isr_money',
       'usa_money', 'ukr_money', 'delete'];
   }
 
@@ -66,6 +68,7 @@ export class BillListComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
+
   openDialog(billName: string) {
     const dialogRef = this.dialog.open(DeleteBillComponent, {
       data: {
@@ -77,5 +80,9 @@ export class BillListComponent implements OnInit {
       this.ngOnInit();
     });
     this.ngOnInit();
+  }
+
+  isMain(row) {
+    return row.mainBill;
   }
 }

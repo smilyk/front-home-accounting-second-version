@@ -20,6 +20,7 @@ import {BillUniqueDirective} from '../../directives/bill-unique.directive';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {BillListComponent} from '../bill-list/bill-list.component';
 import {MatTableModule} from '@angular/material/table';
+import {MatTooltipModule} from '@angular/material/tooltip';
 const routes: Routes =  [
 
 ];
@@ -48,6 +49,7 @@ const routes: Routes =  [
     MatCardModule,
     MatPaginatorModule,
     MatTableModule,
+    MatTooltipModule,
   ],
   providers: [
     {provide: MatDialogRef, useValue: {}},

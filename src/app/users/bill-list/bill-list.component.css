@@ -83,5 +83,9 @@ input:-webkit-autofill:active  {
 .mat-header-cell {
   color: #093911;
   background: #e7e39b;
+}
+.mat-tooltip {
+  color: #093911 !important;
+  background: #e7e39b;
 
 }
