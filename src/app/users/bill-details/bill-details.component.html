@@ -1,0 +1,47 @@
+<div class="nav-list">
+  <div class="card-body">
+    <h1 class="mat-card-title" style="text-align: center"><var>Bill "{{bill.billName}}" </var>
+      <sup class="main-bill" *ngIf=bill.mainBill><i> * this is a main bill</i></sup>
+    </h1>
+  </div>
+  <div
+    style="display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: auto; /* Выравниваем по центру */
+    padding: 20px;
+    align-content:center;
+    background: #9be7ad;
+    width:50%; border: 3px solid #093911;">
+
+    <mat-list role="list">
+      <mat-list-item role="listitem">Name of bill &nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{bill.billName}}</mat-list-item>
+      <hr>
+      <mat-list-item role="listitem">Currency &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;&nbsp;&nbsp; {{bill.currencyName}}</mat-list-item>
+      <hr>
+      <mat-list-item role="listitem">Description &nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;-- &nbsp;&nbsp;&nbsp;&nbsp;{{bill.description}}</mat-list-item>
+      <hr>
+      <mat-list-item *ngIf="bill.currencyName === 'ALL' ||
+                            bill.currencyName === 'USA'" role="listitem">Dollar Usa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;&nbsp;&nbsp; {{bill.sumUsa}} $</mat-list-item>
+      <hr>
+      <mat-list-item *ngIf="bill.currencyName === 'ALL' ||
+                            bill.currencyName === 'ISR'" role="listitem">Shekel israel &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        --&nbsp;&nbsp;&nbsp;&nbsp; {{bill.sumIsr}} ₪</mat-list-item>
+      <hr>
+      <mat-list-item *ngIf="bill.currencyName === 'ALL' ||
+                            bill.currencyName === 'UKR'" role="listitem">Hryvna Ukraine &nbsp;&nbsp;
+        -- &nbsp;&nbsp;&nbsp;&nbsp;{{bill.sumUkr}}  ₴ </mat-list-item>
+    </mat-list>
+  </div>
+<br>
+  <br>
+  <div>
+    <button class="mr-2" style="float: right" mat-raised-button (click)="return()">cancel</button>
+    <button class="mr-2" style="float: right" mat-raised-button (click)="trasfer()">transfer resources</button>
+  </div>
+
+

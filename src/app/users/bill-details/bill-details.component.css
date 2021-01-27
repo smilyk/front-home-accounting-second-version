@@ -1,0 +1,21 @@
+.sign {
+  float: right; /* Выравнивание по правому краю */
+  border: 1px solid #333; /* Параметры рамки */
+  padding: 7px; /* Поля внутри блока */
+  margin: 10px 0 5px 5px; /* Отступы вокруг */
+  color: black;
+}
+.sign figcaption {
+  margin: 0 auto 5px; /* Отступы вокруг абзаца */
+  color: black;
+}
+.button-center{
+  width: 100%;
+}
+p{
+  color: black;
+}
+.main-bill{
+  color: #ff180a;
+  font-size: small;
+}
