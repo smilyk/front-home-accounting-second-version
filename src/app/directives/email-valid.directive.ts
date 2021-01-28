@@ -19,7 +19,6 @@ export class EmailValidDirective  implements Validator{
 
   validate(control: AbstractControl): ValidationErrors | null {
     // const useremail = control.value as string;
-    console.log(this.useremail + ' ik');
     return this.useremail.includes('@') ? null : {mismatch:true};
 
 

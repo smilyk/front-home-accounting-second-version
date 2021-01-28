@@ -29,20 +29,20 @@ export class BillDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const isbn = this.route.snapshot.paramMap.get('id');
     const billName = this.route.snapshot.paramMap.get('id');
-    console.log(this.route.snapshot.paramMap);
     this.billService.getBillByNameAndUserUuid(billName).pipe(map(bill => bill))
       .subscribe(bill => {
           this.bill = bill;
       });
   }
 
+  // tslint:disable-next-line:typedef
   return() {
     this.router.navigate([Redirect.BILL_LIST]);
   }
 
-  trasfer() {
-
+  // tslint:disable-next-line:typedef
+  transfer(billName) {
+    this.router.navigate([Redirect.TRANSFER_RESOURCES + `${billName}`], billName);
   }
 }

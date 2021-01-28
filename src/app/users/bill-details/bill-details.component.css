@@ -19,3 +19,6 @@ p{
   color: #ff180a;
   font-size: small;
 }
+.mat-list-base .mat-list-item {
+  color: #093911;
+}

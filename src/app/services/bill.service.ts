@@ -1,21 +1,26 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Bill} from '../model/Bill';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Path} from '../model/Path';
 import {AuthService} from './auth.service';
+import {TransferMoney} from '../model/TransferMoney';
 
 const apiUrl = environment.apiUrl;
+
 @Injectable({
   providedIn: 'root'
 })
 export class BillService {
 
   constructor(private httpClient: HttpClient,
-              private authService: AuthService) { }
+              private authService: AuthService) {
+  }
+
   private userUuid = this.authService.getUserUuid();
-  addBill(bill): Observable<any>{
+
+  addBill(bill): Observable<any> {
     return this.httpClient.post(apiUrl + Path.BILL_CONTROLLER, bill);
   }
 
@@ -33,8 +38,12 @@ export class BillService {
   }
 
   getBillByNameAndUserUuid(billName: string): Observable<any> {
-    console.log(billName + ' billName');
     return this.httpClient.get(apiUrl + Path.BILL_CONTROLLER + billName + '/' + this.userUuid);
+  }
+
+  transferMoney(data: TransferMoney): Observable<any> {
+    data.userUuid = this.userUuid;
+    return this.httpClient.put(apiUrl + Path.BILL_CONTROLLER, data);
   }
 }
 

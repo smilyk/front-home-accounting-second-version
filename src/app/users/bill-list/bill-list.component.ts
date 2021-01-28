@@ -86,7 +86,6 @@ export class BillListComponent implements OnInit {
   }
   // tslint:disable-next-line:typedef
   details(billName) {
-    console.log(billName + ' bbbb')
     this.router.navigate([Redirect.BILL_DETAILS + `${billName}`], billName);
   }
 }

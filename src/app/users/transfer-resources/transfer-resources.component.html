@@ -1,0 +1,78 @@
+<div class="nav-list">
+  <!--  TITLE-->
+  <div class="card-body">
+    <h1 class="mat-card-title" style="text-align: center"><var> Transfer Resources </var>
+    </h1>
+  </div>
+
+  <div class="flex-container">
+    <!--BillFrom-->
+    <div style="background: #ff180a"><strong>FROM BILL {{billNameFrom}}</strong>
+
+      <div class="card-body" *ngIf="currencyChosen() else elseCurrencyChosen" >
+        <form #form="ngForm">
+        <mat-select [(ngModel)]="billFrom" name="billFromName" placeholder="choose currency">
+          <mat-option *ngFor="let curr of currencies" [value]="curr" (blur)="onBlurMethodBillFrom(curr)">
+           {{curr}}
+          </mat-option>
+        </mat-select>
+      </form>
+    </div>
+      <ng-template #elseCurrencyChosen>
+        <mat-list role="list" class="border">
+          <mat-list-item role="listitem">Currency -  {{currencyFrom}}</mat-list-item>
+          <hr>
+          <mat-list-item *ngIf="currencyIsr()" role="listitem">Sum on bill = {{israelCurrencyBillFrom}} ₪</mat-list-item>
+          <mat-list-item *ngIf="currencyUsa()" role="listitem">Sum on bill = {{americanCurrencyBillFrom}} $</mat-list-item>
+          <mat-list-item *ngIf="currencyUkr()" role="listitem">Sum on bill = {{ukrainianCurrencyBillFrom}} ₴</mat-list-item>
+        </mat-list>
+        <!--        error - chosen sum bigger than on bill-->
+        <mat-form-field>
+          <mat-label>Chose sum for transfer</mat-label>
+          <input matInput type="number" [(ngModel)]='sumForTransfer' #input placeholder="choose sum">
+          <mat-list-item *ngIf="!checkSumm()">
+            you can`t transfer more money than on the bill
+          </mat-list-item>
+        </mat-form-field>
+<!--        error - chosen sum bigger than on bill-->
+
+      </ng-template>
+
+    <div style="background: blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+    <!--BillTo-->
+    <div style="background: greenyellow"><strong>TO BILL</strong>
+      <div class="card-body">
+        <form #form="ngForm">
+          <mat-form-field>
+            <mat-select [(ngModel)]="billToName" name="billToName" placeholder="choose bill">
+              <mat-option
+                *ngFor="let billTo of billToArray"
+                [value]="billTo.billName" (blur)="onBlurMethodTo(billTo.billName)">
+                {{billTo.billName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+              <mat-list-item *ngIf="!checkCurrency()">
+                you cant transfer {{currencyFrom}} from bill {{billNameFrom}}
+                to bill {{billToName}}, currency of bill {{billToName}} is {{currencyTo}}
+                choose right currency!!!
+              </mat-list-item>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!--buttons-->
+
+<hr>
+<br>
+<!--<button  style="float: right; margin: 5px;" mat-raised-button (click)="cancelToCondList()"> вернуться к списку ТО</button>-->
+<!--<button  style="float: right; margin: 5px;" mat-raised-button (click)="cancelToMaintList()">вернуться к списку кондиционеров</button>-->
+<!--<button *ngIf="typeMaintenanceChoose" style="float: right; margin: 5px;" mat-raised-button (click)="saveFromConditioner()">save</button>-->
+<button  style="float: right; margin: 5px;" mat-raised-button (click)="transferCurrency()">transfer</button>
+
+</div>

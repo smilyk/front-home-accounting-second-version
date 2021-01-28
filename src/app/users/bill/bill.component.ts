@@ -28,6 +28,7 @@ export class BillComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // tslint:disable-next-line:typedef
   saveBill(form: NgForm) {
     const bill = form.value as Bill;
     bill.userUuid = this.authService.getUserUuid();

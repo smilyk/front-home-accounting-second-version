@@ -22,12 +22,18 @@ import {MatTableModule} from '@angular/material/table';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {Redirect} from '../../model/Redirect';
 import {BillDetailsComponent} from '../bill-details/bill-details.component';
+import {TransferResourcesComponent} from '../transfer-resources/transfer-resources.component';
+import {MatListModule} from '@angular/material/list';
+
+
 const routes: Routes =  [
-  {path: Redirect.BILL_DETAILS + ':id' , component: BillDetailsComponent}
+  {path: Redirect.BILL_DETAILS + ':id' , component: BillDetailsComponent},
+  {path: Redirect.TRANSFER_RESOURCES + ':id' , component: TransferResourcesComponent}
 ];
 
 @NgModule({
-  declarations: [BillComponent, BillUniqueDirective, BillListComponent
+  declarations: [BillComponent, BillUniqueDirective, BillListComponent,
+    TransferResourcesComponent, BillDetailsComponent, TransferResourcesComponent
   ],
   imports: [
     CommonModule,
@@ -51,12 +57,14 @@ const routes: Routes =  [
     MatPaginatorModule,
     MatTableModule,
     MatTooltipModule,
+    MatListModule,
   ],
   providers: [
     {provide: MatDialogRef, useValue: {}},
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
     {provide: MAT_DIALOG_DATA, useValue: []},
   ],
-  exports: [BillComponent, BillUniqueDirective, BillListComponent]
+  exports: [BillComponent, BillUniqueDirective, BillListComponent,
+    TransferResourcesComponent, BillDetailsComponent, TransferResourcesComponent]
 })
 export class UsersModule { }

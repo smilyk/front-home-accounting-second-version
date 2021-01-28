@@ -40,7 +40,6 @@ export class AuthService {
   // tslint:disable-next-line:typedef
   private saveToken(token: string) {
     localStorage.setItem(AuthService.TOKEN_STORAGE_KEY, token);
-    console.log(token + ' token');
   }
 
   private saveUserUuid(useruuid: string) {

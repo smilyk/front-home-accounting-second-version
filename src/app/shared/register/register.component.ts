@@ -28,7 +28,6 @@ export class RegisterComponent implements OnInit {
         firstName: registerUser.firstName,
         lastName: registerUser.lastName
     };
-    console.log(userCredentials);
     this.registerService.registerUser(userCredentials).subscribe();
     this.cancel();
   }

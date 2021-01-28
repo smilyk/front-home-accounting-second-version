@@ -25,7 +25,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import {BillUniqueDirective} from './directives/bill-unique.directive';
 import {DeleteBillComponent} from './dialogs/delete-bill/delete-bill.component';
-import { BillDetailsComponent } from './users/bill-details/bill-details.component';
+
 
 
 @NgModule({
@@ -33,7 +33,6 @@ import { BillDetailsComponent } from './users/bill-details/bill-details.componen
     AppComponent,
     ErrorDialogComponent,
     DeleteBillComponent,
-    BillDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +50,6 @@ import { BillDetailsComponent } from './users/bill-details/bill-details.componen
     MatCardModule,
     SharedModule,
     UsersModule,
-
   ],
   providers: [
     ErrorDialogService,
