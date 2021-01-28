@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {FormControl, NgForm} from '@angular/forms';
+import {NgForm} from '@angular/forms';
 import {Bill} from '../../model/Bill';
 import {BillService} from '../../services/bill.service';
 import {HttpClient} from '@angular/common/http';
@@ -14,8 +14,7 @@ import {AuthService} from '../../services/auth.service';
 })
 export class BillComponent implements OnInit {
   mainBill = false;
-  x: any;
-  hi = 'an';
+  schoosenCurrency: any;
 
 
   constructor(
@@ -35,40 +34,37 @@ export class BillComponent implements OnInit {
     this.billService.addBill(bill).subscribe(() => this.cancel());
   }
 
+  // tslint:disable-next-line:typedef
   cancel() {
-
+    // TODO
   }
 
+  // tslint:disable-next-line:typedef
   currencyNameAll() {
-    if (this.x === 'ALL') {
-      return true;
-    }
-    return false;
+    return this.schoosenCurrency === 'ALL';
+
   }
 
+  // tslint:disable-next-line:typedef
   currencyNameUSA() {
-    if (this.x === 'USA') {
-      return true;
-    }
-    return false;
+    return this.schoosenCurrency === 'USA';
+
   }
 
+  // tslint:disable-next-line:typedef
   currencyNameISR() {
-    if (this.x === 'ISR') {
-      return true;
-    }
-    return false;
+    return this.schoosenCurrency === 'ISR';
+
   }
 
+  // tslint:disable-next-line:typedef
   currencyNameUKR() {
-    if (this.x === 'UKR') {
-      return true;
-    }
-    return false;
+    return this.schoosenCurrency === 'UKR';
+
   }
 
+  // tslint:disable-next-line:typedef
   chooseCurrenct(value: any) {
-    console.log(this.x + " x");
-    this.x = value;
+    this.schoosenCurrency = value;
   }
 }

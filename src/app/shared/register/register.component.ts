@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {FormControl, NgForm, Validators} from '@angular/forms';
+import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
 import {RegistrationService} from '../../services/registration.service';
 import {RegisterUser} from '../../model/RegisterUser';
@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  // tslint:disable-next-line:typedef
   registerUser(form: NgForm) {
     const registerUser = form.value as RegisterUser;
     const userCredentials = {
@@ -32,6 +32,7 @@ export class RegisterComponent implements OnInit {
     this.cancel();
   }
 
+  // tslint:disable-next-line:typedef
   cancel() {
     this.router.navigate([Redirect.HOME]);
   }

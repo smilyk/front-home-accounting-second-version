@@ -3,9 +3,10 @@ import {BillService} from '../../services/bill.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {map} from 'rxjs/operators';
 import {Bill} from '../../model/Bill';
-import {Observable} from 'rxjs';
 import {TransferMoney} from '../../model/TransferMoney';
-import {AuthService} from '../../services/auth.service';
+import {MatDialog} from '@angular/material/dialog';
+import {TransferComponent} from '../../dialogs/transfer/transfer.component';
+import {Redirect} from '../../model/Redirect';
 
 
 @Component({
@@ -32,17 +33,6 @@ export class TransferResourcesComponent implements OnInit {
     currencyName: '',
     mainBill: false
   };
-  billTo: Bill = {
-    userUuid: '',
-    billName: '',
-    description: '',
-    sumIsr: 0.0,
-    sumUsa: 0.0,
-    sumUkr: 0.0,
-    currencyName: '',
-    mainBill: false
-  };
-
   billToName: any;
   billToArray: Bill[];
   currencyFrom = '';
@@ -63,7 +53,8 @@ export class TransferResourcesComponent implements OnInit {
 
   constructor(private billService: BillService,
               private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -174,6 +165,32 @@ export class TransferResourcesComponent implements OnInit {
       this.data.currency = 'ISR';
     }
     this.data.sum = this.sumForTransfer;
-    this.billService.transferMoney(this.data).subscribe();
+    this.billService.transferMoney(this.data).subscribe(this.openDialog());
+  }
+
+  // tslint:disable-next-line:typedef
+  ChooseAnotherCurrency() {
+    window.location.reload();
+  }
+
+  // tslint:disable-next-line:typedef
+  private openDialog() {
+    const dialogRef = this.dialog.open(TransferComponent, {
+      data: {
+        billNameFrom: this.billNameFrom,
+        billNameTo: this.billToName,
+        currency: this.currencyFrom,
+        sum: this.sumForTransfer
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('dialog was closed');
+      this.toBillList();
+    });
+    this.ngOnInit();
+  }
+  // tslint:disable-next-line:typedef
+  private toBillList() {
+    this.router.navigate([Redirect.BILL_LIST]);
   }
 }

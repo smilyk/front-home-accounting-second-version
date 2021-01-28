@@ -25,6 +25,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import {BillUniqueDirective} from './directives/bill-unique.directive';
 import {DeleteBillComponent} from './dialogs/delete-bill/delete-bill.component';
+import { TransferComponent } from './dialogs/transfer/transfer.component';
 
 
 
@@ -33,6 +34,7 @@ import {DeleteBillComponent} from './dialogs/delete-bill/delete-bill.component';
     AppComponent,
     ErrorDialogComponent,
     DeleteBillComponent,
+    TransferComponent,
   ],
   imports: [
     BrowserModule,

@@ -26,6 +26,7 @@
           <mat-list-item *ngIf="currencyUsa()" role="listitem">Sum on bill = {{americanCurrencyBillFrom}} $</mat-list-item>
           <mat-list-item *ngIf="currencyUkr()" role="listitem">Sum on bill = {{ukrainianCurrencyBillFrom}} ₴</mat-list-item>
         </mat-list>
+        <button  style="float: right; margin: 5px;" mat-raised-button (click)="ChooseAnotherCurrency()">choose another currency</button>
         <!--        error - chosen sum bigger than on bill-->
         <mat-form-field>
           <mat-label>Chose sum for transfer</mat-label>
@@ -34,8 +35,6 @@
             you can`t transfer more money than on the bill
           </mat-list-item>
         </mat-form-field>
-<!--        error - chosen sum bigger than on bill-->
-
       </ng-template>
 
     <div style="background: blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
