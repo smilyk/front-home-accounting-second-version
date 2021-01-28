@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {BillService} from '../../services/bill.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {map} from 'rxjs/operators';
@@ -12,7 +12,8 @@ import {Redirect} from '../../model/Redirect';
 @Component({
   selector: 'app-transfer-resources',
   templateUrl: './transfer-resources.component.html',
-  styleUrls: ['./transfer-resources.component.css']
+  styleUrls: ['./transfer-resources.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TransferResourcesComponent implements OnInit {
   billTmp: Bill[];

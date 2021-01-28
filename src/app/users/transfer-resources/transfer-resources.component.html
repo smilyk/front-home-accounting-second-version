@@ -7,15 +7,25 @@
 
   <div class="flex-container">
     <!--BillFrom-->
-    <div style="background: #ff180a"><strong>FROM BILL {{billNameFrom}}</strong>
+    <div
+      style="display: flex;
+  align-items: center;
+  flex-direction: column;
+  /*margin: auto; !* Выравниваем по центру *!*/
+  align-content:center;
+  background: #9be7ad;
+  width:40%; border: 3px solid #093911;">
+      <strong>FROM BILL {{billNameFrom}}</strong>
 
       <div class="card-body" *ngIf="currencyChosen() else elseCurrencyChosen" >
         <form #form="ngForm">
+          <mat-form-field>
         <mat-select [(ngModel)]="billFrom" name="billFromName" placeholder="choose currency">
           <mat-option *ngFor="let curr of currencies" [value]="curr" (blur)="onBlurMethodBillFrom(curr)">
            {{curr}}
           </mat-option>
         </mat-select>
+          </mat-form-field>
       </form>
     </div>
       <ng-template #elseCurrencyChosen>
@@ -36,10 +46,19 @@
           </mat-list-item>
         </mat-form-field>
       </ng-template>
+    </div>
+    <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 
-    <div style="background: blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
     <!--BillTo-->
-    <div style="background: greenyellow"><strong>TO BILL</strong>
+    <div
+      style="display: flex;
+  align-items: center;
+  flex-direction: column;
+  /*margin: auto; !* Выравниваем по центру *!*/
+  align-content:center;
+  background: #9be7ad;
+  width:40%; border: 3px solid #093911;">
+    <strong>TO BILL</strong>
       <div class="card-body">
         <form #form="ngForm">
           <mat-form-field>
@@ -62,7 +81,7 @@
 
   </div>
 
-</div>
+
 
 
 <!--buttons-->

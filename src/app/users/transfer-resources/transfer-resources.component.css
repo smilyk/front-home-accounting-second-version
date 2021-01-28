@@ -42,6 +42,7 @@ p{
   -webkit-align-items: flex-start;
   -ms-flex-align: start;
   align-items: flex-start;
+  flex-grow: 1;
 }
 
 .flex-item:nth-child(1) {
@@ -78,4 +79,88 @@ p{
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
+}
+
+.mat-input-element {
+  font: inherit;
+  background: #9be7ad;
+  color: #093911;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  vertical-align: bottom;
+  text-align: inherit;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: #093911;
+  color: #093911;
+}
+
+:host /deep/ .mat-form-field-label-wrapper .mat-form-field-label {
+  color: black !important;
+}
+
+/*Change text in autofill textbox*/
+input:-webkit-autofill {
+  -webkit-text-fill-color: #093911 !important;
+}
+/* Change the white to any color ;) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+  -webkit-box-shadow: 0 0 0 30px #9be7ad inset !important;
+}
+.mat-focused .mat-form-field-label {
+  color: #027D7C !important;
+}
+
+.mat-form-field-label{
+  color: #093911 !important;
+}
+.mat-form-field-underline {
+  background-color: #093911 !important;;
+}
+.mat-form-field-ripple {
+  background-color: #093911 !important;
+}
+.mat-paginator-container {
+  color: #093911;
+  background: #e7e39b;
+}
+.mat-select-value {
+  color: #093911;
+}
+.mat-select-arrow {
+  color: #093911;
+}
+.mat-cell, .mat-footer-cell {
+  color: #093911;
+  background: #9be7ad;
+}
+.mat-header-cell {
+  color: #093911;
+  background: #e7e39b;
+}
+.mat-select-placeholder {
+  color: #093911;
+}
+.mat-list-base .mat-list-item {
+  color: #093911;
+
+}
+hr {
+  border-top: 1px solid #093911;
+  background: #e7e39b;
+}
+.border {
+   border: 1px solid #9be7ad !important;
+}
+flex::before, flex::after {
+  box-sizing: border-box;
+  height: 70%;
 }
