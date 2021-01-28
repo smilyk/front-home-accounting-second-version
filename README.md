@@ -32,3 +32,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
   - https://www.internet-technologies.ru/articles/angular-6-7-http-client-interceptor-s-oshibok.html
   - https://stackoverflow.com/questions/64346259/how-to-get-status-code-of-http-response-in-angular
+# front-home-accounting-second-version
