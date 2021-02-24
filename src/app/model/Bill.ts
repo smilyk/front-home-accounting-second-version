@@ -9,4 +9,5 @@ export class Bill{
   sumUkr: number;
   currencyName: string;
   mainBill: boolean;
+  billUuid: string;
 }

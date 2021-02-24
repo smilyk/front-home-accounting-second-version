@@ -8,6 +8,8 @@ import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {Categories} from '../../model/Categories';
 import {CategoriesService} from '../../services/categories.service';
+import {SubcategoriesService} from '../../services/subcategories.service';
+import {Subcategories} from '../../model/Subcategories';
 
 @Component({
   selector: 'app-financial-expences',
@@ -23,10 +25,19 @@ export class FinancialExpensesComponent implements OnInit {
   bills: Bill[];
   bills$: Observable<Bill[]>;
   categories$: Observable<Categories[]>;
+  subcategories$: Observable<Subcategories[]>;
   isNewCategory = false;
+  isNewSubcategory = false;
+  billCurrency: string;
+  currency: any;
+  billUuid: string;
+  currencyArray = [];
+  allCurrencyArray = ['USA', 'ISR', 'UKR'];
+  b: Bill;
 
   constructor(private billService: BillService,
               private categoriesService: CategoriesService,
+              private subcategoriesService: SubcategoriesService,
               private route: ActivatedRoute,
               private router: Router,
               private httpClient: HttpClient,
@@ -37,8 +48,11 @@ export class FinancialExpensesComponent implements OnInit {
     this.bills$ = this.billService.getBillByUserUuid().pipe(map(bill => bill));
     this.categories$ = this.categoriesService.getCategoriesByUserUuid()
       .pipe(map(cat => cat));
+    this.subcategories$ = this.subcategoriesService.getSubcategoriesByUserUuid()
+      .pipe(map(subcat => subcat));
   }
 
+  // tslint:disable-next-line:typedef
   saveCard(form: NgForm) {
     console.log(this.serializedDate);
   }
@@ -49,13 +63,38 @@ export class FinancialExpensesComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  // changeNewCategory() {
-  //   console.log(this.newCategory());
-  //   return this.isNewCategory = true;
-  // }
+  private newSubcategory() {
+    return this.isNewSubcategory;
+  }
+
   // tslint:disable-next-line:typedef
   check(checked: boolean) {
     this.isNewCategory = checked;
     this.newCategory();
+  }
+
+// tslint:disable-next-line:typedef
+  checksub(checked: boolean) {
+    this.isNewSubcategory = checked;
+    this.newSubcategory();
+  }
+
+  // tslint:disable-next-line:typedef
+  getBill(billUuid: string) {
+    this.currencyArray.length = 0;
+    this.billUuid = billUuid;
+    this.bills$.subscribe(bill => {
+      for (this.b of bill) {
+        if (this.b.billUuid === billUuid) {
+          if (this.b.currencyName === 'ALL') {
+            this.currencyArray.push('UKR');
+            this.currencyArray.push('ISR');
+            this.currencyArray.push('USA');
+          } else {
+            this.currencyArray.push(this.b.currencyName);
+          }
+        }
+      }
+    });
   }
 }

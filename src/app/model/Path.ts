@@ -7,6 +7,7 @@ export class Path {
   static ALL_BILLS = 'allBills/';
   static BILL_BY_USER_UUID = 'allBills/';
   static CATEGORIES_CONTROLLER = 'category/';
+  static SUBCATEGORIES_CONTROLLER = 'subcategory/';
 }
 
 
