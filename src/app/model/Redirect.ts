@@ -10,4 +10,6 @@ export class Redirect {
   static BILL = 'bill';
   static BILL_DETAILS = 'bill/details/';
   static TRANSFER_RESOURCES = 'bill/transfer/';
+  // expenses
+  static EXPENSES = 'financial/expenses';
 }

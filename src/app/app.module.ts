@@ -26,6 +26,7 @@ import {MatCardModule} from '@angular/material/card';
 import {BillUniqueDirective} from './directives/bill-unique.directive';
 import {DeleteBillComponent} from './dialogs/delete-bill/delete-bill.component';
 import { TransferComponent } from './dialogs/transfer/transfer.component';
+import { FinancialExpensesComponent } from './users/financial-expences/financial-expenses.component';
 
 
 
