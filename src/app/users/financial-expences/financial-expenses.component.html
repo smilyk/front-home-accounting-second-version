@@ -28,9 +28,14 @@
                 <mat-icon matSuffix> monetization_on</mat-icon>
               </mat-form-field>
             </div>
-
-<!--                      category-->
+<!--            new category-->
             <div>
+              <section class="example-section">
+                <mat-checkbox (change)="check($event.checked)" >add new category</mat-checkbox>
+              </section>
+            </div>
+<!--                      category-->
+            <div *ngIf="!newCategory()  else elseCategory">
               <mat-form-field appearance="fill">
                 <mat-select [(ngModel)]="categories" name="categories" placeholder="choose category" required>
                   <mat-option *ngFor="let category of categories$|async"
@@ -41,6 +46,14 @@
                 <mat-icon matSuffix>category</mat-icon>
               </mat-form-field>
             </div>
+              <ng-template #elseCategory>
+                <mat-form-field appearance="legacy">
+                  <mat-label>input new category</mat-label>
+                  <input matInput placeholder="input category">
+                  <mat-icon matSuffix>category</mat-icon>
+                </mat-form-field>
+              </ng-template>
+
             <!--          subcategory-->
             <div>
               <mat-form-field appearance="fill">

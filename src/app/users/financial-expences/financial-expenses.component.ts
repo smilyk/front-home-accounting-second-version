@@ -23,13 +23,15 @@ export class FinancialExpensesComponent implements OnInit {
   bills: Bill[];
   bills$: Observable<Bill[]>;
   categories$: Observable<Categories[]>;
+  isNewCategory = false;
 
   constructor(private billService: BillService,
               private categoriesService: CategoriesService,
               private route: ActivatedRoute,
               private router: Router,
               private httpClient: HttpClient,
-       ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.bills$ = this.billService.getBillByUserUuid().pipe(map(bill => bill));
@@ -38,7 +40,22 @@ export class FinancialExpensesComponent implements OnInit {
   }
 
   saveCard(form: NgForm) {
-
+    console.log(this.serializedDate);
   }
 
+  // tslint:disable-next-line:typedef
+  newCategory() {
+    return this.isNewCategory;
+  }
+
+  // tslint:disable-next-line:typedef
+  // changeNewCategory() {
+  //   console.log(this.newCategory());
+  //   return this.isNewCategory = true;
+  // }
+  // tslint:disable-next-line:typedef
+  check(checked: boolean) {
+    this.isNewCategory = checked;
+    this.newCategory();
+  }
 }
