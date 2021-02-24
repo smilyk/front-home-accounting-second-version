@@ -10,7 +10,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatTabsModule} from '@angular/material/tabs';
 import {HttpClientModule} from '@angular/common/http';
 import {MatInputModule} from '@angular/material/input';
-import {MatOptionModule} from '@angular/material/core';
+import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -24,8 +24,8 @@ import {Redirect} from '../../model/Redirect';
 import {BillDetailsComponent} from '../bill-details/bill-details.component';
 import {TransferResourcesComponent} from '../transfer-resources/transfer-resources.component';
 import {MatListModule} from '@angular/material/list';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import {FinancialExpensesComponent} from '../financial-expences/financial-expenses.component';
-
 
 const routes: Routes =  [
   {path: Redirect.BILL_DETAILS + ':id' , component: BillDetailsComponent},
@@ -60,6 +60,8 @@ const routes: Routes =  [
     MatTableModule,
     MatTooltipModule,
     MatListModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [
     {provide: MatDialogRef, useValue: {}},

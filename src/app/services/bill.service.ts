@@ -45,5 +45,9 @@ export class BillService {
     data.userUuid = this.userUuid;
     return this.httpClient.put(apiUrl + Path.BILL_CONTROLLER, data);
   }
+
+  getBillByUserUuid(): Observable<any> {
+    return this.httpClient.get(apiUrl + Path.BILL_CONTROLLER + Path.BILL_BY_USER_UUID + this.userUuid);
+  }
 }
 

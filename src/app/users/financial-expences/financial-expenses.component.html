@@ -1,1 +1,77 @@
-<p>financial-expences works!</p>
+<div class="nav-list">
+  <h1 class="mat-card-title" style="text-align: center">Expense card</h1>
+
+  <div class="flex-container">
+    <!--first div-->
+    <div style="background:red">
+      <div class="card-body">
+
+          <form #form="ngForm" (ngSubmit)="saveCard(form)">
+            <div>
+              <!--date-->
+              <mat-form-field appearance="fill">
+                <mat-label>Choose date</mat-label>
+                <input matInput [matDatepicker]="picker" [formControl]="date" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <!--          bill-->
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-select [(ngModel)]="bills" name="bills" placeholder="choose bill" required>
+                  <mat-option *ngFor="let bill of bills$|async"
+                              [value]="bill.billName">
+                    {{bill.billName}}
+                  </mat-option>
+                </mat-select>
+                <mat-icon matSuffix> monetization_on</mat-icon>
+              </mat-form-field>
+            </div>
+
+<!--                      category-->
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-select [(ngModel)]="categories" name="categories" placeholder="choose category" required>
+                  <mat-option *ngFor="let category of categories$|async"
+                              [value]="category.categoryName">
+                    {{category.categoryName}}
+                  </mat-option>
+                </mat-select>
+                <mat-icon matSuffix>category</mat-icon>
+              </mat-form-field>
+            </div>
+            <!--          subcategory-->
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-select [(ngModel)]="subcategories" name="subcategories" placeholder="choose subcategory" required>
+                  <mat-option *ngFor="let subcategory of subcategories|async"
+                              [value]="subcategory">
+                    {{subcategory}}
+                  </mat-option>
+                </mat-select>
+                <mat-icon matSuffix>view_in_ar</mat-icon>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Textarea</mat-label>
+                <textarea [(ngModel)]="text" name="text" placeholder="input text" required matInput>
+                </textarea>
+                <mat-icon matSuffix>view_headline</mat-icon>
+              </mat-form-field>
+            </div>
+          </form>
+
+      </div></div>
+
+
+      <!--  second div-->
+      <div style="background: #093911"> dfgdfg</div>
+
+      <!-- third div -->
+      <div style="background: #9be7ad">fff</div>
+
+    </div>
+
+  </div>
