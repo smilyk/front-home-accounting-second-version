@@ -13,7 +13,7 @@ import {Redirect} from '../../model/Redirect';
   selector: 'app-transfer-resources',
   templateUrl: './transfer-resources.component.html',
   styleUrls: ['./transfer-resources.component.css'],
-  encapsulation: ViewEncapsulation.None
+
 })
 export class TransferResourcesComponent implements OnInit {
   billTmp: Bill[];
@@ -166,7 +166,7 @@ export class TransferResourcesComponent implements OnInit {
       this.data.currency = 'ISR';
     }
     this.data.sum = this.sumForTransfer;
-    this.billService.transferMoney(this.data).subscribe(this.openDialog());
+    this.billService.transferMoney(this.data).subscribe(() => this.openDialog());
   }
 
   // tslint:disable-next-line:typedef
@@ -190,6 +190,7 @@ export class TransferResourcesComponent implements OnInit {
     });
     this.ngOnInit();
   }
+
   // tslint:disable-next-line:typedef
   private toBillList() {
     this.router.navigate([Redirect.BILL_LIST]);
