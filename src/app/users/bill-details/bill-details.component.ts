@@ -19,7 +19,8 @@ export class BillDetailsComponent implements OnInit {
     sumUsa: 0.0,
     sumUkr: 0.0,
     currencyName: '',
-    mainBill: false
+    mainBill: false,
+    billUuid: '',
   };
   private thisIsMainBill: false;
 

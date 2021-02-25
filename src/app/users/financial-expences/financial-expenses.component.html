@@ -3,7 +3,7 @@
   <form #form="ngForm" (ngSubmit)="saveCard(form)">
     <div class="flex-container">
       <!--first div-->
-      <div style="background:red">
+      <div style="background:red; width: -webkit-fill-available; padding-left: 10%">
         <div class="card-body">
           <div>
             <!--date-->
@@ -17,7 +17,7 @@
           <!--          bill-->
           <div>
             <mat-form-field appearance="fill">
-              <mat-select [(ngModel)]="bills" name="bills" placeholder="choose bill" required>
+              <mat-select [(ngModel)]="billName" name="billName" placeholder="choose bill" required>
                 <mat-option *ngFor="let bill of bills$|async"
                             [value]="bill.billName" (blur)="getBill(bill.billUuid)">
                   {{bill.billName}}
@@ -35,9 +35,9 @@
           <!--                      category-->
           <div *ngIf="!newCategory()  else elseCategory">
             <mat-form-field appearance="fill">
-              <mat-select [(ngModel)]="categories" name="categories" placeholder="choose category" required>
+              <mat-select [(ngModel)]="categoryName" name="categoryName" placeholder="choose category" required>
                 <mat-option *ngFor="let category of categories$|async"
-                            [value]="category.categoryName">
+                            [value]="category.categoryName" (blur)="getCategory(category.categoryUuid)">
                   {{category.categoryName}}
                 </mat-option>
               </mat-select>
@@ -61,10 +61,10 @@
           </div>
           <div *ngIf="!newSubcategory() else elseSubcategory">
             <mat-form-field appearance="fill">
-              <mat-select [(ngModel)]="subcategories" name="subcategories" placeholder="choose subcategory" required>
+              <mat-select [(ngModel)]="subcategories" name="subCategoryName" placeholder="choose subcategory" required>
                 <mat-option *ngFor="let subcategory of subcategories$|async"
-                            [value]="subcategory.subCategoryName">
-                  {{subcategory.subCategoryName}}
+                            [value]="subcategory.subcategoryName" (blur)="getSubcategory(subcategory.subcategoryUuid)">
+                  {{subcategory.subcategoryName}}
                 </mat-option>
               </mat-select>
               <mat-icon matSuffix>view_in_ar</mat-icon>
@@ -99,32 +99,40 @@
       <div style="background: #093911"> dfgdfg</div>
 
       <!-- third div -->
-      <div style="background: #9be7ad">
+      <div style="background: #9be7ad; width: -webkit-fill-available; padding-right: 10%;">
         <div class="flex-container-small">
           <!--     sum-->
           <div class="small-div">
             <mat-form-field>
+              <label>input sum</label>
               <input type="number" matInput ngModel #sum="ngModel" name="sum"
                      #sum=ngModel
-                     placeholder="sum"
                      required>
             </mat-form-field>
           </div>
           <!--count-->
           <div class="small-div">
             <mat-form-field>
-              <input type="number" matInput ngModel #description="ngModel" name="sum"
-                     #sum=ngModel
-                     placeholder="sum">
+              <label>count</label>
+              <input type="number" matInput ngModel #count="ngModel" name="count"
+                     #count=ngModel>
             </mat-form-field>
           </div>
 
-          <!--units-->
+          <!--discount-->
           <div class="small-div">
             <mat-form-field>
-              <input type="number" matInput ngModel #description="ngModel" name="sum"
-                     #sum=ngModel
-                     placeholder="sum">
+              <label>discount</label>
+              <input type="number" matInput ngModel #discount="ngModel" name="discount"
+                     #discount=ngModel>
+            </mat-form-field>
+          </div>
+          <!--unit-->
+          <div class="small-div">
+            <mat-form-field>
+              <label>unit</label>
+              <input type="text" matInput ngModel #unit="ngModel" name="unit"
+                     #unit=ngModel>
             </mat-form-field>
           </div>
 
@@ -132,7 +140,7 @@
           <div>
             <mat-form-field appearance="fill">
               <mat-label>Textarea</mat-label>
-              <textarea [(ngModel)]="text" name="text" placeholder="input text" required matInput>
+              <textarea [(ngModel)]="note" name="note" placeholder="input text" required matInput>
                             </textarea>
               <mat-icon matSuffix>view_headline</mat-icon>
             </mat-form-field>

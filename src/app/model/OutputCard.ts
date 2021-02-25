@@ -1,16 +1,26 @@
 export class OutputCard {
+  // +
   userUuid: string;
+  // +
   billName: string;
   billUuid: string;
-  subCategoryName: string;
-  subCategoryUuid: string;
+  // +
+  subcategoryName: string;
+  subcategoryUuid: string;
+  // +
   categoryName: string;
   categoryUuid: string;
+  // +
   note: string;
+  // +
   currency: string;
+  // +
   sum: number;
+  // +
   discount: number;
+  // +
   count: number;
+  // +
   unit: string;
   createCardDate: string;
 }

@@ -1,6 +1,6 @@
 .flex-container {
-  display: -ms-flexbox;
-  display: -webkit-flex;
+  /*display: -ms-flexbox;*/
+  /*display: -webkit-flex;*/
   display: flex;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -9,14 +9,13 @@
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
   -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-align-items: flex-start;
+  /*-ms-flex-pack: center;*/
+  /*justify-content: center;*/
+  /*-webkit-align-content: center;*/
+  /*-ms-flex-line-pack: center;*/
+
   -ms-flex-align: start;
-  align-items: flex-start;
+
 }
 
 .flex-item:nth-child(1) {
@@ -54,7 +53,15 @@
   -ms-flex-item-align: auto;
   align-self: auto;
 }
-
+.form{
+  width: 100%;
+}
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+}
 .sign {
   float: right; /* Выравнивание по правому краю */
   border: 1px solid #333; /* Параметры рамки */
@@ -157,4 +164,6 @@
   -ms-flex-item-align: auto;
   align-self: auto;
 }
-
+.flex-item {
+  width: 100%;
+}

@@ -1,7 +1,8 @@
 export class Subcategories {
 
   userUuid: string;
-  subCategoryName: string;
+  subcategoryUuid: string;
   description: string;
+  subcategoryName: any;
 
 }

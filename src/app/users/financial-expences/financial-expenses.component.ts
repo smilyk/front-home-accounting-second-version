@@ -10,6 +10,8 @@ import {Categories} from '../../model/Categories';
 import {CategoriesService} from '../../services/categories.service';
 import {SubcategoriesService} from '../../services/subcategories.service';
 import {Subcategories} from '../../model/Subcategories';
+import {OutputCard} from '../../model/OutputCard';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-financial-expences',
@@ -22,6 +24,7 @@ export class FinancialExpensesComponent implements OnInit {
   categories: any;
   subcategories: any;
   text: any;
+  note: any;
   bills: Bill[];
   bills$: Observable<Bill[]>;
   categories$: Observable<Categories[]>;
@@ -34,10 +37,16 @@ export class FinancialExpensesComponent implements OnInit {
   currencyArray = [];
   allCurrencyArray = ['USA', 'ISR', 'UKR'];
   b: Bill;
+  billName: any;
+  categoryName: any;
+  subcategoryName: any;
+  categoryUuid: string;
+  subcategoryUuid: string;
 
   constructor(private billService: BillService,
               private categoriesService: CategoriesService,
               private subcategoriesService: SubcategoriesService,
+              private authService: AuthService,
               private route: ActivatedRoute,
               private router: Router,
               private httpClient: HttpClient,
@@ -55,6 +64,12 @@ export class FinancialExpensesComponent implements OnInit {
   // tslint:disable-next-line:typedef
   saveCard(form: NgForm) {
     console.log(this.serializedDate);
+    const outputCard = form.value as OutputCard;
+    outputCard.userUuid = this.authService.getUserUuid();
+    outputCard.billUuid = this.billUuid;
+    outputCard.categoryUuid = this.categoryUuid;
+    outputCard.subcategoryUuid = this.subcategoryUuid;
+    console.log(outputCard);
   }
 
   // tslint:disable-next-line:typedef
@@ -80,6 +95,9 @@ export class FinancialExpensesComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
+
+
+
   getBill(billUuid: string) {
     this.currencyArray.length = 0;
     this.billUuid = billUuid;
@@ -96,5 +114,13 @@ export class FinancialExpensesComponent implements OnInit {
         }
       }
     });
+  }
+
+  getCategory(categoryUuid: string) {
+    this.categoryUuid = categoryUuid;
+  }
+
+  getSubcategory(subcategoriesUuid: string) {
+    this.subcategoryUuid = subcategoriesUuid;
   }
 }

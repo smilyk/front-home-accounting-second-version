@@ -4,4 +4,5 @@ export class Categories {
   categoryName: string;
   description: string;
   type: string;
+  categoryUuid: string;
 }
