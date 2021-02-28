@@ -32,7 +32,8 @@ export class TransferResourcesComponent implements OnInit {
     sumUsa: 0.0,
     sumUkr: 0.0,
     currencyName: '',
-    mainBill: false
+    mainBill: false,
+    billUuid: '',
   };
   billToName: any;
   billToArray: Bill[];

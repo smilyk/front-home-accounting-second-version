@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, NgForm} from '@angular/forms';
+import {FormControl, NgForm, NgModel} from '@angular/forms';
 import {Bill} from '../../model/Bill';
 import {Observable} from 'rxjs';
 import {BillService} from '../../services/bill.service';
@@ -31,7 +31,6 @@ export class FinancialExpensesComponent implements OnInit {
   subcategories$: Observable<Subcategories[]>;
   isNewCategory = false;
   isNewSubcategory = false;
-  billCurrency: string;
   currency: any;
   billUuid: string;
   currencyArray = [];
@@ -39,9 +38,28 @@ export class FinancialExpensesComponent implements OnInit {
   b: Bill;
   billName: any;
   categoryName: any;
-  subcategoryName: any;
   categoryUuid: string;
   subcategoryUuid: string;
+  outputCard: OutputCard = {
+    userUuid: '',
+    billName: '',
+    billUuid: '',
+    subcategoryName: '',
+    subcategoryUuid: '',
+    categoryName: '',
+    categoryUuid: '',
+    note: '',
+    currency: '',
+    sum: 0,
+    discount: 0,
+    count: 1,
+    unit: '',
+    createCardDate: ''
+  };
+  defaultDiscount: number;
+  defaultSum: number;
+  defaultCount: 1;
+
 
   constructor(private billService: BillService,
               private categoriesService: CategoriesService,
@@ -59,6 +77,9 @@ export class FinancialExpensesComponent implements OnInit {
       .pipe(map(cat => cat));
     this.subcategories$ = this.subcategoriesService.getSubcategoriesByUserUuid()
       .pipe(map(subcat => subcat));
+    this.defaultCount = 1;
+    this.defaultDiscount = 0;
+    this.defaultSum = 0;
   }
 
   // tslint:disable-next-line:typedef
@@ -78,7 +99,7 @@ export class FinancialExpensesComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  private newSubcategory() {
+  newSubcategory() {
     return this.isNewSubcategory;
   }
 
@@ -97,7 +118,7 @@ export class FinancialExpensesComponent implements OnInit {
   // tslint:disable-next-line:typedef
 
 
-
+  // tslint:disable-next-line:typedef
   getBill(billUuid: string) {
     this.currencyArray.length = 0;
     this.billUuid = billUuid;
@@ -116,11 +137,32 @@ export class FinancialExpensesComponent implements OnInit {
     });
   }
 
+  // tslint:disable-next-line:typedef
   getCategory(categoryUuid: string) {
     this.categoryUuid = categoryUuid;
   }
 
+  // tslint:disable-next-line:typedef
   getSubcategory(subcategoriesUuid: string) {
     this.subcategoryUuid = subcategoriesUuid;
+  }
+
+  // tslint:disable-next-line:typedef
+  changeSumWithCount(count: NgModel) {
+    this.defaultCount = count.model;
+    this.outputCard.sum = this.outputCard.sum * count.model;
+  }
+
+  // tslint:disable-next-line:typedef
+  changeSumWithDiscount(discount: NgModel) {
+    const sumByCount = this.defaultSum * this.defaultCount;
+    const pers = sumByCount * discount.model / 100;
+    this.outputCard.sum = sumByCount - pers;
+    this.defaultDiscount = discount.model;
+  }
+
+  // tslint:disable-next-line:typedef
+  getSumForDefault(sum: NgModel) {
+    this.defaultSum = sum.model;
   }
 }

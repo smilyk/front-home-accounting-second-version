@@ -104,8 +104,8 @@
           <!--     sum-->
           <div class="small-div">
             <mat-form-field>
-              <label>input sum</label>
-              <input type="number" matInput ngModel #sum="ngModel" name="sum"
+              <label>sum</label>
+              <input type="number" matInput (blur)="getSumForDefault(sum)" [(ngModel)] = outputCard.sum #sum="ngModel" name="sum"
                      #sum=ngModel
                      required>
             </mat-form-field>
@@ -114,17 +114,17 @@
           <div class="small-div">
             <mat-form-field>
               <label>count</label>
-              <input type="number" matInput ngModel #count="ngModel" name="count"
-                     #count=ngModel>
+              <input type="number" matInput [(ngModel)] = outputCard.count ngModel #count="ngModel" name="count"
+                     #count=ngModel (blur)="changeSumWithCount(count)">
             </mat-form-field>
           </div>
 
           <!--discount-->
           <div class="small-div">
             <mat-form-field>
-              <label>discount</label>
-              <input type="number" matInput ngModel #discount="ngModel" name="discount"
-                     #discount=ngModel>
+              <label>discount %</label>
+              <input type="number" matInput [(ngModel)] = outputCard.discount ngModel #discount="ngModel" name="discount"
+                     #discount=ngModel (blur)="changeSumWithDiscount(discount)">
             </mat-form-field>
           </div>
           <!--unit-->
