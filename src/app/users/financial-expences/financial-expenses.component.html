@@ -3,7 +3,7 @@
   <form #form="ngForm" (ngSubmit)="saveCard(form)">
     <div class="flex-container">
       <!--first div-->
-      <div style="background:red; width: -webkit-fill-available; padding-left: 10%">
+      <div style="width: -webkit-fill-available; padding-left: 10%">
         <div class="card-body">
           <div>
             <!--date-->
@@ -96,14 +96,14 @@
 
 
       <!--  second div-->
-      <div style="background: #093911"> dfgdfg</div>
+      <div style=""> </div>
 
       <!-- third div -->
-      <div style="background: #9be7ad; width: -webkit-fill-available; padding-right: 10%;">
+      <div style="text-align: center; width: -webkit-fill-available; padding-right: 10%;">
         <div class="flex-container-small">
           <!--     sum-->
-          <div class="small-div">
-            <mat-form-field>
+          <div class="small-div" >
+            <mat-form-field style="text-align: center">
               <label>sum</label>
               <input type="number" matInput (blur)="getSumForDefault(sum)" [(ngModel)] = outputCard.sum #sum="ngModel" name="sum"
                      #sum=ngModel
@@ -112,7 +112,7 @@
           </div>
           <!--count-->
           <div class="small-div">
-            <mat-form-field>
+            <mat-form-field style="text-align: center">
               <label>count</label>
               <input type="number" matInput [(ngModel)] = outputCard.count ngModel #count="ngModel" name="count"
                      #count=ngModel (blur)="changeSumWithCount(count)">
@@ -121,7 +121,7 @@
 
           <!--discount-->
           <div class="small-div">
-            <mat-form-field>
+            <mat-form-field style="text-align: center">
               <label>discount %</label>
               <input type="number" matInput [(ngModel)] = outputCard.discount ngModel #discount="ngModel" name="discount"
                      #discount=ngModel (blur)="changeSumWithDiscount(discount)">
@@ -129,7 +129,7 @@
           </div>
           <!--unit-->
           <div class="small-div">
-            <mat-form-field>
+            <mat-form-field style="text-align: center">
               <label>unit</label>
               <input type="text" matInput ngModel #unit="ngModel" name="unit"
                      #unit=ngModel>

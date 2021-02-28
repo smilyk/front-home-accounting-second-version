@@ -80,8 +80,9 @@
 
 .small-div{
   width: 50%;
-  border: #ff180a 3px solid;
+  border: #093911 1px solid;
   margin: 10px;
+  text-align: center !important;
 }
 
 .flex-container-small {
@@ -167,3 +168,153 @@
 .flex-item {
   width: 100%;
 }
+.mat-select-placeholder {
+  color: #093911;
+}
+.mat-input-element {
+  font: inherit;
+  color: #093911;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  vertical-align: bottom;
+  text-align: center;
+  padding: revert !important;
+  caret-color: #093911;
+}
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: #093911;
+  color: #093911;
+}
+
+:host /deep/ .mat-form-field-label-wrapper .mat-form-field-label {
+  color: black !important;
+}
+
+/*Change text in autofill textbox*/
+input:-webkit-autofill {
+  -webkit-text-fill-color: #093911 !important;
+}
+
+/* Change the white to any color ;) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #9be7ad inset !important;
+}
+
+.mat-focused .mat-form-field-label {
+  color: #027D7C !important;
+}
+
+.mat-form-field-label {
+  color: #093911 !important;
+}
+
+.mat-form-field-underline {
+  background-color: #093911 !important;;
+}
+
+.mat-form-field-ripple {
+  background-color: #093911 !important;
+}
+
+
+.mat-card {
+  background: #e7e39b;
+  color: #093911;
+}
+
+.mat-checkbox-inner-container {
+  background: #9be7ad;
+  border: 3px solid #093911;
+
+}
+
+.mat-select-value {
+  color: #093911;
+}
+
+.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button, .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: inherit;
+  width: 2.5em;
+  height: 2.5em;
+  color: #093911;
+  background: #e7e39b;
+}
+.mat-form-field .mat-select.mat-select-invalid .mat-select-arrow {
+  color: #093911;
+  background: #e7e39b;
+}
+.mat-option-text {
+  display: inline-block;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #093911;
+  background: #9be7ad;
+}
+
+.mat-select-panel .mat-optgroup-label, .mat-select-panel .mat-option {
+  font-size: inherit;
+  line-height: 3em;
+  height: 3em;
+  background: #9be7ad;
+}
+.mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
+  background: #e7e39b;
+}
+.mat-select-arrow {
+  color: #093911;
+}
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: #9be7ad;
+}
+.mat-select-panel .mat-optgroup-label, .mat-select-panel .mat-option {
+  font-size: inherit;
+  line-height: 3em;
+  height: 3em;
+  background: #9be7ad;
+}
+.mat-calendar {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #9be7ad;
+}
+.mat-calendar-body-cell-content.mat-focus-indicator {
+  position: absolute;
+  color: #027D7C;
+  background: #e7e39b;
+}
+.mat-calendar-body-cell {
+
+  background: #9be7ad;
+}
+.mat-calendar-body-cell-content.mat-focus-indicator {
+  position: absolute;
+  color: #027D7C;
+  background: #e7e39b;
+  border-block-color: inherit;
+}
+.mat-calendar-body-label {
+  color: #027D7C;
+}
+.mat-calendar-table-header {
+  color: #027D7C;
+}
+.mat-calendar-arrow {
+  border-top-color: #027D7C;
+}
+.mat-datepicker-toggle, .mat-datepicker-content .mat-calendar-next-button, .mat-datepicker-content .mat-calendar-previous-button {
+  color: #027D7C;
+}
+.center-text{
+  text-align: center;
+}
+

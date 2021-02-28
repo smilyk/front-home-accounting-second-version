@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormControl, NgForm, NgModel} from '@angular/forms';
 import {Bill} from '../../model/Bill';
 import {Observable} from 'rxjs';
@@ -17,7 +17,8 @@ import {CardService} from '../../services/cardService';
 @Component({
   selector: 'app-financial-expences',
   templateUrl: './financial-expenses.component.html',
-  styleUrls: ['./financial-expenses.component.css']
+  styleUrls: ['./financial-expenses.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FinancialExpensesComponent implements OnInit {
   date = new FormControl(new Date());
