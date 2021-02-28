@@ -12,6 +12,7 @@ import {SubcategoriesService} from '../../services/subcategories.service';
 import {Subcategories} from '../../model/Subcategories';
 import {OutputCard} from '../../model/OutputCard';
 import {AuthService} from '../../services/auth.service';
+import {CardService} from '../../services/cardService';
 
 @Component({
   selector: 'app-financial-expences',
@@ -65,6 +66,7 @@ export class FinancialExpensesComponent implements OnInit {
               private categoriesService: CategoriesService,
               private subcategoriesService: SubcategoriesService,
               private authService: AuthService,
+              private cardService: CardService,
               private route: ActivatedRoute,
               private router: Router,
               private httpClient: HttpClient,
@@ -90,7 +92,9 @@ export class FinancialExpensesComponent implements OnInit {
     outputCard.billUuid = this.billUuid;
     outputCard.categoryUuid = this.categoryUuid;
     outputCard.subcategoryUuid = this.subcategoryUuid;
+    outputCard.createCardDate = this.serializedDate.value;
     console.log(outputCard);
+    this.cardService.addOutputCars(outputCard).subscribe(() => this.cancel());
   }
 
   // tslint:disable-next-line:typedef
@@ -114,9 +118,6 @@ export class FinancialExpensesComponent implements OnInit {
     this.isNewSubcategory = checked;
     this.newSubcategory();
   }
-
-  // tslint:disable-next-line:typedef
-
 
   // tslint:disable-next-line:typedef
   getBill(billUuid: string) {
@@ -164,5 +165,11 @@ export class FinancialExpensesComponent implements OnInit {
   // tslint:disable-next-line:typedef
   getSumForDefault(sum: NgModel) {
     this.defaultSum = sum.model;
+  }
+
+  // tslint:disable-next-line:typedef
+  private cancel() {
+    console.log('cancel -> home');
+  //  TODO
   }
 }
