@@ -47,7 +47,7 @@
           <ng-template #elseCategory>
             <mat-form-field appearance="legacy">
               <mat-label>input new category</mat-label>
-              <input matInput placeholder="input category">
+              <input [(ngModel)]="categoryName" name="categoryName" matInput placeholder="input category">
               <mat-icon matSuffix>category</mat-icon>
             </mat-form-field>
           </ng-template>
@@ -72,8 +72,8 @@
           </div>
           <ng-template #elseSubcategory>
             <mat-form-field appearance="legacy">
-              <mat-label>input new category</mat-label>
-              <input matInput placeholder="input subcategory">
+              <mat-label>input new subcategory</mat-label>
+              <input  [(ngModel)]="subcategories" name="subCategoryName" matInput placeholder="input subcategory">
               <mat-icon matSuffix>category</mat-icon>
             </mat-form-field>
           </ng-template>
@@ -139,8 +139,8 @@
           <!--          description-->
           <div>
             <mat-form-field appearance="fill">
-              <mat-label>Textarea</mat-label>
-              <textarea [(ngModel)]="note" name="note" placeholder="input text" required matInput>
+              <mat-label>Note</mat-label>
+              <textarea [(ngModel)]="note" name="note" matInput>
                             </textarea>
               <mat-icon matSuffix>view_headline</mat-icon>
             </mat-form-field>
