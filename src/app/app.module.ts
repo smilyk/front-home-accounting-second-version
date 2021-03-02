@@ -27,6 +27,7 @@ import {BillUniqueDirective} from './directives/bill-unique.directive';
 import {DeleteBillComponent} from './dialogs/delete-bill/delete-bill.component';
 import { TransferComponent } from './dialogs/transfer/transfer.component';
 import { FinancialExpensesComponent } from './users/financial-expences/financial-expenses.component';
+import { FinancialIncomesComponent } from './users/financial-incomes/financial-incomes.component';
 
 
 
@@ -36,6 +37,7 @@ import { FinancialExpensesComponent } from './users/financial-expences/financial
     ErrorDialogComponent,
     DeleteBillComponent,
     TransferComponent,
+    FinancialIncomesComponent,
   ],
   imports: [
     BrowserModule,

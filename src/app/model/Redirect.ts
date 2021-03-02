@@ -12,4 +12,5 @@ export class Redirect {
   static TRANSFER_RESOURCES = 'bill/transfer/';
   // expenses
   static EXPENSES = 'financial/expenses';
+  static INCOMES = 'financial/incomes';
 }
