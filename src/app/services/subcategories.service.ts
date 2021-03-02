@@ -19,7 +19,7 @@ export class SubcategoriesService {
 
 
   getSubcategoriesByUserUuid(): Observable<any> {
-    return this.httpClient.get(apiUrl + Path.SUBCATEGORIES_CONTROLLER + this.userUuid);
+    return this.httpClient.get(apiUrl + Path.SUBCATEGORIES_CONTROLLER + Path.USER + this.userUuid);
   }
 }
 

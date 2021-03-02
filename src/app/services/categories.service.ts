@@ -18,7 +18,7 @@ export class CategoriesService {
   private userUuid = this.authService.getUserUuid();
 
   getCategoriesByUserUuid(): Observable<any> {
-    return this.httpClient.get(apiUrl + Path.CATEGORIES_CONTROLLER + this.userUuid)
+    return this.httpClient.get(apiUrl + Path.CATEGORIES_CONTROLLER + Path.USER + this.userUuid)
   }
 }
 
