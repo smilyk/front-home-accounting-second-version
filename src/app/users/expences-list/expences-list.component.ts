@@ -10,6 +10,8 @@ import {MatDialog} from '@angular/material/dialog';
 import {map} from 'rxjs/operators';
 import {OutputCard} from '../../model/OutputCard';
 import {Redirect} from '../../model/Redirect';
+import {DeleteIncomeCardComponent} from '../../dialogs/delete-income-card/delete-income-card.component';
+import {DeleteExpenseCardComponent} from '../../dialogs/delete-expense-card/delete-expense-card.component';
 
 @Component({
   selector: 'app-expences-list',
@@ -31,7 +33,8 @@ export class ExpencesListComponent implements OnInit {
 
   constructor(private cardService: CardService,
               private router: Router,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
     this.incomes$ = this.cardService.getAllOutputCard().pipe(map(
@@ -63,6 +66,7 @@ export class ExpencesListComponent implements OnInit {
   addExpencesCard() {
     this.router.navigate([Redirect.EXPENSES]);
   }
+
   // tslint:disable-next-line:typedef
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -77,7 +81,18 @@ export class ExpencesListComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  openDialog(billName: any) {
-    //  TODO
+  openDialog(cardUuid: any) {
+    console.log(cardUuid)
+    const dialogRef = this.dialog.open(DeleteExpenseCardComponent, {
+      data: {
+        cardUuid
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('dialog was closed');
+      this.ngOnInit();
+    });
+    this.ngOnInit();
   }
+
 }

@@ -39,5 +39,10 @@ export class CardService {
   deleteIncomeCard(cardUuid): Observable<any> {
     return this.httpClient.delete((apiUrl + Path.INPUT_CARD_CONTROLLER + '/' + cardUuid));
   }
+
+  deleteOutcomeCard(cardUuid): Observable<any> {
+    return this.httpClient.delete((apiUrl + Path.OUTPUT_CARD_CONTROLLER + '/' + cardUuid));
+
+  }
 }
 

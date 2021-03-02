@@ -30,6 +30,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {FormsModule} from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import { DeleteIncomeCardComponent } from './dialogs/delete-income-card/delete-income-card.component';
+import { DeleteExpenseCardComponent } from './dialogs/delete-expense-card/delete-expense-card.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { DeleteIncomeCardComponent } from './dialogs/delete-income-card/delete-i
     DeleteBillComponent,
     TransferComponent,
     DeleteIncomeCardComponent,
+    DeleteExpenseCardComponent,
 
   ],
   imports: [

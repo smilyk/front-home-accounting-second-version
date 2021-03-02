@@ -61,7 +61,7 @@
           </div>
           <div *ngIf="!newSubcategory() else elseSubcategory">
             <mat-form-field appearance="fill">
-              <mat-select [(ngModel)]="subcategories" name="subCategoryName" placeholder="choose subcategory" required>
+              <mat-select [(ngModel)]="subcategories" name="subcategoryName" placeholder="choose subcategory" required>
                 <mat-option *ngFor="let subcategory of subcategories$|async"
                             [value]="subcategory.subcategoryName" (blur)="getSubcategory(subcategory.subcategoryUuid)">
                   {{subcategory.subcategoryName}}
@@ -73,7 +73,7 @@
           <ng-template #elseSubcategory>
             <mat-form-field appearance="legacy">
               <mat-label>input new subcategory</mat-label>
-              <input  [(ngModel)]="subcategories" name="subCategoryName" matInput placeholder="input subcategory">
+              <input  [(ngModel)]="subcategories" name="subcategoryName" matInput placeholder="input subcategory">
               <mat-icon matSuffix>category</mat-icon>
             </mat-form-field>
           </ng-template>
