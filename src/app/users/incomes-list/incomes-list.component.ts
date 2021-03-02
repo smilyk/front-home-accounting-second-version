@@ -8,6 +8,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {CardService} from '../../services/cardService';
 import {map} from 'rxjs/operators';
 import {InputCard} from '../../model/InputCard';
+import {Redirect} from '../../model/Redirect';
 
 @Component({
   selector: 'app-incomes-list',
@@ -61,7 +62,7 @@ export class IncomesListComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   addIncomeCard() {
-    //   TODO
+    this.router.navigate([Redirect.INCOMES]);
   }
 
   // tslint:disable-next-line:typedef

@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {map} from 'rxjs/operators';
 import {OutputCard} from '../../model/OutputCard';
+import {Redirect} from '../../model/Redirect';
 
 @Component({
   selector: 'app-expences-list',
@@ -60,8 +61,9 @@ export class ExpencesListComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   addExpencesCard() {
-
+    this.router.navigate([Redirect.EXPENSES]);
   }
+  // tslint:disable-next-line:typedef
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
