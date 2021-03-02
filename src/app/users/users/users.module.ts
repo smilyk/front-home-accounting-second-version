@@ -27,6 +27,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {FinancialExpensesComponent} from '../financial-expences/financial-expenses.component';
 import {FinancialIncomesComponent} from '../financial-incomes/financial-incomes.component';
+import {IncomesListComponent} from '../incomes-list/incomes-list.component';
+import {ExpencesListComponent} from '../expences-list/expences-list.component';
 
 const routes: Routes =  [
   {path: Redirect.BILL_DETAILS + ':id' , component: BillDetailsComponent},
@@ -36,7 +38,8 @@ const routes: Routes =  [
 @NgModule({
   declarations: [BillComponent, BillUniqueDirective, BillListComponent,
     TransferResourcesComponent, BillDetailsComponent, TransferResourcesComponent,
-    FinancialExpensesComponent, FinancialIncomesComponent
+    FinancialExpensesComponent, FinancialIncomesComponent,     IncomesListComponent,
+    ExpencesListComponent,
   ],
   imports: [
     CommonModule,
@@ -71,6 +74,7 @@ const routes: Routes =  [
   ],
   exports: [BillComponent, BillUniqueDirective, BillListComponent,
     TransferResourcesComponent, BillDetailsComponent, TransferResourcesComponent, FinancialExpensesComponent,
-    FinancialIncomesComponent]
+    FinancialIncomesComponent,     IncomesListComponent,
+    ExpencesListComponent, ]
 })
 export class UsersModule { }

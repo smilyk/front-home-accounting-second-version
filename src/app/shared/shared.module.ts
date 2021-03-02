@@ -20,6 +20,8 @@ import {BillComponent} from '../users/bill/bill.component';
 import {BillListComponent} from '../users/bill-list/bill-list.component';
 import {FinancialExpensesComponent} from '../users/financial-expences/financial-expenses.component';
 import {FinancialIncomesComponent} from '../users/financial-incomes/financial-incomes.component';
+import {IncomesListComponent} from '../users/incomes-list/incomes-list.component';
+import {ExpencesListComponent} from '../users/expences-list/expences-list.component';
 
 const routes: Routes = [
   // LOGIN AND REGISTRATION
@@ -31,6 +33,8 @@ const routes: Routes = [
 //  financial
   {path: Redirect.EXPENSES, component: FinancialExpensesComponent},
   {path: Redirect.INCOMES, component: FinancialIncomesComponent},
+  {path: Redirect.INCOME_LIST, component: IncomesListComponent},
+  {path: Redirect.EXPENSES_LIST, component: ExpencesListComponent},
 ];
 
 @NgModule({

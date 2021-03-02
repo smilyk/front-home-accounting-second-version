@@ -1,4 +1,5 @@
 export class InputCard {
+  inputCardUuid: string;
   // +
   userUuid: string;
   // +

@@ -1,0 +1,96 @@
+<div class="nav-list">
+
+  <div class="card-body">
+    <button  style="float: right; color: #093911; background: #9be7ad" mat-raised-button class="addAuthorButton"
+             (click)="addIncomeCard()">add new income card</button>
+  </div>
+
+
+  <div class="card-body">
+    <h1 class="mat-card-title" style="text-align: center">Bills</h1>
+    <mat-form-field>
+      <input class="filter" matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+
+    <div class="mat-elevation-z8" style=" border: 3px solid #093911"  >
+      <table mat-table [dataSource]="dataSource" matSort>
+
+        <!-- note Column -->
+        <ng-container  matColumnDef="note">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>| note |</th>
+          <td mat-cell *matCellDef="let row" > {{row.note}} </td>
+          <td mat-cell *matCellDef="let row" > {{row}}</td>
+        </ng-container>
+
+        <!-- billName Column -->
+        <ng-container matColumnDef="billName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>| bill |</th>
+          <td mat-cell *matCellDef="let row" > {{row.billName}} </td>
+        </ng-container>
+
+        <!-- categoryName Column -->
+        <ng-container  matColumnDef="categoryName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>| category |</th>
+          <td mat-cell *matCellDef="let row" > {{row.categoryName}}</td>
+        </ng-container>
+
+        <!-- currency USA Column -->
+        <ng-container  matColumnDef="subcategoryName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>| subcategory |</th>
+          <td mat-cell *matCellDef="let row" > {{row.subcategoryName}}</td>
+        </ng-container>
+
+        <!-- currency Column -->
+        <ng-container  matColumnDef="currency">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>| currency |</th>
+          <td mat-cell *matCellDef="let row" > {{row.currency}} </td>
+        </ng-container>
+
+        <!-- sum Column -->
+        <ng-container matColumnDef="sum">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>| sum |</th>
+          <td mat-cell *matCellDef="let row" > {{row.sum}} </td>
+        </ng-container>
+
+        <!-- discount Column -->
+        <ng-container matColumnDef="discount">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>| discount |</th>
+          <td mat-cell *matCellDef="let row" > {{row.discount}} </td>
+        </ng-container>
+
+        <!-- count Column -->
+        <ng-container matColumnDef="count">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>| count |</th>
+          <td mat-cell *matCellDef="let row" > {{row.count}} </td>
+        </ng-container>
+
+        <!-- createCardDate Column -->
+        <ng-container matColumnDef="createCardDate">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>| date |</th>
+          <td mat-cell *matCellDef="let row" > {{row.createCardDate}} </td>
+        </ng-container>
+        <!--column details -->
+        <ng-container matColumnDef="details">
+          <th mat-header-cell *matHeaderCellDef>details</th>
+          <td mat-cell *matCellDef="let row" class="actions" (click)="details(row.inputCardUuid)">
+            <mat-icon>details</mat-icon>
+          </td>
+        </ng-container>
+        <!-- Delete Column -->
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell  *matHeaderCellDef class="icons">| delete |</th>
+          <td mat-cell *matCellDef="let row" class="actions"  (click)="openDialog(row.inputCardUuid)">
+            <mat-icon>delete</mat-icon>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[4, 5, 10, 15]"></mat-paginator>
+    </div>
+  </div>
+</div>
+

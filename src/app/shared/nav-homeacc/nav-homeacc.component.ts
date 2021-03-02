@@ -28,6 +28,8 @@ export class NavHomeaccComponent implements OnInit {
   registerLink: NavLink = {path: Redirect.REGISTER, label: 'registration', icon: 'library_books'};
   menuItems: NavLink[] = [
     {path: Redirect.BILL_LIST, label: 'my bills', icon: 'payments'},
+    {path: Redirect.INCOME_LIST, label: 'my incomes', icon: 'payments'},
+    {path: Redirect.EXPENSES_LIST, label: 'my expenses', icon: 'payments'},
     {path: Redirect.BILL, label: 'add bill', icon: 'account_balance_wallet'},
     {path: Redirect.EXPENSES, label: 'add financial expenses', icon: 'paid'},
     {path: Redirect.INCOMES, label: 'add financial incomes', icon: 'paid'},
@@ -40,16 +42,19 @@ export class NavHomeaccComponent implements OnInit {
   }
 
 
+  // tslint:disable-next-line:typedef
   isAuth() {
     return this.authService.isAuth();
   }
 
+  // tslint:disable-next-line:typedef
   getUserName() {
     const firstName = this.authService.getFirstName();
     const secondName  = this.authService.getSecondName();
     return firstName + ' ' + secondName;
   }
 
+  // tslint:disable-next-line:typedef
   logout() {
     return this.authService.logout();
   }

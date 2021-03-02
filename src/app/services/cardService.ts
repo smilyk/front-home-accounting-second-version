@@ -26,5 +26,9 @@ export class CardService {
   addInputCard(inputCard): Observable<any> {
     return this.httpClient.post(apiUrl + Path.INPUT_CARD_CONTROLLER, inputCard);
   }
+
+  getAllIncomesCard(): Observable<any> {
+    return this.httpClient.get(apiUrl + Path.INPUT_CARD_CONTROLLER + '/' + this.userUuid);
+  }
 }
 

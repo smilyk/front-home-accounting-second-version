@@ -50,6 +50,7 @@ export class FinancialIncomesComponent implements OnInit {
   note: any;
 
   inputCard: InputCard = {
+    inputCardUuid: '',
     userUuid: '',
     billName: '',
     billUuid: '',
