@@ -30,5 +30,10 @@ export class CardService {
   getAllIncomesCard(): Observable<any> {
     return this.httpClient.get(apiUrl + Path.INPUT_CARD_CONTROLLER + '/' + this.userUuid);
   }
+
+  getAllOutputCard(): Observable<any> {
+    return this.httpClient.get(apiUrl + Path.OUTPUT_CARD_CONTROLLER + '/' + this.userUuid);
+
+  }
 }
 
