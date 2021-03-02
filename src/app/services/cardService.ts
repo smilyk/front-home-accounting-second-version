@@ -4,8 +4,6 @@ import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Path} from '../model/Path';
 import {AuthService} from './auth.service';
-import {TransferMoney} from '../model/TransferMoney';
-import {OutputCard} from '../model/OutputCard';
 
 const apiUrl = environment.apiUrl;
 
@@ -23,6 +21,10 @@ export class CardService {
 
   addOutputCars(outputCard): Observable<any> {
     return this.httpClient.post(apiUrl + Path.OUTPUT_CARD_CONTROLLER, outputCard);
+  }
+
+  addInputCard(inputCard): Observable<any> {
+    return this.httpClient.post(apiUrl + Path.INPUT_CARD_CONTROLLER, inputCard);
   }
 }
 

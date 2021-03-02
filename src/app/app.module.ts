@@ -25,10 +25,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import {BillUniqueDirective} from './directives/bill-unique.directive';
 import {DeleteBillComponent} from './dialogs/delete-bill/delete-bill.component';
-import { TransferComponent } from './dialogs/transfer/transfer.component';
-import { FinancialExpensesComponent } from './users/financial-expences/financial-expenses.component';
-import { FinancialIncomesComponent } from './users/financial-incomes/financial-incomes.component';
-
+import {TransferComponent} from './dialogs/transfer/transfer.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {FormsModule} from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -37,7 +37,6 @@ import { FinancialIncomesComponent } from './users/financial-incomes/financial-i
     ErrorDialogComponent,
     DeleteBillComponent,
     TransferComponent,
-    FinancialIncomesComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +54,9 @@ import { FinancialIncomesComponent } from './users/financial-incomes/financial-i
     MatCardModule,
     SharedModule,
     UsersModule,
+    MatDatepickerModule,
+    FormsModule,
+    MatSelectModule,
   ],
   providers: [
     ErrorDialogService,

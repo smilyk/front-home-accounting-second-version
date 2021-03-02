@@ -1,1 +1,163 @@
-<p>financial-incomes works!</p>
+<div class="nav-list">
+  <h1 class="mat-card-title" style="text-align: center">Income card</h1>
+
+  <form #form="ngForm" (ngSubmit)="saveCard(form)">
+    <div class="flex-container">
+      <!--first div-->
+      <div style="width: -webkit-fill-available; padding-left: 10%">
+        <div class="card-body">
+          <!--date-->
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Choose date</mat-label>
+              <input matInput [matDatepicker]="picker" [formControl]="date" required>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+<!--          end of date-->
+          <!--          bill-->
+<!--          create new bill-->
+          <div>
+            <section class="example-section">
+              <mat-checkbox (change)="checkBill($event.checked)">add new bill</mat-checkbox>
+            </section>
+          </div>
+          <div *ngIf="!newBill()  else elseBill">
+            <mat-form-field appearance="fill">
+              <mat-select [(ngModel)]="billName" name="billName" placeholder="choose bill" required>
+                <mat-option *ngFor="let bill of bills$|async"
+                            [value]="bill.billName" (blur)="getBill(bill.billUuid)">
+                  {{bill.billName}}
+                </mat-option>
+              </mat-select>
+              <mat-icon matSuffix> monetization_on</mat-icon>
+            </mat-form-field>
+          </div>
+          <ng-template #elseBill>
+            <mat-form-field appearance="legacy">
+              <mat-label>input new bill</mat-label>
+              <input [(ngModel)]="billName" name="billName" matInput placeholder="input bill">
+              <mat-icon matSuffix>bill</mat-icon>
+            </mat-form-field>
+          </ng-template>
+<!--          end of bill-->
+          <!--            new category-->
+          <div>
+            <section class="example-section">
+              <mat-checkbox (change)="checkCateg($event.checked)">add new category</mat-checkbox>
+            </section>
+          </div>
+          <!--                      category-->
+          <div *ngIf="!newCategory()  else elseCategory">
+            <mat-form-field appearance="fill">
+              <mat-select [(ngModel)]="categoryName" name="categoryName" placeholder="choose category" required>
+                <mat-option *ngFor="let category of categories$|async"
+                            [value]="category.categoryName" (blur)="getCategory(category.categoryUuid)">
+                  {{category.categoryName}}
+                </mat-option>
+              </mat-select>
+              <mat-icon matSuffix>category</mat-icon>
+            </mat-form-field>
+          </div>
+          <ng-template #elseCategory>
+            <mat-form-field appearance="legacy">
+              <mat-label>input new category</mat-label>
+              <input [(ngModel)]="categoryName" name="categoryName" matInput placeholder="input category">
+              <mat-icon matSuffix>category</mat-icon>
+            </mat-form-field>
+          </ng-template>
+<!--end of category-->
+          <!--          subcategory-->
+          <!--            new subcategory-->
+          <div>
+            <section class="example-section">
+              <mat-checkbox (change)="checksub($event.checked)">add new subcategory</mat-checkbox>
+            </section>
+          </div>
+          <div *ngIf="!newSubcategory() else elseSubcategory">
+            <mat-form-field appearance="fill">
+              <mat-select [(ngModel)]="subcategories" name="subcategoryName" placeholder="choose subcategory" required>
+                <mat-option *ngFor="let subcategory of subcategories$|async"
+                            [value]="subcategory.subcategoryName" (blur)="getSubcategory(subcategory.subcategoryUuid)">
+                  {{subcategory.subcategoryName}}
+                </mat-option>
+              </mat-select>
+              <mat-icon matSuffix>view_in_ar</mat-icon>
+            </mat-form-field>
+          </div>
+          <ng-template #elseSubcategory>
+            <mat-form-field appearance="legacy">
+              <mat-label>input new subcategory</mat-label>
+              <input  [(ngModel)]="subcategories" name="subcategoryName" matInput placeholder="input subcategory">
+              <mat-icon matSuffix>category</mat-icon>
+            </mat-form-field>
+          </ng-template>
+<!--end subcateg-->
+          <!--    currency  -->
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-select [(ngModel)]="currency" name="currency" placeholder="choose currency" required>
+                <mat-option *ngFor="let cur of currencyArray"
+                            [value]="cur">
+                  {{cur}}
+                </mat-option>
+              </mat-select>
+              <mat-icon matSuffix> price_check</mat-icon>
+            </mat-form-field>
+          </div>
+<!--          end currency-->
+          <!--        <div class="card-body">   -->
+        </div>
+      </div>
+
+      <!--  second div-->
+      <div style=""> </div>
+
+      <!-- third div -->
+      <div style="text-align: center; width: -webkit-fill-available; padding-right: 10%;">
+        <div class="flex-container-small">
+          <!--     sum-->
+          <div class="small-div" >
+            <mat-form-field style="text-align: center">
+              <label>sum</label>
+              <input type="number" matInput [(ngModel)] = inputCard.sum #sum="ngModel" name="sum"
+                     #sum=ngModel
+                     required>
+            </mat-form-field>
+          </div>
+          <!--count-->
+          <div class="small-div">
+            <mat-form-field style="text-align: center">
+              <label>count</label>
+              <input type="number" matInput [(ngModel)] = inputCard.count ngModel #count="ngModel" name="count"
+                     #count=ngModel>
+            </mat-form-field>
+          </div>
+          <!--unit-->
+          <div class="small-div">
+            <mat-form-field style="text-align: center">
+              <label>unit</label>
+              <input type="text" matInput ngModel #unit="ngModel" name="unit"
+                     #unit=ngModel>
+            </mat-form-field>
+          </div>
+
+          <!--          description-->
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Note</mat-label>
+              <textarea [(ngModel)]="note" name="note" matInput>
+                            </textarea>
+              <mat-icon matSuffix>view_headline</mat-icon>
+            </mat-form-field>
+          </div>
+          <!--       end descriprion    /-->
+        </div>
+
+      </div>
+<!--    <div class="flex-container">   -->
+      </div>
+    <button mat-raised-button type="submit" *ngIf="form.valid && form.touched">save</button>
+  </form>
+</div>

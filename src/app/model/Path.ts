@@ -9,6 +9,7 @@ export class Path {
   static CATEGORIES_CONTROLLER = 'category/';
   static SUBCATEGORIES_CONTROLLER = 'subcategory/';
   static OUTPUT_CARD_CONTROLLER = 'output';
+  static INPUT_CARD_CONTROLLER = 'input';
   static USER = 'user/';
 }
 

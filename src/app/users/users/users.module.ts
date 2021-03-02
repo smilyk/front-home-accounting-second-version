@@ -26,6 +26,7 @@ import {TransferResourcesComponent} from '../transfer-resources/transfer-resourc
 import {MatListModule} from '@angular/material/list';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {FinancialExpensesComponent} from '../financial-expences/financial-expenses.component';
+import {FinancialIncomesComponent} from '../financial-incomes/financial-incomes.component';
 
 const routes: Routes =  [
   {path: Redirect.BILL_DETAILS + ':id' , component: BillDetailsComponent},
@@ -35,7 +36,7 @@ const routes: Routes =  [
 @NgModule({
   declarations: [BillComponent, BillUniqueDirective, BillListComponent,
     TransferResourcesComponent, BillDetailsComponent, TransferResourcesComponent,
-    FinancialExpensesComponent
+    FinancialExpensesComponent, FinancialIncomesComponent
   ],
   imports: [
     CommonModule,
@@ -69,6 +70,7 @@ const routes: Routes =  [
     {provide: MAT_DIALOG_DATA, useValue: []},
   ],
   exports: [BillComponent, BillUniqueDirective, BillListComponent,
-    TransferResourcesComponent, BillDetailsComponent, TransferResourcesComponent, FinancialExpensesComponent]
+    TransferResourcesComponent, BillDetailsComponent, TransferResourcesComponent, FinancialExpensesComponent,
+    FinancialIncomesComponent]
 })
 export class UsersModule { }
