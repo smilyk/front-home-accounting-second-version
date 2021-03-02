@@ -29,6 +29,7 @@ import {FinancialExpensesComponent} from '../financial-expences/financial-expens
 import {FinancialIncomesComponent} from '../financial-incomes/financial-incomes.component';
 import {IncomesListComponent} from '../incomes-list/incomes-list.component';
 import {ExpencesListComponent} from '../expences-list/expences-list.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 const routes: Routes =  [
   {path: Redirect.BILL_DETAILS + ':id' , component: BillDetailsComponent},
@@ -66,6 +67,7 @@ const routes: Routes =  [
     MatListModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatGridListModule,
   ],
   providers: [
     {provide: MatDialogRef, useValue: {}},

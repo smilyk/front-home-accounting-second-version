@@ -10,8 +10,14 @@ import {MatDialog} from '@angular/material/dialog';
 import {map} from 'rxjs/operators';
 import {OutputCard} from '../../model/OutputCard';
 import {Redirect} from '../../model/Redirect';
-import {DeleteIncomeCardComponent} from '../../dialogs/delete-income-card/delete-income-card.component';
 import {DeleteExpenseCardComponent} from '../../dialogs/delete-expense-card/delete-expense-card.component';
+
+export interface Tile {
+  cols: number;
+  rows: number;
+  text: string;
+}
+
 
 @Component({
   selector: 'app-expences-list',
@@ -19,6 +25,7 @@ import {DeleteExpenseCardComponent} from '../../dialogs/delete-expense-card/dele
   styleUrls: ['./expences-list.component.css'],
   encapsulation: ViewEncapsulation.None
 })
+
 export class ExpencesListComponent implements OnInit {
   @Input('matTooltip')
   message: 'string';
@@ -30,6 +37,26 @@ export class ExpencesListComponent implements OnInit {
   array2: string[];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  outputCard: OutputCard = {
+    outputCardUuid: '',
+    userUuid: '',
+    billName: '',
+    billUuid: '',
+    subcategoryName: '',
+    subcategoryUuid: '',
+    categoryName: '',
+    categoryUuid: '',
+    note: '',
+    currency: '',
+    sum: 0,
+    discount: 0,
+    count: 1,
+    unit: '',
+    createCardDate: ''
+  };
+  x: any;
+  det = false;
+  tiles: Tile[];
 
   constructor(private cardService: CardService,
               private router: Router,
@@ -76,13 +103,47 @@ export class ExpencesListComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  details(billName: any) {
-    //  TODO
+  details(cardUuid: any) {
+    this.cardService.getOutputCardByUuid(cardUuid).pipe(map(
+      value => {
+        this.outputCard = value;
+        const dateArrayTmp = this.outputCard.createCardDate.split('T');
+        this.outputCard.createCardDate = dateArrayTmp[0];
+        this.tiles = [
+          {text: '', cols: 1, rows: 1},
+          {text: 'create date:', cols: 1, rows: 1},
+          {text: this.outputCard.createCardDate, cols: 2, rows: 1},
+          {text: '', cols: 1, rows: 1},
+          {text: 'category: ', cols: 2, rows: 1},
+          {text: this.outputCard.categoryName, cols: 2, rows: 1},
+          {text: '', cols: 1, rows: 1},
+          {text: 'sum: ', cols: 1, rows: 1},
+          {
+            text: this.outputCard.count + '' + this.outputCard.unit + '*' + this.outputCard.sum + ' ' + this.outputCard.currency,
+            cols: 3, rows: 1
+          },
+          {text: '', cols: 1, rows: 1},
+          {text: 'bill: ', cols: 1, rows: 1},
+          {text: this.outputCard.billName, cols: 2, rows: 1},
+          {text: '', cols: 1, rows: 1},
+          {text: 'subcategory:', cols: 2, rows: 1},
+          {text: this.outputCard.subcategoryName, cols: 2, rows: 1},
+          {text: '', cols: 1, rows: 1},
+          {text: 'discount:', cols: 1, rows: 1},
+          {text: this.outputCard.discount + ' %', cols: 3, rows: 1},
+          {text: '', cols: 1, rows: 1},
+          {text: 'notes: ', cols: 1, rows: 1},
+          {text: this.outputCard.note, cols: 7, rows: 1}
+        ];
+      }
+    )).subscribe(
+    )
+    ;
+    this.det = true;
   }
 
   // tslint:disable-next-line:typedef
   openDialog(cardUuid: any) {
-    console.log(cardUuid)
     const dialogRef = this.dialog.open(DeleteExpenseCardComponent, {
       data: {
         cardUuid
@@ -95,4 +156,16 @@ export class ExpencesListComponent implements OnInit {
     this.ngOnInit();
   }
 
+  // tslint:disable-next-line:typedef
+  changeDet() {
+    return this.det = false;
+  }
+
+  changeOutputCard() {
+  //  TODO
+  }
+
+  planOutput() {
+  //  TODO
+  }
 }
