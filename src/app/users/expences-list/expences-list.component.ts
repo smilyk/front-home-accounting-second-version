@@ -66,7 +66,6 @@ export class ExpencesListComponent implements OnInit {
   // tslint:disable-next-line:typedef
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
