@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Deleting income card</h2>
+<mat-dialog-content>
+  <p> are you sure you want to this income card from the database?</p>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button style="color: red" mat-raised-button (click)="remove(data.cardUuid)">Delete</button>
+</mat-dialog-actions>
+

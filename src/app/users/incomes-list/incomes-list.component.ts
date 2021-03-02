@@ -9,6 +9,8 @@ import {CardService} from '../../services/cardService';
 import {map} from 'rxjs/operators';
 import {InputCard} from '../../model/InputCard';
 import {Redirect} from '../../model/Redirect';
+import {DeleteBillComponent} from '../../dialogs/delete-bill/delete-bill.component';
+import {DeleteIncomeCardComponent} from '../../dialogs/delete-income-card/delete-income-card.component';
 
 @Component({
   selector: 'app-incomes-list',
@@ -80,7 +82,16 @@ export class IncomesListComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  openDialog(billName: any) {
-    //  TODO
+  openDialog(cardUuid: any) {
+    const dialogRef = this.dialog.open(DeleteIncomeCardComponent, {
+      data: {
+        cardUuid
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('dialog was closed');
+      this.ngOnInit();
+    });
+    this.ngOnInit();
   }
 }
