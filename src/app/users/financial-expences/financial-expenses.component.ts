@@ -43,6 +43,7 @@ export class FinancialExpensesComponent implements OnInit {
   categoryUuid: string;
   subcategoryUuid: string;
   outputCard: OutputCard = {
+    outputCardUuid: '',
     userUuid: '',
     billName: '',
     billUuid: '',
