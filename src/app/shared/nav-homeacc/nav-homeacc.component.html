@@ -2,7 +2,12 @@
   <div class="card-body">
 
 <!--    <img class="logo" src="assets/logo_new.png" alt="logo" width="100" height="50">-->
-
+    <label *ngIf="isAuth()" mat-tab-link>
+      {{getUserName()}}
+      <mat-icon>
+        how_to_reg
+      </mat-icon>
+    </label>
 <a mat-tab-link
    *ngFor="let link of homeLink"
    [routerLink]="link.path"
@@ -29,16 +34,29 @@
       {{registerLink.label}}
     </a>
     <label *ngIf="isAuth()" mat-tab-link [matMenuTriggerFor]="appMenu">
-      {{getUserName()}}
-
+      check
       <mat-icon>
         menu
       </mat-icon>
     </label>
-
+    <label *ngIf="isAuth()" mat-tab-link [matMenuTriggerFor]="appAddMenu">
+      add
+      <mat-icon>
+        menu
+      </mat-icon>
+    </label>
     <mat-menu #appMenu="matMenu">
       <a mat-menu-item
          *ngFor="let item of menuItems"
+         [routerLink]="item.path">
+        <mat-icon style="color: #093911">{{item.icon}}</mat-icon>
+        {{item.label}}
+      </a>
+    </mat-menu>
+
+    <mat-menu #appAddMenu="matMenu">
+      <a mat-menu-item
+         *ngFor="let item of addMenuItems"
          [routerLink]="item.path">
         <mat-icon style="color: #093911">{{item.icon}}</mat-icon>
         {{item.label}}
@@ -50,113 +68,6 @@
       <mat-icon>{{logoutLinks.icon}}</mat-icon>
       {{logoutLinks.label}}
     </a>
-
-<!--    <a mat-tab-link-->
-<!--       *ngFor="let link of loginLinks"-->
-<!--       [routerLink]="link.path"-->
-<!--       routerLinkActive #rla="routerLinkActive"-->
-<!--       [active]=rla.isActive>-->
-<!--      <mat-icon>{{link.icon}}</mat-icon>-->
-<!--      {{link.label}}-->
-<!--    </a>-->
-<!--    <a mat-tab-link-->
-<!--       *ngFor="let link of homeLinks"-->
-<!--       [routerLink]="link.path"-->
-<!--       routerLinkActive #rla="routerLinkActive"-->
-<!--       [active]=rla.isActive>-->
-<!--      <mat-icon>{{link.icon}}</mat-icon>-->
-<!--      {{link.label}}-->
-<!--    </a>-->
-<!--    <a mat-tab-link-->
-<!--       *ngFor="let link of homeLinks"-->
-<!--       [routerLink]="link.path"-->
-<!--       routerLinkActive #rla="routerLinkActive"-->
-<!--       [active]=rla.isActive>-->
-<!--      <mat-icon>{{link.icon}}</mat-icon>-->
-<!--      {{link.label}}-->
-<!--    </a>-->
-
-<!--    <a mat-tab-link-->
-<!--       *ngFor="let link of homeLinks"-->
-<!--       [routerLink]="link.path"-->
-<!--       routerLinkActive #rla="routerLinkActive"-->
-<!--       [active]="rla.isActive">-->
-<!--      <mat-icon>{{link.icon}}</mat-icon>-->
-<!--      {{link.label}}-->
-<!--    </a>-->
-<!--    &lt;!&ndash;Article&ndash;&gt;-->
-<!--    <label mat-tab-link [matMenuTriggerFor]="articleMenu">-->
-<!--      это интересно-->
-<!--      <mat-icon>-->
-<!--        topic-->
-<!--      </mat-icon>-->
-<!--    </label>-->
-<!--    <mat-menu #articleMenu="matMenu">-->
-<!--      <a mat-menu-item-->
-<!--         *ngFor="let item of articleLinks"-->
-<!--         [routerLink]="item.path">-->
-<!--        <mat-icon>{{item.icon}}</mat-icon>-->
-<!--        {{item.label}}-->
-<!--      </a>-->
-<!--    </mat-menu>-->
-<!--    &lt;!&ndash;    calculator&ndash;&gt;-->
-<!--    <label mat-tab-link [matMenuTriggerFor]="calculatorMenu">-->
-<!--      калькулятор-->
-<!--      <mat-icon>-->
-<!--        calculate-->
-<!--      </mat-icon>-->
-<!--    </label>-->
-<!--    <mat-menu #calculatorMenu="matMenu">-->
-<!--      <a mat-menu-item-->
-<!--         *ngFor="let item of articleLinks"-->
-<!--         [routerLink]="item.path">-->
-<!--        <mat-icon>{{item.icon}}</mat-icon>-->
-<!--        {{item.label}}-->
-<!--      </a>-->
-<!--    </mat-menu>-->
-
-    <!-- <label mat-tab-link [matMenuTriggerFor]="conditionerMenu">
-      кондиционеры
-      <mat-icon>
-        menu
-      </mat-icon>
-    </label> -->
-    <!-- <label mat-tab-link [matMenuTriggerFor]="typeMaintenanceMenu">
-      ТО
-      <mat-icon>
-        menu
-      </mat-icon>
-    </label> -->
-    <!-- <label mat-tab-link [matMenuTriggerFor]="planningMenu">
-      планирование
-      <mat-icon>
-        menu
-      </mat-icon>
-    </label> -->
-    <!-- <mat-menu #conditionerMenu="matMenu">
-      <a mat-menu-item
-         *ngFor="let item of conditionerLinks"
-         [routerLink]="item.path">
-        <mat-icon>{{item.icon}}</mat-icon>
-        {{item.label}}
-      </a>
-    </mat-menu>
-    <mat-menu #typeMaintenanceMenu="matMenu">
-      <a mat-menu-item
-         *ngFor="let item of typeMaintenanceLinks"
-         [routerLink]="item.path">
-        <mat-icon>{{item.icon}}</mat-icon>
-        {{item.label}}
-      </a>
-    </mat-menu>
-    <mat-menu #planningMenu="matMenu">
-      <a mat-menu-item
-         *ngFor="let item of planningLinks"
-         [routerLink]="item.path">
-        <mat-icon>{{item.icon}}</mat-icon>
-        {{item.label}}
-      </a>
-    </mat-menu> -->
   </div>
 </nav>
 <!--<nav mat-tab-nav-bar>-->
