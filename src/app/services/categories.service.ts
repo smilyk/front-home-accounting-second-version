@@ -15,6 +15,7 @@ export class CategoriesService {
   constructor(private httpClient: HttpClient,
               private authService: AuthService) {
   }
+
   private userUuid = this.authService.getUserUuid();
 
   getCategoriesByUserUuid(): Observable<any> {
@@ -22,6 +23,12 @@ export class CategoriesService {
   }
 
   updateCategory(data): Observable<any> {
-    return this.httpClient.put(apiUrl + Path.CATEGORIES_CONTROLLER , data); }
+    return this.httpClient.put(apiUrl + Path.CATEGORIES_CONTROLLER, data);
+  }
+
+  deleteCategoryFromDB(categoryUuid): Observable<any> {
+    return this.httpClient.delete(apiUrl + Path.CATEGORIES_CONTROLLER + categoryUuid + '/'
+      + this.userUuid);
+  }
 }
 

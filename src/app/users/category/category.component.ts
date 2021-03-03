@@ -8,6 +8,7 @@ import {CategoriesService} from '../../services/categories.service';
 import {Categories} from '../../model/Categories';
 import {map} from 'rxjs/operators';
 import {UpdateCategoryComponent} from '../../dialogs/update-category/update-category.component';
+import {DeleteCategoryComponent} from '../../dialogs/delete-category/delete-category.component';
 
 @Component({
   selector: 'app-category',
@@ -56,7 +57,6 @@ export class CategoryComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   updateCategory(row: any) {
-    console.log(row);
     const dialogRef = this.dialog.open(UpdateCategoryComponent, {
       data: row
     });
@@ -68,7 +68,15 @@ export class CategoryComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  deleteCategpry(categoryUuid: any) {
-
+  deleteCategory(row: any) {
+    const dialogRef = this.dialog.open(DeleteCategoryComponent, {
+      data: row
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('dialog was closed');
+      this.ngOnInit();
+    });
+    this.ngOnInit();
   }
+
 }
