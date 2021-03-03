@@ -11,6 +11,7 @@ import {map} from 'rxjs/operators';
 import {OutputCard} from '../../model/OutputCard';
 import {Redirect} from '../../model/Redirect';
 import {DeleteExpenseCardComponent} from '../../dialogs/delete-expense-card/delete-expense-card.component';
+import {PlanningOutputCardComponent} from '../../dialogs/planning-output-card/planning-output-card.component';
 
 export interface Tile {
   cols: number;
@@ -168,7 +169,17 @@ export class ExpencesListComponent implements OnInit {
   }
 
 
+  // tslint:disable-next-line:typedef
   planOutput() {
-  //  TODO
+    const dialogRef = this.dialog.open(PlanningOutputCardComponent, {
+      data: {
+        outputCardUuid: this.outputCard.outputCardUuid
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('dialog was closed');
+      this.ngOnInit();
+    });
+    this.ngOnInit();
   }
 }

@@ -27,10 +27,11 @@ import {BillUniqueDirective} from './directives/bill-unique.directive';
 import {DeleteBillComponent} from './dialogs/delete-bill/delete-bill.component';
 import {TransferComponent} from './dialogs/transfer/transfer.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import { DeleteIncomeCardComponent } from './dialogs/delete-income-card/delete-income-card.component';
 import { DeleteExpenseCardComponent } from './dialogs/delete-expense-card/delete-expense-card.component';
+import { PlanningOutputCardComponent } from './dialogs/planning-output-card/planning-output-card.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { DeleteExpenseCardComponent } from './dialogs/delete-expense-card/delete
     TransferComponent,
     DeleteIncomeCardComponent,
     DeleteExpenseCardComponent,
+    PlanningOutputCardComponent,
 
   ],
   imports: [
@@ -62,6 +64,7 @@ import { DeleteExpenseCardComponent } from './dialogs/delete-expense-card/delete
     MatDatepickerModule,
     FormsModule,
     MatSelectModule,
+    ReactiveFormsModule,
   ],
   providers: [
     ErrorDialogService,
