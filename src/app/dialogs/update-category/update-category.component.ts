@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {CategoriesService} from '../../services/categories.service';
 import {Categories} from '../../model/Categories';
+import {Redirect} from '../../model/Redirect';
 
 @Component({
   selector: 'app-update-category',
@@ -23,19 +24,15 @@ export class UpdateCategoryComponent implements OnInit {
 
   }
 
-  update() {
-    console.log(this.data.categoryName);
-    console.log(this.data.description);
-    console.log(this.data.type)
-  }
-
-  chooseReg(value) {
-
-  }
-
+  // tslint:disable-next-line:typedef
   updateCategory() {
-    console.log(this.data.categoryName);
-    console.log(this.data.description);
-    console.log(this.data.type)
+    this.categoryService.updateCategory(this.data).subscribe(() => this.ngOnInit());
+    this.dialogRef.close();
+    this.toCategoryCardList();
+  }
+
+  // tslint:disable-next-line:typedef
+  private toCategoryCardList() {
+    this.router.navigate([Redirect.CATEGORY_LIST]);
   }
 }

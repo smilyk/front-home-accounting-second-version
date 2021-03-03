@@ -1,15 +1,12 @@
 import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
-import {OutputCard} from '../../model/OutputCard';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
-import {CardService} from '../../services/cardService';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {CategoriesService} from '../../services/categories.service';
 import {Categories} from '../../model/Categories';
 import {map} from 'rxjs/operators';
-import {DeleteExpenseCardComponent} from '../../dialogs/delete-expense-card/delete-expense-card.component';
 import {UpdateCategoryComponent} from '../../dialogs/update-category/update-category.component';
 
 @Component({
