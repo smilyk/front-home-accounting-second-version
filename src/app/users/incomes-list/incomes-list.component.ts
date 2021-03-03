@@ -9,8 +9,17 @@ import {CardService} from '../../services/cardService';
 import {map} from 'rxjs/operators';
 import {InputCard} from '../../model/InputCard';
 import {Redirect} from '../../model/Redirect';
-import {DeleteBillComponent} from '../../dialogs/delete-bill/delete-bill.component';
 import {DeleteIncomeCardComponent} from '../../dialogs/delete-income-card/delete-income-card.component';
+import {OutputCard} from '../../model/OutputCard';
+import {PlanningOutputCardComponent} from '../../dialogs/planning-output-card/planning-output-card.component';
+import {PlanningInputCardComponent} from '../../dialogs/planning-input-card/planning-input-card.component';
+export interface Tile {
+  cols: number;
+  rows: number;
+  text: string;
+  color: string;
+
+}
 
 @Component({
   selector: 'app-incomes-list',
@@ -29,8 +38,26 @@ export class IncomesListComponent implements OnInit {
   array2: string[];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-
-
+  inputCard: InputCard = {
+    inputCardUuid: '',
+    userUuid: '',
+    billName: '',
+    billUuid: '',
+    subcategoryName: '',
+    subcategoryUuid: '',
+    categoryName: '',
+    categoryUuid: '',
+    note: '',
+    currency: '',
+    sum: 0,
+    discount: 0,
+    count: 1,
+    unit: '',
+    createCardDate: ''
+  };
+  x: any;
+  det = false;
+  tiles: Tile[];
   constructor(private cardService: CardService,
               private router: Router,
               public dialog: MatDialog) {
@@ -77,8 +104,49 @@ export class IncomesListComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  details(billName: any) {
-    //  TODO
+  details(cardUuid: any) {
+    this.cardService.getInputCardByUuid(cardUuid).pipe(map(
+      value => {
+        this.inputCard = value;
+        console.log(this.inputCard.unit + ' ooo');
+        const dateArrayTmp = this.inputCard.createCardDate.split('T');
+        this.inputCard.createCardDate = dateArrayTmp[0];
+        this.tiles = [
+          {text: '', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: 'create date:', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: this.inputCard.createCardDate, cols: 2, rows: 1, color: '#9be7ad'},
+          {text: '', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: 'category: ', cols: 2, rows: 1, color: '#e7e39b'},
+          {text: this.inputCard.categoryName, cols: 2, rows: 1, color: '#9be7ad'},
+          {text: '', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: 'sum: ', cols: 1, rows: 1, color: '#e7e39b'},
+          {
+            text: this.inputCard.count + '' + this.inputCard.unit + '*' + this.inputCard.sum + ' ' +
+              this.inputCard.currency,
+            cols: 3, rows: 1, color: '#9be7ad'
+          },
+          {text: '', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: '', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: '', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: 'bill: ', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: this.inputCard.billName, cols: 2, rows: 1, color: '#9be7ad'},
+          {text: '', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: 'subcategory:', cols: 2, rows: 1, color: '#e7e39b'},
+          {text: this.inputCard.subcategoryName, cols: 2, rows: 1, color: '#9be7ad'},
+          {text: '', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: 'discount:', cols: 1, rows: 1, color: '#e7e39b'},
+          // {text: '', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: this.inputCard.discount + ' %', cols: 3, rows: 1, color: '#9be7ad'},
+          {text: '', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: '', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: 'notes: ', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: this.inputCard.note, cols: 7, rows: 1, color: '#e7e39b'}
+        ];
+      }
+    )).subscribe(
+    )
+    ;
+    this.det = true;
   }
 
   // tslint:disable-next-line:typedef
@@ -86,6 +154,25 @@ export class IncomesListComponent implements OnInit {
     const dialogRef = this.dialog.open(DeleteIncomeCardComponent, {
       data: {
         cardUuid
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('dialog was closed');
+      this.ngOnInit();
+    });
+    this.ngOnInit();
+  }
+
+  // tslint:disable-next-line:typedef
+  changeDet() {
+    return this.det = false;
+  }
+
+  // tslint:disable-next-line:typedef
+  planOutput() {
+    const dialogRef = this.dialog.open(PlanningInputCardComponent, {
+      data: {
+        outputCardUuid: this.inputCard.inputCardUuid
       }
     });
     dialogRef.afterClosed().subscribe(result => {

@@ -1,0 +1,83 @@
+<div style="display: flex;
+  align-items: center;
+  /*flex-direction: column;*/
+  margin: auto; /* Выравниваем по центру */
+  /*align-content:center;*/
+  background: #9be7ad;
+  width:75%; border: 3px solid #093911;">
+  <div class="card-body">
+    <div class="mat-card-body">
+      <form #form="ngForm" (ngSubmit)="savePlan(form)">
+        <h2 mat-dialog-title style="text-align: center">Planning regular expense card</h2>
+        <mat-dialog-content style="">
+          <mat-form-field appearance="fill">
+            <mat-label>choose regularity</mat-label>
+            <mat-select (selectionChange)="chooseReg($event.value)" [formControl]="regularityControl"
+                        required>
+              <mat-option *ngFor="let reg of regularity" [value]="reg">
+                {{reg.choosing}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="regularityControl.hasError('required')">Please choose an regularity</mat-error>
+          </mat-form-field>
+        </mat-dialog-content>
+        <!--        once-->
+        <div *ngIf="once">
+          <!--date-->
+          <mat-form-field appearance="fill">
+            <mat-label>Choose date</mat-label>
+            <input matInput [matDatepicker]="picker" [formControl]="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <!--once a week-->
+        <div *ngIf="onceAWeek">
+          <mat-form-field appearance="fill">
+            <mat-label>choose day of week</mat-label>
+            <mat-select (selectionChange)="chooseDay($event.value)" [formControl]="weekControl"
+            >
+              <mat-option *ngFor="let reg of week" [value]="reg">
+                {{reg.day}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="weekControl.hasError('required')">Please choose day of week</mat-error>
+          </mat-form-field>
+        </div>
+        <!--once a month-->
+        <div *ngIf="onceAMonth">
+          <mat-form-field class="example-full-width" >
+            <mat-label>date of month</mat-label>
+            <textarea matInput required [(ngModel)]="dateOfMonth" name="dateOfMonth">1</textarea>
+            <mat-error *ngIf="weekControl.hasError('required')">Please choose date of month</mat-error>
+          </mat-form-field>
+        </div>
+        <div *ngIf="onceAYear">
+          <!--once a year-->
+          <mat-form-field appearance="fill">
+            <mat-label>Choose date</mat-label>
+            <input matInput required [matDatepicker]="picker" [formControl]="dateOfYear">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <!--        days of week-->
+        <div *ngIf="byDaysOfWeek">
+          <mat-form-field appearance="fill">
+            <mat-label>days of week</mat-label>
+            <mat-select (selectionChange)="chooseDaysOfWeek($event.value)" [formControl]="weekControl" multiple>
+              <mat-option required *ngFor="let reg of week" [value]="reg">
+                {{reg.day}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <mat-dialog-actions>
+          <button mat-button mat-dialog-close>cancel</button>
+          <button mat-raised-button type="submit" *ngIf="form.valid" >save</button>
+        </mat-dialog-actions>
+      </form>
+    </div>
+  </div>
+</div>
+

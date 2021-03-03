@@ -32,6 +32,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { DeleteIncomeCardComponent } from './dialogs/delete-income-card/delete-income-card.component';
 import { DeleteExpenseCardComponent } from './dialogs/delete-expense-card/delete-expense-card.component';
 import { PlanningOutputCardComponent } from './dialogs/planning-output-card/planning-output-card.component';
+import { PlanningInputCardComponent } from './dialogs/planning-input-card/planning-input-card.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { PlanningOutputCardComponent } from './dialogs/planning-output-card/plan
     DeleteIncomeCardComponent,
     DeleteExpenseCardComponent,
     PlanningOutputCardComponent,
+    PlanningInputCardComponent,
 
   ],
   imports: [

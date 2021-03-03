@@ -1,6 +1,5 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormControl, NgForm, Validators} from '@angular/forms';
-
 interface Regul {
   choosing: string;
 }
@@ -10,12 +9,12 @@ interface Week {
 }
 
 @Component({
-  selector: 'app-planning-output-card',
-  templateUrl: './planning-output-card.component.html',
-  styleUrls: ['./planning-output-card.component.css'],
+  selector: 'app-planning-input-card',
+  templateUrl: './planning-input-card.component.html',
+  styleUrls: ['./planning-input-card.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class PlanningOutputCardComponent implements OnInit {
+export class PlanningInputCardComponent implements OnInit {
   week: Week[] = [
     {day: 'Monday'},
     {day: 'Tuesday'},
@@ -50,7 +49,6 @@ export class PlanningOutputCardComponent implements OnInit {
   serializedDateYear = new FormControl((new Date()).toISOString());
   weekDay: any;
   dateOfMonth = 1;
-
 
   constructor() {
   }
@@ -114,4 +112,6 @@ export class PlanningOutputCardComponent implements OnInit {
     console.log(this.days[0].day + ' iii');
     console.log(this.days[1].day + ' iii');
   }
+
+
 }

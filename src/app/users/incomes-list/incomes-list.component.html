@@ -83,11 +83,33 @@
             <mat-icon>delete</mat-icon>
           </td>
         </ng-container>
-
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;">
         </tr>
       </table>
+
+      <div style="border: #093911 solid 2px; margin: 30px;" *ngIf="det">
+        <br>
+        <div *ngIf="det" class="mr-2" style="float: right">
+          <button style="margin-left: fill; margin: 3px;" (click)="changeDet()"> x</button>
+          <button style="margin-left: fill; margin: 3px;" (click)="planOutput()"> to plan</button>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div *ngIf="det">
+          <mat-grid-list cols="16" rowHeight="50px" rowWeight="50px">
+            <mat-grid-tile
+              *ngFor="let tile of tiles"
+              [colspan]="tile.cols"
+              [rowspan]="tile.rows"
+              [style.background]="tile.color">
+              {{tile.text}}
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+
+      </div>
 
       <mat-paginator [pageSizeOptions]="[4, 5, 10, 15]"></mat-paginator>
     </div>
