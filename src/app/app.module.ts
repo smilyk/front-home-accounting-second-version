@@ -33,6 +33,7 @@ import { DeleteIncomeCardComponent } from './dialogs/delete-income-card/delete-i
 import { DeleteExpenseCardComponent } from './dialogs/delete-expense-card/delete-expense-card.component';
 import { PlanningOutputCardComponent } from './dialogs/planning-output-card/planning-output-card.component';
 import { PlanningInputCardComponent } from './dialogs/planning-input-card/planning-input-card.component';
+import { UpdateCategoryComponent } from './dialogs/update-category/update-category.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { PlanningInputCardComponent } from './dialogs/planning-input-card/planni
     DeleteExpenseCardComponent,
     PlanningOutputCardComponent,
     PlanningInputCardComponent,
+    UpdateCategoryComponent,
   ],
   imports: [
     BrowserModule,

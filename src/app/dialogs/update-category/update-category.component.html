@@ -1,0 +1,41 @@
+<div style="display: flex;
+  align-items: center;
+  /*flex-direction: column;*/
+  margin: auto; /* Выравниваем по центру */
+  /*align-content:center;*/
+  background: #9be7ad;
+  width:75%; border: 3px solid #093911;">
+  <div class="card-body">
+    <div class="mat-card-body">
+      <h2 mat-dialog-title style="text-align: center">Category - {{data.categoryName}}</h2>
+
+      <mat-dialog-content>
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <mat-label>categoryName</mat-label>
+            <input matInput [(ngModel)]="data.categoryName" name="categoryName">
+<!--            <button style="color: #" mat-raised-button (blur)="update()">+</button>-->
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>description</mat-label>
+            <input matInput [(ngModel)]="data.description" name="description">
+<!--            <button style="color: red" mat-raised-button (blur)="update()">+</button>-->
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>type</mat-label>
+            <input matInput [(ngModel)]="data.type" name="type" readonly>
+          </mat-form-field>
+
+        </form>
+        <!--            <button style="color: red" mat-raised-button (click)="update(data.categoryUuid)">Update</button>-->
+      </mat-dialog-content>
+
+      <mat-dialog-actions>
+        <button  style="background: #e7e39b" mat-button mat-dialog-close>Cancel</button>
+        <button  style="background: #e7e39b" mat-raised-button (click)="updateCategory()">Update Category</button>
+      </mat-dialog-actions>
+    </div>
+  </div>
+</div>
+
+
