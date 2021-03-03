@@ -91,23 +91,23 @@
         </tr>
       </table>
       <!--      <div style = "border: #093911 solid 2px" *ngIf="det">-->
-      <div style="border: #093911 solid 2px" *ngIf="det">
+      <div style="border: #093911 solid 2px; margin: 30px;" *ngIf="det">
         <br>
         <div *ngIf="det" class="mr-2" style="float: right">
+
           <button style="margin-left: fill; margin: 3px;" (click)="changeDet()"> x</button>
-          <button style="margin-left: fill; margin: 3px;" (click)="changeOutputCard()"> change</button>
           <button style="margin-left: fill; margin: 3px;" (click)="planOutput()"> to plan</button>
         </div>
         <br>
         <hr>
         <br>
         <div *ngIf="det">
-          <mat-grid-list cols="14" rowHeight="50px" rowWeight="50px">
+          <mat-grid-list cols="16" rowHeight="50px" rowWeight="50px">
             <mat-grid-tile
               *ngFor="let tile of tiles"
               [colspan]="tile.cols"
               [rowspan]="tile.rows"
-              [style.background]="">
+              [style.background]="tile.color">
               {{tile.text}}
             </mat-grid-tile>
           </mat-grid-list>

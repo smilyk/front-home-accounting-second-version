@@ -16,6 +16,8 @@ export interface Tile {
   cols: number;
   rows: number;
   text: string;
+  color: string;
+
 }
 
 
@@ -110,30 +112,34 @@ export class ExpencesListComponent implements OnInit {
         const dateArrayTmp = this.outputCard.createCardDate.split('T');
         this.outputCard.createCardDate = dateArrayTmp[0];
         this.tiles = [
-          {text: '', cols: 1, rows: 1},
-          {text: 'create date:', cols: 1, rows: 1},
-          {text: this.outputCard.createCardDate, cols: 2, rows: 1},
-          {text: '', cols: 1, rows: 1},
-          {text: 'category: ', cols: 2, rows: 1},
-          {text: this.outputCard.categoryName, cols: 2, rows: 1},
-          {text: '', cols: 1, rows: 1},
-          {text: 'sum: ', cols: 1, rows: 1},
+          {text: '', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: 'create date:', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: this.outputCard.createCardDate, cols: 2, rows: 1, color: '#9be7ad'},
+          {text: '', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: 'category: ', cols: 2, rows: 1, color: '#e7e39b'},
+          {text: this.outputCard.categoryName, cols: 2, rows: 1, color: '#9be7ad'},
+          {text: '', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: 'sum: ', cols: 1, rows: 1, color: '#e7e39b'},
           {
             text: this.outputCard.count + '' + this.outputCard.unit + '*' + this.outputCard.sum + ' ' + this.outputCard.currency,
-            cols: 3, rows: 1
+            cols: 3, rows: 1, color: '#9be7ad'
           },
-          {text: '', cols: 1, rows: 1},
-          {text: 'bill: ', cols: 1, rows: 1},
-          {text: this.outputCard.billName, cols: 2, rows: 1},
-          {text: '', cols: 1, rows: 1},
-          {text: 'subcategory:', cols: 2, rows: 1},
-          {text: this.outputCard.subcategoryName, cols: 2, rows: 1},
-          {text: '', cols: 1, rows: 1},
-          {text: 'discount:', cols: 1, rows: 1},
-          {text: this.outputCard.discount + ' %', cols: 3, rows: 1},
-          {text: '', cols: 1, rows: 1},
-          {text: 'notes: ', cols: 1, rows: 1},
-          {text: this.outputCard.note, cols: 7, rows: 1}
+          {text: '', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: '', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: '', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: 'bill: ', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: this.outputCard.billName, cols: 2, rows: 1, color: '#9be7ad'},
+          {text: '', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: 'subcategory:', cols: 2, rows: 1, color: '#e7e39b'},
+          {text: this.outputCard.subcategoryName, cols: 2, rows: 1, color: '#9be7ad'},
+          {text: '', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: 'discount:', cols: 1, rows: 1, color: '#e7e39b'},
+          // {text: '', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: this.outputCard.discount + ' %', cols: 3, rows: 1, color: '#9be7ad'},
+          {text: '', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: '', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: 'notes: ', cols: 1, rows: 1, color: '#e7e39b'},
+          {text: this.outputCard.note, cols: 7, rows: 1, color: '#e7e39b'}
         ];
       }
     )).subscribe(
@@ -161,9 +167,6 @@ export class ExpencesListComponent implements OnInit {
     return this.det = false;
   }
 
-  changeOutputCard() {
-  //  TODO
-  }
 
   planOutput() {
   //  TODO
