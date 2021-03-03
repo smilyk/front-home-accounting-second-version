@@ -45,7 +45,6 @@ import { PlanningInputCardComponent } from './dialogs/planning-input-card/planni
     DeleteExpenseCardComponent,
     PlanningOutputCardComponent,
     PlanningInputCardComponent,
-
   ],
   imports: [
     BrowserModule,

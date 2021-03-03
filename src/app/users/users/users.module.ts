@@ -30,6 +30,7 @@ import {FinancialIncomesComponent} from '../financial-incomes/financial-incomes.
 import {IncomesListComponent} from '../incomes-list/incomes-list.component';
 import {ExpencesListComponent} from '../expences-list/expences-list.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {CategoryComponent} from '../category/category.component';
 
 const routes: Routes =  [
   {path: Redirect.BILL_DETAILS + ':id' , component: BillDetailsComponent},
@@ -40,7 +41,7 @@ const routes: Routes =  [
   declarations: [BillComponent, BillUniqueDirective, BillListComponent,
     TransferResourcesComponent, BillDetailsComponent, TransferResourcesComponent,
     FinancialExpensesComponent, FinancialIncomesComponent,     IncomesListComponent,
-    ExpencesListComponent,
+    ExpencesListComponent, CategoryComponent,
   ],
   imports: [
     CommonModule,
@@ -77,6 +78,6 @@ const routes: Routes =  [
   exports: [BillComponent, BillUniqueDirective, BillListComponent,
     TransferResourcesComponent, BillDetailsComponent, TransferResourcesComponent, FinancialExpensesComponent,
     FinancialIncomesComponent,     IncomesListComponent,
-    ExpencesListComponent, ]
+    ExpencesListComponent, CategoryComponent, ]
 })
 export class UsersModule { }
