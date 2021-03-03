@@ -15,5 +15,7 @@ export class Redirect {
   static INCOMES = 'financial/incomes';
   static INCOME_LIST = 'financial/incomes/all';
   static EXPENSES_LIST = 'financial/expenses/all';
-  static CATEGORY_LIST= 'categories';
+  // category
+  static CATEGORY_LIST = 'categories';
+  static CATEGORY = 'categopry';
 }

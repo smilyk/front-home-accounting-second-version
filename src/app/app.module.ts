@@ -35,6 +35,7 @@ import { PlanningOutputCardComponent } from './dialogs/planning-output-card/plan
 import { PlanningInputCardComponent } from './dialogs/planning-input-card/planning-input-card.component';
 import { UpdateCategoryComponent } from './dialogs/update-category/update-category.component';
 import { DeleteCategoryComponent } from './dialogs/delete-category/delete-category.component';
+import { AddCategoryComponent } from './users/add-category/add-category.component';
 
 
 @NgModule({

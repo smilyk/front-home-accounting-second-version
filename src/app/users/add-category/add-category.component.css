@@ -86,3 +86,14 @@ input:-webkit-autofill:active {
 button{
   background: #e7e39b;
 }
+.mat-option.mat-active {
+  color: #093911;
+
+}
+.mat-option{
+  background: #e7e39b !important;
+  color: #093911;
+}
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #027D7C;
+}

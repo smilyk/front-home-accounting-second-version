@@ -23,6 +23,7 @@ import {FinancialIncomesComponent} from '../users/financial-incomes/financial-in
 import {IncomesListComponent} from '../users/incomes-list/incomes-list.component';
 import {ExpencesListComponent} from '../users/expences-list/expences-list.component';
 import {CategoryComponent} from '../users/category/category.component';
+import {AddCategoryComponent} from '../users/add-category/add-category.component';
 
 const routes: Routes = [
   // LOGIN AND REGISTRATION
@@ -38,6 +39,7 @@ const routes: Routes = [
   {path: Redirect.EXPENSES_LIST, component: ExpencesListComponent},
 //  Categories
   {path: Redirect.CATEGORY_LIST, component: CategoryComponent},
+  {path: Redirect.CATEGORY, component: AddCategoryComponent},
 ];
 
 @NgModule({
