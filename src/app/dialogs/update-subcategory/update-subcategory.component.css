@@ -1,0 +1,24 @@
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #e7e39b !important;
+}
+.mat-form-field-flex {
+  font-size: 2vh;
+}
+.mat-form-field-infix {
+  font-size: 2vh;
+  width: auto;
+}
+.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button, .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: #093911;
+}
+.mat-primary .mat-pseudo-checkbox-checked, .mat-primary .mat-pseudo-checkbox-indeterminate {
+  background: #e7e39b;
+}
+.mat-dialog-container {
+  background: #e7e39b;
+  border: 3px solid #093911;
+  color: #093911;
+}

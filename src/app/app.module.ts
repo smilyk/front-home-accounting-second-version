@@ -29,14 +29,15 @@ import {TransferComponent} from './dialogs/transfer/transfer.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
-import { DeleteIncomeCardComponent } from './dialogs/delete-income-card/delete-income-card.component';
-import { DeleteExpenseCardComponent } from './dialogs/delete-expense-card/delete-expense-card.component';
-import { PlanningOutputCardComponent } from './dialogs/planning-output-card/planning-output-card.component';
-import { PlanningInputCardComponent } from './dialogs/planning-input-card/planning-input-card.component';
-import { UpdateCategoryComponent } from './dialogs/update-category/update-category.component';
-import { DeleteCategoryComponent } from './dialogs/delete-category/delete-category.component';
-import { AddCategoryComponent } from './users/add-category/add-category.component';
-import { CategoryNameUniqueDirective } from './directives/category-name-unique.directive';
+import {DeleteIncomeCardComponent} from './dialogs/delete-income-card/delete-income-card.component';
+import {DeleteExpenseCardComponent} from './dialogs/delete-expense-card/delete-expense-card.component';
+import {PlanningOutputCardComponent} from './dialogs/planning-output-card/planning-output-card.component';
+import {PlanningInputCardComponent} from './dialogs/planning-input-card/planning-input-card.component';
+import {UpdateCategoryComponent} from './dialogs/update-category/update-category.component';
+import {DeleteCategoryComponent} from './dialogs/delete-category/delete-category.component';
+import {CategoryNameUniqueDirective} from './directives/category-name-unique.directive';
+import {DeleteSubcategoryComponent} from './dialogs/delete-subcategory/delete-subcategory.component';
+import {UpdateSubcategoryComponent} from './dialogs/update-subcategory/update-subcategory.component';
 
 
 @NgModule({
@@ -51,6 +52,8 @@ import { CategoryNameUniqueDirective } from './directives/category-name-unique.d
     PlanningInputCardComponent,
     UpdateCategoryComponent,
     DeleteCategoryComponent,
+    DeleteSubcategoryComponent,
+    UpdateSubcategoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,6 +85,7 @@ import { CategoryNameUniqueDirective } from './directives/category-name-unique.d
     EmailValidDirective,
     UserUniqueDirective,
     BillUniqueDirective,
+    CategoryNameUniqueDirective,
   ],
   bootstrap: [AppComponent]
 })

@@ -20,10 +20,8 @@ export class CategoryNameUniqueDirective implements Validator{
   }
 
   validate(control: AbstractControl): Observable<ValidationErrors> | null {
-    console.log(control.value + 'j ')
     const categoryName = control.value as string;
-    const rez = this.categoryService.getCategoriesByUserUuidAndCategoryUuid(categoryName)
+    return this.categoryService.getCategoriesValidByUserUuidAndCategoryUuid(categoryName)
       .pipe(map(m => m ? {unique: true} : null));
-    return rez;
   }
 }

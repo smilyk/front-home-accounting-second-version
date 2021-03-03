@@ -35,9 +35,13 @@ export class CategoriesService {
     return this.httpClient.post(apiUrl + Path.CATEGORIES_CONTROLLER, category);
   }
 
-  getCategoriesByUserUuidAndCategoryUuid(categoryName): Observable<any> {
-return this.httpClient.get(apiUrl + Path.CATEGORIES_CONTROLLER +
-Path.VALID +  categoryName + '/' + this.userUuid);
+  getCategoriesValidByUserUuidAndCategoryUuid(categoryName): Observable<any> {
+    return this.httpClient.get(apiUrl + Path.CATEGORIES_CONTROLLER +
+      Path.VALID + categoryName + '/' + this.userUuid);
+  }
+
+  addSubcategory(subcategory): Observable<any> {
+    return this.httpClient.post(apiUrl + Path.SUBCATEGORIES_CONTROLLER, subcategory);
   }
 }
 

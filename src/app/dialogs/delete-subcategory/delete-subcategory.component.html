@@ -1,0 +1,10 @@
+<h2 mat-dialog-title style="text-align: center"> Subcategory {{data.subcategoryName}}</h2>
+<mat-dialog-content>
+  <p> are you sure you want to delete subcategory "{{data.subcategoryName}}" from the database?</p>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button style="background: #e7e39b" mat-button mat-dialog-close>Cancel</button>
+  <button style="color: red; background: #e7e39b" mat-raised-button (click)="remove(data.subcategoryUuid)">Delete</button>
+</mat-dialog-actions>

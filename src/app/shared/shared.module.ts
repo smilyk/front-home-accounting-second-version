@@ -24,6 +24,8 @@ import {IncomesListComponent} from '../users/incomes-list/incomes-list.component
 import {ExpencesListComponent} from '../users/expences-list/expences-list.component';
 import {CategoryComponent} from '../users/category/category.component';
 import {AddCategoryComponent} from '../users/add-category/add-category.component';
+import {AddSubcategoryComponent} from '../users/add-subcategory/add-subcategory.component';
+import {SubcategoryListComponent} from '../users/subcategory-list/subcategory-list.component';
 
 const routes: Routes = [
   // LOGIN AND REGISTRATION
@@ -40,6 +42,9 @@ const routes: Routes = [
 //  Categories
   {path: Redirect.CATEGORY_LIST, component: CategoryComponent},
   {path: Redirect.CATEGORY, component: AddCategoryComponent},
+//  Subcategories
+  {path: Redirect.SUBCATEGORY, component: AddSubcategoryComponent},
+  {path: Redirect.SUBCATEGORY_LIST, component: SubcategoryListComponent},
 ];
 
 @NgModule({

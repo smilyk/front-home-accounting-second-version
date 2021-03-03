@@ -29,6 +29,7 @@ export class NavHomeaccComponent implements OnInit {
   menuItems: NavLink[] = [
     {path: Redirect.BILL_LIST, label: 'my bills', icon: 'payments'},
     {path: Redirect.CATEGORY_LIST, label: 'my categories',  icon: 'payment'},
+    {path: Redirect.SUBCATEGORY_LIST, label: 'my subcategories',  icon: 'payment'},
     {path: Redirect.INCOME_LIST, label: 'my incomes', icon: 'payments'},
     {path: Redirect.EXPENSES_LIST, label: 'my expenses', icon: 'payments'},
   ];
@@ -37,6 +38,7 @@ export class NavHomeaccComponent implements OnInit {
     {path: Redirect.EXPENSES, label: 'add financial expenses', icon: 'paid'},
     {path: Redirect.INCOMES, label: 'add financial incomes', icon: 'paid'},
     {path: Redirect.CATEGORY, label: 'add category', icon: 'category'},
+    {path: Redirect.SUBCATEGORY, label: 'add subcategory', icon: 'category'},
   ];
   logoutLinks: NavLink =    {path: Redirect.LOGOUT, label: 'Logout', icon: 'person_outline'};
 

@@ -17,5 +17,8 @@ export class Redirect {
   static EXPENSES_LIST = 'financial/expenses/all';
   // category
   static CATEGORY_LIST = 'categories';
-  static CATEGORY = 'categopry';
+  static CATEGORY = 'category';
+  // subcategory
+  static SUBCATEGORY_LIST = 'subcategories';
+  static SUBCATEGORY = 'subcategory';
 }

@@ -1,0 +1,43 @@
+<div class="nav-list">
+
+  <h1 class="mat-card-title" style="text-align: center">Add Subategory</h1>
+
+  <div style="display: flex;
+  align-items: center;
+  margin: auto; /* Выравниваем по центру */
+  background: #9be7ad;
+  width:75%; border: 3px solid #093911;">
+    <div class="card-body">
+      <div class="mat-card-body">
+        <form #form="ngForm" (ngSubmit)="saveSubcategory(form)">
+          <div>
+            <mat-form-field>
+              <!--              TODO unique category name-->
+              <input type="text" matInput ngModel #subcategoryName="ngModel" name="subcategoryName"
+                     placeholder="name of subcategory"
+                     required
+                     appSubcategoryNameUnique>
+              <mat-error *ngIf="subcategoryName.errors?.unique">
+                category with name {{subcategoryName.value}} exists in the database
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <input type="text" matInput ngModel #description="ngModel" name="description"
+                     #description=ngModel
+                     placeholder="description">
+            </mat-form-field>
+
+
+            <button mat-raised-button type="submit" *ngIf="form.valid && form.touched">save</button>
+            <button mat-raised-button type="reset">reset</button>
+            <button mat-raised-button (click)="cancel()">cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+

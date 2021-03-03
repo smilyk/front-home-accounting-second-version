@@ -33,17 +33,21 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {CategoryComponent} from '../category/category.component';
 import {AddCategoryComponent} from '../add-category/add-category.component';
 import {CategoryNameUniqueDirective} from '../../directives/category-name-unique.directive';
+import {AddSubcategoryComponent} from '../add-subcategory/add-subcategory.component';
+import {SubcategoryListComponent} from '../subcategory-list/subcategory-list.component';
+import {SubcategoryNameUniqueDirective} from '../../directives/subcategory-name-unique.directive';
 
-const routes: Routes =  [
-  {path: Redirect.BILL_DETAILS + ':id' , component: BillDetailsComponent},
-  {path: Redirect.TRANSFER_RESOURCES + ':id' , component: TransferResourcesComponent}
+const routes: Routes = [
+  {path: Redirect.BILL_DETAILS + ':id', component: BillDetailsComponent},
+  {path: Redirect.TRANSFER_RESOURCES + ':id', component: TransferResourcesComponent}
 ];
 
 @NgModule({
   declarations: [BillComponent, BillUniqueDirective, BillListComponent,
     TransferResourcesComponent, BillDetailsComponent, TransferResourcesComponent,
-    FinancialExpensesComponent, FinancialIncomesComponent,     IncomesListComponent,
+    FinancialExpensesComponent, FinancialIncomesComponent, IncomesListComponent,
     ExpencesListComponent, CategoryComponent, AddCategoryComponent, CategoryNameUniqueDirective,
+    AddSubcategoryComponent, SubcategoryListComponent, SubcategoryNameUniqueDirective,
   ],
   imports: [
     CommonModule,
@@ -79,7 +83,10 @@ const routes: Routes =  [
   ],
   exports: [BillComponent, BillUniqueDirective, BillListComponent,
     TransferResourcesComponent, BillDetailsComponent, TransferResourcesComponent, FinancialExpensesComponent,
-    FinancialIncomesComponent,     IncomesListComponent,
-    ExpencesListComponent, CategoryComponent, AddCategoryComponent, CategoryNameUniqueDirective,]
+    FinancialIncomesComponent, IncomesListComponent,
+    ExpencesListComponent, CategoryComponent, AddCategoryComponent, CategoryNameUniqueDirective,
+    AddSubcategoryComponent, SubcategoryListComponent, SubcategoryNameUniqueDirective,
+  ]
 })
-export class UsersModule { }
+export class UsersModule {
+}
