@@ -9,6 +9,7 @@ import {Categories} from '../../model/Categories';
 import {map} from 'rxjs/operators';
 import {UpdateCategoryComponent} from '../../dialogs/update-category/update-category.component';
 import {DeleteCategoryComponent} from '../../dialogs/delete-category/delete-category.component';
+import {Redirect} from '../../model/Redirect';
 
 @Component({
   selector: 'app-category',
@@ -44,7 +45,8 @@ export class CategoryComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   addCategory() {
-    //  TODO
+    this.router.navigate([Redirect.CATEGORY]);
+
   }
 
   // tslint:disable-next-line:typedef

@@ -30,5 +30,9 @@ export class CategoriesService {
     return this.httpClient.delete(apiUrl + Path.CATEGORIES_CONTROLLER + categoryUuid + '/'
       + this.userUuid);
   }
+
+  addCategory(category): Observable<any> {
+    return this.httpClient.post(apiUrl + Path.CATEGORIES_CONTROLLER, category);
+  }
 }
 
