@@ -15,12 +15,11 @@
               <!--              TODO unique category name-->
               <input type="text" matInput ngModel #categoryName="ngModel" name="categoryName"
                      placeholder="name of category"
-                     required>
-<!--                     appCategoryUniqie-->
-<!--              >-->
-<!--              <mat-error *ngIf="categoryName.errors?.unique">-->
-<!--                bill with name {{billName.value}} exists in the database-->
-<!--              </mat-error>-->
+                     required
+              appCategoryNameUnique>
+              <mat-error *ngIf="categoryName.errors?.unique">
+                category with name {{categoryName.value}} exists in the database
+              </mat-error>
             </mat-form-field>
           </div>
           <div>

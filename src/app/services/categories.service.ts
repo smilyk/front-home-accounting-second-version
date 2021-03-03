@@ -34,5 +34,10 @@ export class CategoriesService {
   addCategory(category): Observable<any> {
     return this.httpClient.post(apiUrl + Path.CATEGORIES_CONTROLLER, category);
   }
+
+  getCategoriesByUserUuidAndCategoryUuid(categoryName): Observable<any> {
+return this.httpClient.get(apiUrl + Path.CATEGORIES_CONTROLLER +
+Path.VALID +  categoryName + '/' + this.userUuid);
+  }
 }
 

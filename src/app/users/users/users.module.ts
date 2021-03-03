@@ -32,6 +32,7 @@ import {ExpencesListComponent} from '../expences-list/expences-list.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {CategoryComponent} from '../category/category.component';
 import {AddCategoryComponent} from '../add-category/add-category.component';
+import {CategoryNameUniqueDirective} from '../../directives/category-name-unique.directive';
 
 const routes: Routes =  [
   {path: Redirect.BILL_DETAILS + ':id' , component: BillDetailsComponent},
@@ -42,7 +43,7 @@ const routes: Routes =  [
   declarations: [BillComponent, BillUniqueDirective, BillListComponent,
     TransferResourcesComponent, BillDetailsComponent, TransferResourcesComponent,
     FinancialExpensesComponent, FinancialIncomesComponent,     IncomesListComponent,
-    ExpencesListComponent, CategoryComponent, AddCategoryComponent,
+    ExpencesListComponent, CategoryComponent, AddCategoryComponent, CategoryNameUniqueDirective,
   ],
   imports: [
     CommonModule,
@@ -79,6 +80,6 @@ const routes: Routes =  [
   exports: [BillComponent, BillUniqueDirective, BillListComponent,
     TransferResourcesComponent, BillDetailsComponent, TransferResourcesComponent, FinancialExpensesComponent,
     FinancialIncomesComponent,     IncomesListComponent,
-    ExpencesListComponent, CategoryComponent, AddCategoryComponent]
+    ExpencesListComponent, CategoryComponent, AddCategoryComponent, CategoryNameUniqueDirective,]
 })
 export class UsersModule { }
