@@ -10,9 +10,8 @@ import {map} from 'rxjs/operators';
 import {InputCard} from '../../model/InputCard';
 import {Redirect} from '../../model/Redirect';
 import {DeleteIncomeCardComponent} from '../../dialogs/delete-income-card/delete-income-card.component';
-import {OutputCard} from '../../model/OutputCard';
-import {PlanningOutputCardComponent} from '../../dialogs/planning-output-card/planning-output-card.component';
 import {PlanningInputCardComponent} from '../../dialogs/planning-input-card/planning-input-card.component';
+
 export interface Tile {
   cols: number;
   rows: number;

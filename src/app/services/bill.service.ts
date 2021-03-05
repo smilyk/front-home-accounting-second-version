@@ -48,5 +48,10 @@ export class BillService {
   getBillByUserUuid(): Observable<any> {
     return this.httpClient.get(apiUrl + Path.BILL_CONTROLLER + Path.BILL_BY_USER_UUID + this.userUuid);
   }
+
+  getBillByUserAndCurrency(choosingCurrency): Observable<any> {
+    return this.httpClient.get(apiUrl + Path.BILL_CONTROLLER + Path.ALL_BILLS + this.userUuid +
+    '/' + choosingCurrency);
+  }
 }
 

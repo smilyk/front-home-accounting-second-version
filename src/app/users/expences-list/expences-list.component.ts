@@ -1,6 +1,5 @@
 import {Component, Input, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
-import {InputCard} from '../../model/InputCard';
 import {Subscription} from 'rxjs';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';

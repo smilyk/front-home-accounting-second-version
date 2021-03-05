@@ -27,6 +27,9 @@ import {AddCategoryComponent} from '../users/add-category/add-category.component
 import {AddSubcategoryComponent} from '../users/add-subcategory/add-subcategory.component';
 import {SubcategoryListComponent} from '../users/subcategory-list/subcategory-list.component';
 import { HomeComponent } from './home/home.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatTableModule} from '@angular/material/table';
 
 const routes: Routes = [
   // HOME
@@ -70,6 +73,9 @@ const routes: Routes = [
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatTableModule,
   ],
   providers: [
     {provide: MatDialogRef, useValue: {}},
@@ -78,7 +84,7 @@ const routes: Routes = [
   ],
   exports: [NavHomeaccComponent, RouterModule, RegisterComponent, UserUniqueDirective,
     EmailValidDirective,
-    ConfirmPasswordDirective, LoginComponent]
+    ConfirmPasswordDirective, LoginComponent,   HomeComponent]
 })
 export class SharedModule {
 }
