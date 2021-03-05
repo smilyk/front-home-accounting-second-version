@@ -1,0 +1,63 @@
+<div class="card-body">
+
+  <section class="example-section">
+    <label class="example-margin">choose currency</label>
+    <br>
+    <mat-radio-group [(ngModel)]="choosingCurrency" (ngModelChange)="setValue()">
+      <mat-radio-button class="example-margin" value="ISR">Israel Shekel</mat-radio-button>
+      <mat-radio-button class="example-margin" value="USA">Dollar USA</mat-radio-button>
+      <mat-radio-button class="example-margin" value="UKR">Hryvna Ukraine</mat-radio-button>
+    </mat-radio-group>
+  </section>
+
+  <div class="flex-container">
+    <!--ballance-->
+    <div  *ngIf="choosingCurrency!='ALL'" class="card-body" style="margin: 5%">
+
+      <h3 style=" text-align: right;" class="red" [ngClass]="{'red': getTotalCost() <0 }">
+        Balance: <strong>{{getTotalCost()}}</strong></h3>
+
+      <div class="example-container mat-elevation-z8">
+        <table mat-table [dataSource]="bills">
+          <!-- billName Column -->
+          <ng-container matColumnDef="billName">
+            <th mat-header-cell *matHeaderCellDef> billName</th>
+            <td mat-cell *matCellDef="let row"> {{row.billName}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+          </ng-container>
+
+          <!-- sum Column -->
+          <ng-container matColumnDef="sumIsr" [ngClass]="{'display': choosingCurrency!='ISR' }">
+            <th [ngClass]="{'display': choosingCurrency!='ISR' }" mat-header-cell *matHeaderCellDef> sum Isr</th>
+            <td [ngClass]="{'display': choosingCurrency!='ISR' }" mat-cell *matCellDef="let row"> {{row.sumIsr | currency}} </td>
+            <td [ngClass]="{'display': choosingCurrency!='ISR' }" mat-footer-cell *matFooterCellDef></td>
+          </ng-container>
+          <!-- sum Column -->
+          <ng-container matColumnDef="sumUkr" [ngClass]="{'display': choosingCurrency!='UKR'}">
+            <th [ngClass]="{'display': choosingCurrency!='UKR'}" mat-header-cell *matHeaderCellDef> sum Ukr</th>
+            <td [ngClass]="{'display': choosingCurrency!='UKR'}" mat-cell *matCellDef="let row"> {{row.sumUkr | currency}} </td>
+            <td [ngClass]="{'display': choosingCurrency!='UKR'}" mat-footer-cell *matFooterCellDef></td>
+          </ng-container>
+          <ng-template elseUkr></ng-template>
+          <!-- sum Column -->
+          <ng-container matColumnDef="sumUsa" [ngClass]="{'display': choosingCurrency!='USA'}" >
+            <th [ngClass]="{'display': choosingCurrency!='USA'}" mat-header-cell *matHeaderCellDef> sum Usa</th>
+            <td [ngClass]="{'display': choosingCurrency!='USA'}" mat-cell *matCellDef="let row"> {{row.sumUsa | currency}} </td>
+            <td [ngClass]="{'display': choosingCurrency!='USA'}" mat-footer-cell *matFooterCellDef></td>
+          </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+<!--          <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>-->
+        </table>
+      </div>
+    </div>
+    <!--    buttons-->
+    <div class="balance card-body" style="margin: 5%">dfdfdghjkhkhjkhjkhkjhkjhkj</div>
+    <!--last oper-->
+    <div class="balance card-body" style="margin: 5%">klkl;kl</div>
+  </div>
+</div>
+
+
