@@ -26,8 +26,12 @@ import {CategoryComponent} from '../users/category/category.component';
 import {AddCategoryComponent} from '../users/add-category/add-category.component';
 import {AddSubcategoryComponent} from '../users/add-subcategory/add-subcategory.component';
 import {SubcategoryListComponent} from '../users/subcategory-list/subcategory-list.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+  // HOME
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: Redirect.HOME, component: HomeComponent},
   // LOGIN AND REGISTRATION
   {path: Redirect.REGISTER, component: RegisterComponent},
   {path: Redirect.LOGIN, component: LoginComponent},
@@ -50,7 +54,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [NavHomeaccComponent, RegisterComponent, ConfirmPasswordDirective,
     EmailValidDirective, UserUniqueDirective,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,

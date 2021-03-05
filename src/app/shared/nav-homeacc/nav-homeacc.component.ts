@@ -15,6 +15,8 @@ interface NavLink {
   encapsulation: ViewEncapsulation.None
 })
 export class NavHomeaccComponent implements OnInit {
+  private firstName: string;
+  private secondName: string;
 
   constructor(private authService: AuthService,
   ) {
@@ -28,8 +30,8 @@ export class NavHomeaccComponent implements OnInit {
   registerLink: NavLink = {path: Redirect.REGISTER, label: 'registration', icon: 'library_books'};
   menuItems: NavLink[] = [
     {path: Redirect.BILL_LIST, label: 'my bills', icon: 'payments'},
-    {path: Redirect.CATEGORY_LIST, label: 'my categories',  icon: 'payment'},
-    {path: Redirect.SUBCATEGORY_LIST, label: 'my subcategories',  icon: 'payment'},
+    {path: Redirect.CATEGORY_LIST, label: 'my categories', icon: 'payment'},
+    {path: Redirect.SUBCATEGORY_LIST, label: 'my subcategories', icon: 'payment'},
     {path: Redirect.INCOME_LIST, label: 'my incomes', icon: 'payments'},
     {path: Redirect.EXPENSES_LIST, label: 'my expenses', icon: 'payments'},
   ];
@@ -40,8 +42,7 @@ export class NavHomeaccComponent implements OnInit {
     {path: Redirect.CATEGORY, label: 'add category', icon: 'category'},
     {path: Redirect.SUBCATEGORY, label: 'add subcategory', icon: 'category'},
   ];
-  logoutLinks: NavLink =    {path: Redirect.LOGOUT, label: 'Logout', icon: 'person_outline'};
-
+  logoutLinks: NavLink = {path: Redirect.LOGOUT, label: 'Logout', icon: 'person_outline'};
 
 
   ngOnInit(): void {
@@ -55,9 +56,15 @@ export class NavHomeaccComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   getUserName() {
-    const firstName = this.authService.getFirstName();
-    const secondName  = this.authService.getSecondName();
-    return firstName + ' ' + secondName;
+    this.firstName = this.authService.getFirstName();
+    if (this.firstName === null) {
+      this.firstName = '';
+    }
+    this.secondName = this.authService.getSecondName();
+    if (this.secondName === null) {
+      this.secondName = '';
+    }
+    return this.firstName + ' ' + this.secondName;
   }
 
   // tslint:disable-next-line:typedef
