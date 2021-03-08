@@ -1,11 +1,10 @@
-import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {Subscription} from 'rxjs';
 import {Bill} from '../../model/Bill';
 import {Currency} from '../../model/Currency';
 import {BillService} from '../../services/bill.service';
 import {map} from 'rxjs/operators';
-import {MatPaginator} from '@angular/material/paginator';
 import {LastOperation} from '../../model/LastOperation';
 import {ReportService} from '../../services/report.service';
 import {Period} from '../../model/Period';
@@ -24,13 +23,6 @@ export class HomeComponent implements OnInit {
   dataSourceLastOperMonth: MatTableDataSource<LastOperation>;
   dataSourceLastOperYear: MatTableDataSource<LastOperation>;
   displayedColumnsOper: any;
-  // @ViewChild(MatPaginator) paginator: MatPaginator;
-  // @ViewChild(MatPaginator) paginatorToday: MatPaginator;
-  // @ViewChild(MatPaginator) paginatorWeek: MatPaginator;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
-
-
   bills: Bill[] = [{
     userUuid: '',
     billName: '',
@@ -85,18 +77,21 @@ export class HomeComponent implements OnInit {
     this.operations$ = this.reportService.getLastOperationsByUserAndDate(this.date).pipe(map(
       value => this.operations = value
     )).subscribe(lastOperations => {
+      lastOperations = this.changeType(this.operations);
       this.dataSourceLastOperToday = new MatTableDataSource<LastOperation>(lastOperations);
     });
     this.date.period = 'WEEK';
     this.operations$ = this.reportService.getLastOperationsByUserAndDate(this.date).pipe(map(
       value => this.operations = value
     )).subscribe(lastOperations => {
+      lastOperations = this.changeType(this.operations);
       this.dataSourceLastOperWeek = new MatTableDataSource<LastOperation>(lastOperations);
     });
     this.date.period = 'MONTH';
     this.operations$ = this.reportService.getLastOperationsByUserAndDate(this.date).pipe(map(
       value => this.operations = value
     )).subscribe(lastOperations => {
+      lastOperations = this.changeType(this.operations);
       this.dataSourceLastOperMonth = new MatTableDataSource<LastOperation>(lastOperations);
 
     });
@@ -104,12 +99,24 @@ export class HomeComponent implements OnInit {
     this.operations$ = this.reportService.getLastOperationsByUserAndDate(this.date).pipe(map(
       value => this.operations = value
     )).subscribe(lastOperations => {
+      lastOperations = this.changeType(this.operations);
       this.dataSourceLastOperYear = new MatTableDataSource<LastOperation>(lastOperations);
     });
     this.displayedColumns = ['billName', 'sumIsr', 'sumUkr', 'sumUsa'];
     this.displayedColumnsOper = ['date', 'bill', 'category', 'sum', 'currency', 'type', 'detail'];
   }
 
+  // tslint:disable-next-line:typedef
+  private changeType(op: LastOperation[]) {
+    for (const o of op) {
+      if (o.type === 'OUTPUT') {
+        o.type = 'call_received';
+      } else {
+        o.type = 'call_made';
+      }
+    }
+    return op;
+  }
 
   // tslint:disable-next-line:typedef
   setValue() {
