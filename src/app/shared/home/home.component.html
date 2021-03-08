@@ -12,7 +12,7 @@
 
     <div class="flex-container">
       <!--ballance-->
-      <div class="card-body" style="margin: 5%">
+      <div class="card-body" style="margin: 5%; width: 100%">
 
         <h3 style=" text-align: right;" class="red" [ngClass]="{'red': getTotalCost() <0 }">
           Balance: <strong>{{getTotalCost()}}</strong></h3>
@@ -59,29 +59,15 @@
         </div>
       </div>
       <!--    buttons-->
-      <div class="flex-container-button">
-        <div>
-          <button mat-raised-button> add bill</button>
-        </div>
-        <hr>
-        <div>
-          <button mat-raised-button> add income</button>
-        </div>
-        <hr>
-        <div>
-          <button mat-raised-button> add outcome</button>
-        </div>
-        <hr>
-        <div>
-          <button mat-raised-button> add category</button>
-        </div>
-        <hr>
-        <div>
-          <button mat-raised-button> add subcategory</button>
-        </div>
+      <div style="justify-content:space-around;">
+        <button mat-raised-button> add bill</button>
+        <button mat-raised-button> add income</button>
+        <button mat-raised-button> add outcome</button>
+        <button mat-raised-button> add category</button>
+        <button mat-raised-button> add subcategory</button>
       </div>
       <!--last oper-->
-      <div class="balance card-body" style="margin: 3%">
+      <div class="balance card-body" style="margin: 3%; width: 40%">
         <h3 style=" text-align: right;">
           <strong>Last operations</strong></h3>
         <div class="example-container">
@@ -124,12 +110,15 @@
                 <ng-container matColumnDef="type">
                   <th mat-header-cell *matHeaderCellDef> type</th>
                   <td mat-cell *matCellDef="let row">
-                    <mat-icon [ngClass]="{red: row.type=== 'call_made'}">{{row.type}}</mat-icon> </td>
+                    <mat-icon [ngClass]="{red: row.type=== 'call_made'}">{{row.type}}</mat-icon>
+                  </td>
                 </ng-container>
 
                 <ng-container matColumnDef="detail">
                   <th mat-header-cell *matHeaderCellDef> detail</th>
-                  <td mat-cell *matCellDef="let row"> <mat-icon>details </mat-icon></td>
+                  <td mat-cell *matCellDef="let row">
+                    <mat-icon>details</mat-icon>
+                  </td>
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumnsOper"></tr>
@@ -172,12 +161,15 @@
                 <ng-container matColumnDef="type">
                   <th mat-header-cell *matHeaderCellDef> type</th>
                   <td mat-cell *matCellDef="let row">
-                    <mat-icon [ngClass]="{red: row.type=== 'call_made'}">{{row.type}}</mat-icon> </td>
+                    <mat-icon [ngClass]="{red: row.type=== 'call_made'}">{{row.type}}</mat-icon>
+                  </td>
                 </ng-container>
 
                 <ng-container matColumnDef="detail">
                   <th mat-header-cell *matHeaderCellDef> detail</th>
-                  <td mat-cell *matCellDef="let row"> <mat-icon>details </mat-icon></td>
+                  <td mat-cell *matCellDef="let row">
+                    <mat-icon>details</mat-icon>
+                  </td>
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumnsOper"></tr>
@@ -220,12 +212,15 @@
                 <ng-container matColumnDef="type">
                   <th mat-header-cell *matHeaderCellDef> type</th>
                   <td mat-cell *matCellDef="let row">
-                    <mat-icon [ngClass]="{red: row.type=== 'call_made'}">{{row.type}}</mat-icon> </td>
+                    <mat-icon [ngClass]="{red: row.type=== 'call_made'}">{{row.type}}</mat-icon>
+                  </td>
                 </ng-container>
 
                 <ng-container matColumnDef="detail">
                   <th mat-header-cell *matHeaderCellDef> detail</th>
-                  <td mat-cell *matCellDef="let row"> <mat-icon>details </mat-icon></td>
+                  <td mat-cell *matCellDef="let row">
+                    <mat-icon>details</mat-icon>
+                  </td>
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumnsOper"></tr>
@@ -269,12 +264,15 @@
                 <ng-container matColumnDef="type">
                   <th mat-header-cell *matHeaderCellDef> type</th>
                   <td mat-cell *matCellDef="let row">
-                    <mat-icon [ngClass]="{red: row.type=== 'call_made'}">{{row.type}}</mat-icon> </td>
+                    <mat-icon [ngClass]="{red: row.type=== 'call_made'}">{{row.type}}</mat-icon>
+                  </td>
                 </ng-container>
 
                 <ng-container matColumnDef="detail">
                   <th mat-header-cell *matHeaderCellDef> detail</th>
-                  <td mat-cell *matCellDef="let row"> <mat-icon>details </mat-icon></td>
+                  <td mat-cell *matCellDef="let row">
+                    <mat-icon>details</mat-icon>
+                  </td>
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumnsOper"></tr>
