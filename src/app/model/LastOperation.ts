@@ -10,4 +10,5 @@ export class LastOperation {
   description: string;
   sum: number;
   operationUuid: string;
+  currency: string;
 }

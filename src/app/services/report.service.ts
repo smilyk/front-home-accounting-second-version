@@ -20,7 +20,6 @@ export class ReportService {
 
 
   getLastOperationsByUserAndDate(date): Observable<any> {
-    console.log(date + ' o');
     return this.httpClient.post(apiUrl + Path.REPORT_CONTROLLER + Path.LAST + this.userUuid, date);
   }
 }

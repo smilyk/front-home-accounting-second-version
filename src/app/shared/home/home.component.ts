@@ -18,15 +18,20 @@ import {Period} from '../../model/Period';
   encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit {
-
   displayedColumns: any;
   dataSource: MatTableDataSource<Bill>;
-  dataSourceLastOper: MatTableDataSource<LastOperation>;
+  dataSourceLastOperToday: MatTableDataSource<LastOperation>;
+  dataSourceLastOperWeek: MatTableDataSource<LastOperation>;
+  dataSourceLastOperMonth: MatTableDataSource<LastOperation>;
+  dataSourceLastOperYear: MatTableDataSource<LastOperation>;
   displayedColumnsOper: any;
-  filter: string;
-
+  // @ViewChild(MatPaginator) paginator: MatPaginator;
+  // @ViewChild(MatPaginator) paginatorToday: MatPaginator;
+  // @ViewChild(MatPaginator) paginatorWeek: MatPaginator;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+
+
+
   bills: Bill[] = [{
     userUuid: '',
     billName: '',
@@ -59,7 +64,6 @@ export class HomeComponent implements OnInit {
   operations$: Subscription;
   encryptedPassword = true;
 
-
   constructor(private billService: BillService,
               private reportService: ReportService) {
   }
@@ -76,22 +80,39 @@ export class HomeComponent implements OnInit {
         }
       });
       this.dataSource = new MatTableDataSource<Bill>(bill);
-      this.dataSource.sort = this.sort;
     });
     this.date.period = 'DAY';
     this.operations$ = this.reportService.getLastOperationsByUserAndDate(this.date).pipe(map(
       value => this.operations = value
     )).subscribe(lastOperations => {
-      this.dataSourceLastOper = new MatTableDataSource<LastOperation>(lastOperations);
-      this.dataSourceLastOper.sort = this.sort;
+      this.dataSourceLastOperToday = new MatTableDataSource<LastOperation>(lastOperations);
+    });
+    this.date.period = 'WEEK';
+    this.operations$ = this.reportService.getLastOperationsByUserAndDate(this.date).pipe(map(
+      value => this.operations = value
+    )).subscribe(lastOperations => {
+      this.dataSourceLastOperWeek = new MatTableDataSource<LastOperation>(lastOperations);
+    });
+    this.date.period = 'MONTH';
+    this.operations$ = this.reportService.getLastOperationsByUserAndDate(this.date).pipe(map(
+      value => this.operations = value
+    )).subscribe(lastOperations => {
+      this.dataSourceLastOperMonth = new MatTableDataSource<LastOperation>(lastOperations);
+
+    });
+    this.date.period = 'YEAR';
+    this.operations$ = this.reportService.getLastOperationsByUserAndDate(this.date).pipe(map(
+      value => this.operations = value
+    )).subscribe(lastOperations => {
+      this.dataSourceLastOperYear = new MatTableDataSource<LastOperation>(lastOperations);
     });
     this.displayedColumns = ['billName', 'sumIsr', 'sumUkr', 'sumUsa'];
-    this.displayedColumnsOper = ['date', 'bill', 'category', 'sum', 'type', 'detail'];
+    this.displayedColumnsOper = ['date', 'bill', 'category', 'sum', 'currency', 'type', 'detail'];
   }
+
 
   // tslint:disable-next-line:typedef
   setValue() {
-    this.ngOnInit();
     this.bills$ = this.billService.getBillByUserAndCurrency(this.choosingCurrency).pipe(map(
       value => this.bills = value
     )).subscribe(bill => {
@@ -103,7 +124,6 @@ export class HomeComponent implements OnInit {
         }
       });
       this.dataSource = new MatTableDataSource<Bill>(bill);
-      this.dataSource.sort = this.sort;
     });
     this.displayedColumns = ['billName', 'sumIsr', 'sumUkr', 'sumUsa'];
   }

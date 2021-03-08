@@ -53,6 +53,12 @@ table {
 .button-item{
   width: -moz-available;
 }
+hr {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  border: 0;
+  border-top: 1px solid #f44336;
+}
 
 .flex-container {
   display: -ms-flexbox;
@@ -217,4 +223,8 @@ button:active {
   padding: calc(.25em + 1px) .5em calc(.25em - 1px);
   border-color: #9be7ad;
   box-shadow: inset 0 -1px 1px #093911, inset 0 1px 2px #9be7ad, inset 0 0 0 60px #e7e39b;
+}
+.example-container {
+  height: 300px;
+  overflow: auto;
 }
