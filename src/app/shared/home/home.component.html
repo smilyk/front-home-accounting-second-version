@@ -1,5 +1,6 @@
-<div class="card-body">
 
+<div class="nav-list">
+<div  class="card-body">
   <section class="example-section">
     <label class="example-margin">choose currency</label>
     <br>
@@ -12,7 +13,7 @@
 
   <div class="flex-container">
     <!--ballance-->
-    <div  *ngIf="choosingCurrency!='ALL'" class="card-body" style="margin: 5%">
+    <div   class="card-body" style="margin: 5%">
 
       <h3 style=" text-align: right;" class="red" [ngClass]="{'red': getTotalCost() <0 }">
         Balance: <strong>{{getTotalCost()}}</strong></h3>
@@ -54,10 +55,25 @@
       </div>
     </div>
     <!--    buttons-->
-    <div class="balance card-body" style="margin: 5%">dfdfdghjkhkhjkhjkhkjhkjhkj</div>
+    <div class="flex-container-botton" style="margin: 5%">
+      <div><button mat-raised-button > add bill</button></div>
+      <br>
+      <div><button mat-raised-button> add income</button></div>
+      <br>
+      <div><button mat-raised-button> add outcome</button></div>
+      <br>
+      <div><button mat-raised-button> add category</button></div>
+      <br>
+      <div><button mat-raised-button> add subcategory</button></div>
+<!--      <button> add bill</button>-->
+<!--      <button> add income</button>-->
+<!--      <button> add outcome</button>-->
+<!--      <button> add category</button>-->
+<!--      <button> add subcategory</button>-->
+    </div>
     <!--last oper-->
     <div class="balance card-body" style="margin: 5%">klkl;kl</div>
   </div>
 </div>
 
-
+</div>

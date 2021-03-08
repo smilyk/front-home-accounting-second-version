@@ -8,6 +8,7 @@ import {MatSort} from '@angular/material/sort';
 import {BillService} from '../../services/bill.service';
 import {map} from 'rxjs/operators';
 import {MatPaginator} from '@angular/material/paginator';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -19,21 +20,30 @@ export class HomeComponent implements OnInit {
 
   displayedColumns: any;
   dataSource: MatTableDataSource<Bill>;
-
   filter: string;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  bills: Bill[];
+  bills: Bill[] = [{
+    userUuid: '',
+    billName: '',
+    description: '',
+    sumIsr: 0,
+    sumUsa: 0,
+    sumUkr: 0,
+    currencyName: '',
+    mainBill: false,
+    billUuid: ''
+  }];
   currency: Currency[] = [{
     currencyName: ''
   }];
-  choosingCurrency = 'ALL';
+  choosingCurrency = '';
   bills$: Subscription;
   encryptedPassword = true;
 
-
-  constructor(private billService: BillService) {
+  constructor(private billService: BillService,
+              private authSerice: AuthService) {
   }
 
   ngOnInit(): void {

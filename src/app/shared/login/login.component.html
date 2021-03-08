@@ -8,12 +8,11 @@
   flex-direction: column;
   margin: auto; /* Выравниваем по центру */
   align-content:center;
-  background: #9be7ad;
-  width:25%; border: 3px solid #093911;">
+  width:25%; ">
 
   <div class="card">
     <div class = "card-body">
-      <div class="mat-card-body">
+      <div>
       <form #loginForm="ngForm">
         <div class="form-group">
           <label for="email">E-mail:</label>
@@ -37,7 +36,7 @@
           </div>
         </div>
 
-        <button class="btn"
+        <button
                 (click)="login()"
                 [disabled]="!loginForm.form.valid">
           <span class="ml-1">Log in</span>
