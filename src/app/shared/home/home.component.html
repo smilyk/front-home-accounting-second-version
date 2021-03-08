@@ -1,7 +1,7 @@
 <div class="nav-list">
   <div class="card-body">
     <section class="example-section">
-      <label class="example-margin">choose currency</label>
+      <label class="example-margin"><h2><strong>Choose currency</strong></h2></label>
       <br>
       <mat-radio-group [(ngModel)]="choosingCurrency" (ngModelChange)="setValue()">
         <mat-radio-button class="example-margin" value="ISR">Israel Shekel</mat-radio-button>
@@ -12,8 +12,7 @@
 
     <div class="flex-container">
       <!--ballance-->
-      <div class="card-body" style="margin: 5%; width: 100%">
-
+      <div  style="margin: 5%; width: 100%">
         <h3 style=" text-align: right;" class="red" [ngClass]="{'red': getTotalCost() <0 }">
           Balance: <strong>{{getTotalCost()}}</strong></h3>
 
@@ -49,8 +48,6 @@
                       *matCellDef="let row"> {{row.sumUsa | currency}} </td>
                   <td [ngClass]="{'display': choosingCurrency!='USA'}" mat-footer-cell *matFooterCellDef></td>
                 </ng-container>
-
-
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
               </table>
