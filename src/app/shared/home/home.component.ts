@@ -1,6 +1,5 @@
-import {Component, Input, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
-import {OutputCard} from '../../model/OutputCard';
 import {Subscription} from 'rxjs';
 import {Bill} from '../../model/Bill';
 import {Currency} from '../../model/Currency';
@@ -8,7 +7,9 @@ import {MatSort} from '@angular/material/sort';
 import {BillService} from '../../services/bill.service';
 import {map} from 'rxjs/operators';
 import {MatPaginator} from '@angular/material/paginator';
-import {AuthService} from '../../services/auth.service';
+import {LastOperation} from '../../model/LastOperation';
+import {ReportService} from '../../services/report.service';
+import {Period} from '../../model/Period';
 
 @Component({
   selector: 'app-home',
@@ -20,6 +21,8 @@ export class HomeComponent implements OnInit {
 
   displayedColumns: any;
   dataSource: MatTableDataSource<Bill>;
+  dataSourceLastOper: MatTableDataSource<LastOperation>;
+  displayedColumnsOper: any;
   filter: string;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -35,15 +38,30 @@ export class HomeComponent implements OnInit {
     mainBill: false,
     billUuid: ''
   }];
+  operations: LastOperation[] = [{
+    date: '',
+    billName: '',
+    category: '',
+    subcategory: '',
+    type: '',
+    description: '',
+    sum: 0,
+    operationUuid: ''
+  }];
   currency: Currency[] = [{
     currencyName: ''
   }];
+  date: Period = {
+    period: ''
+  };
   choosingCurrency = '';
   bills$: Subscription;
+  operations$: Subscription;
   encryptedPassword = true;
 
+
   constructor(private billService: BillService,
-              private authSerice: AuthService) {
+              private reportService: ReportService) {
   }
 
   ngOnInit(): void {
@@ -60,13 +78,20 @@ export class HomeComponent implements OnInit {
       this.dataSource = new MatTableDataSource<Bill>(bill);
       this.dataSource.sort = this.sort;
     });
+    this.date.period = 'DAY';
+    this.operations$ = this.reportService.getLastOperationsByUserAndDate(this.date).pipe(map(
+      value => this.operations = value
+    )).subscribe(lastOperations => {
+      this.dataSourceLastOper = new MatTableDataSource<LastOperation>(lastOperations);
+      this.dataSourceLastOper.sort = this.sort;
+    });
     this.displayedColumns = ['billName', 'sumIsr', 'sumUkr', 'sumUsa'];
+    this.displayedColumnsOper = ['date', 'bill', 'category', 'sum', 'type', 'detail'];
   }
 
   // tslint:disable-next-line:typedef
   setValue() {
     this.ngOnInit();
-    console.log(this.choosingCurrency + ' 9');
     this.bills$ = this.billService.getBillByUserAndCurrency(this.choosingCurrency).pipe(map(
       value => this.bills = value
     )).subscribe(bill => {
@@ -98,4 +123,10 @@ export class HomeComponent implements OnInit {
     }
     return rez;
   }
+
+  // tslint:disable-next-line:typedef
+  getPeriod() {
+return this.date.period;
+  }
+
 }

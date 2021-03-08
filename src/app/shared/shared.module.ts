@@ -31,6 +31,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatTableModule} from '@angular/material/table';
 import { MainComponent } from './main/main.component';
+import {UsersModule} from '../users/users/users.module';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 const routes: Routes = [
   // HOME
@@ -79,6 +81,8 @@ const routes: Routes = [
     MatSelectModule,
     MatRadioModule,
     MatTableModule,
+    UsersModule,
+    MatPaginatorModule,
   ],
   providers: [
     {provide: MatDialogRef, useValue: {}},

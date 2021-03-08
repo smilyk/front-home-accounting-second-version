@@ -11,6 +11,8 @@ export class Path {
   static OUTPUT_CARD_CONTROLLER = 'output';
   static INPUT_CARD_CONTROLLER = 'input';
   static USER = 'user/';
+  static REPORT_CONTROLLER = 'report/';
+  static LAST = 'last/';
 }
 
 
