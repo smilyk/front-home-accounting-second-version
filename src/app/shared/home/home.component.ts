@@ -8,6 +8,8 @@ import {map} from 'rxjs/operators';
 import {LastOperation} from '../../model/LastOperation';
 import {ReportService} from '../../services/report.service';
 import {Period} from '../../model/Period';
+import * as moment from 'moment';
+
 
 @Component({
   selector: 'app-home',
@@ -78,6 +80,7 @@ export class HomeComponent implements OnInit {
       value => this.operations = value
     )).subscribe(lastOperations => {
       lastOperations = this.changeType(this.operations);
+      lastOperations = this.changeDate(this.operations);
       this.dataSourceLastOperToday = new MatTableDataSource<LastOperation>(lastOperations);
     });
     this.date.period = 'WEEK';
@@ -85,6 +88,7 @@ export class HomeComponent implements OnInit {
       value => this.operations = value
     )).subscribe(lastOperations => {
       lastOperations = this.changeType(this.operations);
+      lastOperations = this.changeDate(this.operations);
       this.dataSourceLastOperWeek = new MatTableDataSource<LastOperation>(lastOperations);
     });
     this.date.period = 'MONTH';
@@ -92,6 +96,7 @@ export class HomeComponent implements OnInit {
       value => this.operations = value
     )).subscribe(lastOperations => {
       lastOperations = this.changeType(this.operations);
+      lastOperations = this.changeDate(this.operations);
       this.dataSourceLastOperMonth = new MatTableDataSource<LastOperation>(lastOperations);
 
     });
@@ -100,6 +105,7 @@ export class HomeComponent implements OnInit {
       value => this.operations = value
     )).subscribe(lastOperations => {
       lastOperations = this.changeType(this.operations);
+      lastOperations = this.changeDate(this.operations);
       this.dataSourceLastOperYear = new MatTableDataSource<LastOperation>(lastOperations);
     });
     this.displayedColumns = ['billName', 'sumIsr', 'sumUkr', 'sumUsa'];
@@ -116,6 +122,14 @@ export class HomeComponent implements OnInit {
       }
     }
     return op;
+  }
+
+  // tslint:disable-next-line:typedef
+  private changeDate(operations: LastOperation[]) {
+    for (const o of operations) {
+      o.date = moment(o.date).format('MMMM Do');
+    }
+    return operations;
   }
 
   // tslint:disable-next-line:typedef
