@@ -20,11 +20,11 @@
     </a>
     <a mat-tab-link
        *ngIf="!isAuth()"
-       [routerLink]="loginLink.path"
+       [routerLink]="loginLink[0].path"
        routerLinkActive #rla="routerLinkActive"
        [active]="rla.isActive">
-      <mat-icon>{{loginLink.icon}}</mat-icon>
-      {{loginLink.label}}
+      <mat-icon>{{loginLink[0].icon}}</mat-icon>
+      {{loginLink[0].label}}
     </a>
     <a mat-tab-link
        *ngIf="!isAuth()"

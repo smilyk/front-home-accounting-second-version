@@ -23,10 +23,10 @@ export class NavHomeaccComponent implements OnInit {
   }
 
   mainLink: NavLink[] = [
-    {path: Redirect.MAIN, label: 'главная страница', icon: 'home'},
+    {path: Redirect.MAIN, label: 'главная страница', icon: 'main'},
   ];
-  loginLink: NavLink = {path: Redirect.LOGIN, label: 'Login', icon: 'person'};
-  homeLink: NavLink = {path: Redirect.HOME, label: 'Login', icon: 'person'};
+  loginLink: NavLink[] = [{path: Redirect.LOGIN, label: 'Login', icon: 'person'}];
+  homeLink: NavLink[] = [{path: Redirect.HOME, label: 'home', icon: 'person'}];
 
   registerLink: NavLink = {path: Redirect.REGISTER, label: 'registration', icon: 'library_books'};
   menuItems: NavLink[] = [
@@ -44,8 +44,6 @@ export class NavHomeaccComponent implements OnInit {
     {path: Redirect.SUBCATEGORY, label: 'add subcategory', icon: 'category'},
   ];
   logoutLinks: NavLink = {path: Redirect.LOGOUT, label: 'Logout', icon: 'person_outline'};
-
-
   ngOnInit(): void {
   }
 

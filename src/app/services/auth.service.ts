@@ -43,24 +43,25 @@ export class AuthService {
     localStorage.setItem(AuthService.TOKEN_STORAGE_KEY, token);
   }
 
+  // tslint:disable-next-line:typedef
   private saveUserUuid(useruuid: string) {
     localStorage.setItem(AuthService.USERUUID_STORAGE_KEY, useruuid);
   }
 
-
+  // tslint:disable-next-line:typedef
   private saveFirstName(userfirstname: string) {
     localStorage.setItem(AuthService.USER_FIRST_NAME_STORAGE_KEY, userfirstname);
   }
-
+  // tslint:disable-next-line:typedef
   private saveSecondName(usersecondname: string) {
     localStorage.setItem(AuthService.USER_SECOND_NAME_STORAGE_KEY, usersecondname);
 
   }
-
+  // tslint:disable-next-line:typedef
   private saveEmail(email) {
     localStorage.setItem(AuthService.EMAIL, email);
   }
-
+  // tslint:disable-next-line:typedef
   public getToken(): string {
     return localStorage.getItem(AuthService.TOKEN_STORAGE_KEY);
   }
@@ -91,11 +92,5 @@ export class AuthService {
   }
   public isAuth(): boolean {
     return !!this.getToken();
-  }
-
-  public isUser(): boolean {
-    if (!this.isAuth()) {
-      return undefined;
-    }
   }
 }
