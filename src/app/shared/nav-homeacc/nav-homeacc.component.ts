@@ -22,10 +22,11 @@ export class NavHomeaccComponent implements OnInit {
   ) {
   }
 
-  homeLink: NavLink[] = [
-    {path: Redirect.HOME, label: 'главная страница', icon: 'home'},
+  mainLink: NavLink[] = [
+    {path: Redirect.MAIN, label: 'главная страница', icon: 'home'},
   ];
   loginLink: NavLink = {path: Redirect.LOGIN, label: 'Login', icon: 'person'};
+  homeLink: NavLink = {path: Redirect.HOME, label: 'Login', icon: 'person'};
 
   registerLink: NavLink = {path: Redirect.REGISTER, label: 'registration', icon: 'library_books'};
   menuItems: NavLink[] = [

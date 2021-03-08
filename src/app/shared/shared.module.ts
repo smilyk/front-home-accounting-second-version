@@ -30,10 +30,12 @@ import { HomeComponent } from './home/home.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatTableModule} from '@angular/material/table';
+import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
   // HOME
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '', redirectTo: 'main', pathMatch: 'full'},
+  {path: Redirect.MAIN, component: MainComponent},
   {path: Redirect.HOME, component: HomeComponent},
   // LOGIN AND REGISTRATION
   {path: Redirect.REGISTER, component: RegisterComponent},
@@ -58,7 +60,8 @@ const routes: Routes = [
   declarations: [NavHomeaccComponent, RegisterComponent, ConfirmPasswordDirective,
     EmailValidDirective, UserUniqueDirective,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    MainComponent
   ],
   imports: [
     CommonModule,

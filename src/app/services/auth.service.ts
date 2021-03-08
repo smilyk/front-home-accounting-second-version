@@ -21,6 +21,7 @@ export class AuthService {
   static readonly EMAIL = 'email';
   static email;
   redirectToUrl = Redirect.HOME;
+  logoutUrl = Redirect.MAIN;
 
   login(credentials: Credentials): void {
     AuthService.email = credentials.email;
@@ -86,7 +87,7 @@ export class AuthService {
     localStorage.removeItem(AuthService.USERUUID_STORAGE_KEY);
     localStorage.removeItem(AuthService.USER_FIRST_NAME_STORAGE_KEY);
     localStorage.removeItem(AuthService.USER_SECOND_NAME_STORAGE_KEY);
-    this.router.navigate([this.redirectToUrl]);
+    this.router.navigate([this.logoutUrl]);
   }
   public isAuth(): boolean {
     return !!this.getToken();

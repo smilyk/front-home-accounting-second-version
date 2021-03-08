@@ -1,6 +1,7 @@
 export class Redirect {
   // home
-  static HOME = '';
+  static HOME = 'home';
+  static MAIN = '';
   // user
   static REGISTER = 'register';
   static LOGIN = 'login';
