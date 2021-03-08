@@ -3,7 +3,6 @@ import {MatTableDataSource} from '@angular/material/table';
 import {Subscription} from 'rxjs';
 import {Bill} from '../../model/Bill';
 import {Currency} from '../../model/Currency';
-import {MatSort} from '@angular/material/sort';
 import {BillService} from '../../services/bill.service';
 import {map} from 'rxjs/operators';
 import {MatPaginator} from '@angular/material/paginator';
@@ -51,7 +50,8 @@ export class HomeComponent implements OnInit {
     type: '',
     description: '',
     sum: 0,
-    operationUuid: ''
+    operationUuid: '',
+    currency: ''
   }];
   currency: Currency[] = [{
     currencyName: ''
@@ -143,10 +143,4 @@ export class HomeComponent implements OnInit {
     }
     return rez;
   }
-
-  // tslint:disable-next-line:typedef
-  getPeriod() {
-return this.date.period;
-  }
-
 }
