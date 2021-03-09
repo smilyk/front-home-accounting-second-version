@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import {Redirect} from '../../model/Redirect';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+
+  login() {
+    this.router.navigate([Redirect.LOGIN]);
+  }
+
+  register() {
+    this.router.navigate([Redirect.REGISTER]);
+  }
 }

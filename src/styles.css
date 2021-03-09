@@ -348,6 +348,11 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
   float: right;
   width: 20%;
 }
+.left-button{
+  display: inline-block;
+  float: left;
+  width: 20%;
+}
 .filter{
   color: #093911;
 }
