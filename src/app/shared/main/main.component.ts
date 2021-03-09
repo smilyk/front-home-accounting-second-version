@@ -14,7 +14,6 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
   // tslint:disable-next-line:typedef
   login() {
     this.router.navigate([Redirect.LOGIN]);
