@@ -15,15 +15,16 @@
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
           </div>
-<!--          end of date-->
-          <!--          bill-->
-<!--          create new bill-->
-          <div>
-            <section class="example-section">
-              <mat-checkbox (change)="checkBill($event.checked)">add new bill</mat-checkbox>
-            </section>
-          </div>
-          <div *ngIf="!newBill()  else elseBill">
+<!--&lt;!&ndash;          end of date&ndash;&gt;-->
+<!--          &lt;!&ndash;          bill&ndash;&gt;-->
+<!--&lt;!&ndash;          create new bill&ndash;&gt;-->
+<!--          <div>-->
+<!--&lt;!&ndash;            <section class="example-section">&ndash;&gt;-->
+<!--&lt;!&ndash;              <mat-checkbox (change)="checkBill($event.checked)">add new bill</mat-checkbox>&ndash;&gt;-->
+<!--&lt;!&ndash;            </section>&ndash;&gt;-->
+<!--          </div>-->
+          <div >
+<!--            *ngIf="!newBill()  else elseBill">-->
             <mat-form-field appearance="fill">
               <mat-select [(ngModel)]="billName" name="billName" placeholder="choose bill" required>
                 <mat-option *ngFor="let bill of bills$|async"
@@ -34,13 +35,13 @@
               <mat-icon matSuffix> monetization_on</mat-icon>
             </mat-form-field>
           </div>
-          <ng-template #elseBill>
-            <mat-form-field appearance="legacy">
-              <mat-label>input new bill</mat-label>
-              <input [(ngModel)]="billName" name="billName" matInput placeholder="input bill">
-              <mat-icon matSuffix>bill</mat-icon>
-            </mat-form-field>
-          </ng-template>
+<!--          <ng-template #elseBill>-->
+<!--            <mat-form-field appearance="legacy">-->
+<!--              <mat-label>input new bill</mat-label>-->
+<!--              <input [(ngModel)]="billName" name="billName" matInput placeholder="input bill">-->
+<!--              <mat-icon matSuffix>bill</mat-icon>-->
+<!--            </mat-form-field>-->
+<!--          </ng-template>-->
 <!--          end of bill-->
           <!--            new category-->
           <div>
@@ -151,13 +152,15 @@
                             </textarea>
               <mat-icon matSuffix>view_headline</mat-icon>
             </mat-form-field>
+            <br>
+            <button  type="submit" *ngIf="form.valid && form.touched">save</button>
           </div>
           <!--       end descriprion    /-->
         </div>
 
       </div>
-<!--    <div class="flex-container">   -->
-      </div>
-    <button mat-raised-button type="submit" *ngIf="form.valid && form.touched">save</button>
+<!--      <button class="small_button" type="submit" *ngIf="form.valid && form.touched">save</button>-->
+    </div>
+    <br>
   </form>
 </div>

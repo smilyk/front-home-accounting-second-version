@@ -227,6 +227,11 @@ input:-webkit-autofill:active {
 .mat-form-field-ripple {
   background-color: #093911 !important;
 }
+.small_button{
+  width: 20%;
+  height: 20%;
+  align-items: center;
+}
 
 
 .mat-card {

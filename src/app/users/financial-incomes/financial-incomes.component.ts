@@ -13,6 +13,7 @@ import {HttpClient} from '@angular/common/http';
 import {Categories} from '../../model/Categories';
 import {Subcategories} from '../../model/Subcategories';
 import {InputCard} from '../../model/InputCard';
+import {Redirect} from '../../model/Redirect';
 
 @Component({
   selector: 'app-financial-incomes',
@@ -21,7 +22,7 @@ import {InputCard} from '../../model/InputCard';
   encapsulation: ViewEncapsulation.None
 })
 export class FinancialIncomesComponent implements OnInit {
-  // TODO
+
   // add new bill - create logic
   date = new FormControl(new Date());
   serializedDate = new FormControl((new Date()).toISOString());
@@ -163,6 +164,6 @@ export class FinancialIncomesComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
    cancel() {
-  //  TODO
+ this.router.navigate([Redirect.INCOME_LIST]);
   }
 }

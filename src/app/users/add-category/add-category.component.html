@@ -8,7 +8,6 @@
         <form #form="ngForm" (ngSubmit)="saveCategory(form)">
           <div>
             <mat-form-field>
-              <!--              TODO unique category name-->
               <input type="text" matInput ngModel #categoryName="ngModel" name="categoryName"
                      placeholder="name of category"
                      required

@@ -8,7 +8,6 @@
         <form #form="ngForm" (ngSubmit)="saveBill(form)">
           <div>
             <mat-form-field>
-              <!--              TODO unique bill name-->
               <input type="text" matInput ngModel #billName="ngModel" name="billName"
                      placeholder="billName"
                      required

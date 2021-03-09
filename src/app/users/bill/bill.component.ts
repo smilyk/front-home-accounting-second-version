@@ -5,6 +5,7 @@ import {BillService} from '../../services/bill.service';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
+import {Redirect} from '../../model/Redirect';
 
 @Component({
   selector: 'app-bill',
@@ -36,7 +37,7 @@ export class BillComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   cancel() {
-    // TODO
+    this.router.navigate([Redirect.BILL_LIST]);
   }
 
   // tslint:disable-next-line:typedef

@@ -13,6 +13,7 @@ import {Subcategories} from '../../model/Subcategories';
 import {OutputCard} from '../../model/OutputCard';
 import {AuthService} from '../../services/auth.service';
 import {CardService} from '../../services/cardService';
+import {Redirect} from '../../model/Redirect';
 
 @Component({
   selector: 'app-financial-expences',
@@ -171,7 +172,6 @@ export class FinancialExpensesComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   private cancel() {
-    console.log('cancel -> home');
-  //  TODO
+    this.router.navigate([Redirect.EXPENSES_LIST]);
   }
 }

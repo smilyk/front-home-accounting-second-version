@@ -144,11 +144,14 @@
                             </textarea>
               <mat-icon matSuffix>view_headline</mat-icon>
             </mat-form-field>
+            <br>
+            <button  type="submit" *ngIf="form.valid && form.touched">save</button>
+
           </div>
 <!--           /-->
         </div>
       </div>
     </div>
-    <button mat-raised-button type="submit" *ngIf="form.valid && form.touched">save</button>
+<!--    <button mat-raised-button type="submit" *ngIf="form.valid && form.touched">save</button>-->
   </form>
 </div>
