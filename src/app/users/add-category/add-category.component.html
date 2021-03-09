@@ -2,11 +2,7 @@
 
   <h1 class="mat-card-title" style="text-align: center">Add Category</h1>
 
-  <div style="display: flex;
-  align-items: center;
-  margin: auto; /* Выравниваем по центру */
-  background: #9be7ad;
-  width:75%; border: 3px solid #093911;">
+  <div class="add_object_table">
     <div class="card-body">
       <div class="mat-card-body">
         <form #form="ngForm" (ngSubmit)="saveCategory(form)">
@@ -41,9 +37,9 @@
             </mat-error>
           </mat-form-field>
           <div>
-            <button mat-raised-button type="submit" *ngIf="form.valid && form.touched">save</button>
-            <button mat-raised-button type="reset">reset</button>
-            <button mat-raised-button (click)="cancel()">cancel</button>
+            <button class="green-button right-button" type="submit" *ngIf="form.valid && form.touched">save</button>
+            <button class="green-button right-button" type="reset">reset</button>
+            <button class="green-button right-button" (click)="cancel()">cancel</button>
           </div>
         </form>
       </div>
