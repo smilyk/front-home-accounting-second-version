@@ -11,6 +11,7 @@ import {Period} from '../../model/Period';
 import * as moment from 'moment';
 import {Redirect} from '../../model/Redirect';
 import {Router} from '@angular/router';
+import {TransfereService} from '../../services/transfereService';
 
 
 @Component({
@@ -82,9 +83,12 @@ export class HomeComponent implements OnInit {
   operations$: Subscription;
   encryptedPassword = true;
   chageLength = false;
+  OUTPUT_TYPE = 'call_made';
+  INPUT_TYPE = 'call_received';
 
   constructor(private billService: BillService,
               private reportService: ReportService,
+              private transferService: TransfereService,
               private router: Router) {
   }
 
@@ -146,9 +150,9 @@ export class HomeComponent implements OnInit {
   private changeType(op: LastOperation[]) {
     for (const o of op) {
       if (o.type === 'OUTPUT') {
-        o.type = 'call_received';
+        o.type = this.OUTPUT_TYPE;
       } else {
-        o.type = 'call_made';
+        o.type = this.INPUT_TYPE;
       }
     }
     return op;
@@ -164,7 +168,7 @@ export class HomeComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   private changeArrayLength(operations: LastOperation[]) {
-    while (this.operations.length < 4){
+    while (this.operations.length < 4) {
       this.operations.push(this.oper);
     }
     this.addLength();
@@ -183,7 +187,7 @@ export class HomeComponent implements OnInit {
           return 0;
         }
       });
-      while (this.bills.length < 4){
+      while (this.bills.length < 4) {
         this.bills.push(this.bill);
       }
       this.dataSource = new MatTableDataSource<Bill>(bill);
@@ -234,9 +238,19 @@ export class HomeComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   addLength() {
-    console.log(this.chageLength);
     this.chageLength = true;
-    console.log(this.chageLength);
     return this.chageLength;
+  }
+
+  // tslint:disable-next-line:typedef
+  getOperationDetails(operationUuid: string) {
+    const operTmp = this.operations.find(x => x.operationUuid === operationUuid);
+    this.transferService.setData(operationUuid);
+    console.log(operTmp.type);
+    if (operTmp.type === this.OUTPUT_TYPE) {
+      this.router.navigate([Redirect.EXPENSES_LIST]);
+    }else{
+      this.router.navigate([Redirect.INCOME_LIST]);
+    }
   }
 }

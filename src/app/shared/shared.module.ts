@@ -33,6 +33,7 @@ import {MatTableModule} from '@angular/material/table';
 import { MainComponent } from './main/main.component';
 import {UsersModule} from '../users/users/users.module';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {TransfereService} from '../services/transfereService';
 
 const routes: Routes = [
   // HOME
@@ -85,6 +86,7 @@ const routes: Routes = [
     MatPaginatorModule,
   ],
   providers: [
+    {provide: TransfereService},
     {provide: MatDialogRef, useValue: {}},
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
     {provide: MAT_DIALOG_DATA, useValue: []},

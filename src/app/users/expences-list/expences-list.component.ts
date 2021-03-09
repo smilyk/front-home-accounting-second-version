@@ -11,6 +11,7 @@ import {OutputCard} from '../../model/OutputCard';
 import {Redirect} from '../../model/Redirect';
 import {DeleteExpenseCardComponent} from '../../dialogs/delete-expense-card/delete-expense-card.component';
 import {PlanningOutputCardComponent} from '../../dialogs/planning-output-card/planning-output-card.component';
+import {TransfereService} from '../../services/transfereService';
 
 export interface Tile {
   cols: number;
@@ -59,13 +60,18 @@ export class ExpencesListComponent implements OnInit {
   x: any;
   det = false;
   tiles: Tile[];
+  data = this.transferService.getData();
 
   constructor(private cardService: CardService,
               private router: Router,
+              private transferService: TransfereService,
               public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
+    if (!(this.data == 'undefined')) {
+      this.details(this.data);
+    }
     this.incomes$ = this.cardService.getAllOutputCard().pipe(map(
       value => this.array = value
     )).subscribe(card => {

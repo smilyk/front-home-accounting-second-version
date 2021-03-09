@@ -36,6 +36,7 @@ import {CategoryNameUniqueDirective} from '../../directives/category-name-unique
 import {AddSubcategoryComponent} from '../add-subcategory/add-subcategory.component';
 import {SubcategoryListComponent} from '../subcategory-list/subcategory-list.component';
 import {SubcategoryNameUniqueDirective} from '../../directives/subcategory-name-unique.directive';
+import {TransfereService} from '../../services/transfereService';
 
 const routes: Routes = [
   {path: Redirect.BILL_DETAILS + ':id', component: BillDetailsComponent},
@@ -77,6 +78,7 @@ const routes: Routes = [
     MatGridListModule,
   ],
   providers: [
+    {provide: TransfereService},
     {provide: MatDialogRef, useValue: {}},
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
     {provide: MAT_DIALOG_DATA, useValue: []},

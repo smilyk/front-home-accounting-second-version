@@ -11,6 +11,7 @@ import {InputCard} from '../../model/InputCard';
 import {Redirect} from '../../model/Redirect';
 import {DeleteIncomeCardComponent} from '../../dialogs/delete-income-card/delete-income-card.component';
 import {PlanningInputCardComponent} from '../../dialogs/planning-input-card/planning-input-card.component';
+import {TransfereService} from '../../services/transfereService';
 
 export interface Tile {
   cols: number;
@@ -57,12 +58,17 @@ export class IncomesListComponent implements OnInit {
   x: any;
   det = false;
   tiles: Tile[];
+  data = this.transferService.getData();
   constructor(private cardService: CardService,
               private router: Router,
+              private transferService: TransfereService,
               public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
+    if (!(this.data == 'undefined')) {
+      this.details(this.data);
+    }
     this.incomes$ = this.cardService.getAllIncomesCard().pipe(map(
       value => this.array = value
     )).subscribe(card => {
