@@ -8,7 +8,7 @@ export class LastOperation {
   subcategory: string;
   type: string;
   description: string;
-  sum: number;
+  sum: any;
   operationUuid: string;
   currency: string;
 }

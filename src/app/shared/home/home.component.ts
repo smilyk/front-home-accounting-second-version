@@ -9,6 +9,8 @@ import {LastOperation} from '../../model/LastOperation';
 import {ReportService} from '../../services/report.service';
 import {Period} from '../../model/Period';
 import * as moment from 'moment';
+import {Redirect} from '../../model/Redirect';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -36,6 +38,17 @@ export class HomeComponent implements OnInit {
     mainBill: false,
     billUuid: ''
   }];
+  bill: Bill = {
+    userUuid: '-',
+    billName: ' ',
+    description: '-',
+    sumIsr: ' ',
+    sumUsa: ' ',
+    sumUkr: ' ',
+    currencyName: '-',
+    mainBill: false,
+    billUuid: '-'
+  };
   operations: LastOperation[] = [{
     date: '',
     billName: '',
@@ -47,6 +60,17 @@ export class HomeComponent implements OnInit {
     operationUuid: '',
     currency: ''
   }];
+  oper: LastOperation = {
+    date: '',
+    billName: '',
+    category: '',
+    subcategory: '',
+    type: '',
+    description: '',
+    sum: '',
+    operationUuid: '',
+    currency: ''
+  };
   currency: Currency[] = [{
     currencyName: ''
   }];
@@ -57,9 +81,11 @@ export class HomeComponent implements OnInit {
   bills$: Subscription;
   operations$: Subscription;
   encryptedPassword = true;
+  chageLength = false;
 
   constructor(private billService: BillService,
-              private reportService: ReportService) {
+              private reportService: ReportService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -81,6 +107,7 @@ export class HomeComponent implements OnInit {
     )).subscribe(lastOperations => {
       lastOperations = this.changeType(this.operations);
       lastOperations = this.changeDate(this.operations);
+      lastOperations = this.changeArrayLength(this.operations);
       this.dataSourceLastOperToday = new MatTableDataSource<LastOperation>(lastOperations);
     });
     this.date.period = 'WEEK';
@@ -89,6 +116,7 @@ export class HomeComponent implements OnInit {
     )).subscribe(lastOperations => {
       lastOperations = this.changeType(this.operations);
       lastOperations = this.changeDate(this.operations);
+      lastOperations = this.changeArrayLength(this.operations);
       this.dataSourceLastOperWeek = new MatTableDataSource<LastOperation>(lastOperations);
     });
     this.date.period = 'MONTH';
@@ -97,6 +125,7 @@ export class HomeComponent implements OnInit {
     )).subscribe(lastOperations => {
       lastOperations = this.changeType(this.operations);
       lastOperations = this.changeDate(this.operations);
+      lastOperations = this.changeArrayLength(this.operations);
       this.dataSourceLastOperMonth = new MatTableDataSource<LastOperation>(lastOperations);
 
     });
@@ -106,6 +135,7 @@ export class HomeComponent implements OnInit {
     )).subscribe(lastOperations => {
       lastOperations = this.changeType(this.operations);
       lastOperations = this.changeDate(this.operations);
+      lastOperations = this.changeArrayLength(this.operations);
       this.dataSourceLastOperYear = new MatTableDataSource<LastOperation>(lastOperations);
     });
     this.displayedColumns = ['billName', 'sumIsr', 'sumUkr', 'sumUsa'];
@@ -133,6 +163,15 @@ export class HomeComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
+  private changeArrayLength(operations: LastOperation[]) {
+    while (this.operations.length < 4){
+      this.operations.push(this.oper);
+    }
+    this.addLength();
+    return operations;
+  }
+
+  // tslint:disable-next-line:typedef
   setValue() {
     this.bills$ = this.billService.getBillByUserAndCurrency(this.choosingCurrency).pipe(map(
       value => this.bills = value
@@ -144,6 +183,9 @@ export class HomeComponent implements OnInit {
           return 0;
         }
       });
+      while (this.bills.length < 4){
+        this.bills.push(this.bill);
+      }
       this.dataSource = new MatTableDataSource<Bill>(bill);
     });
     this.displayedColumns = ['billName', 'sumIsr', 'sumUkr', 'sumUsa'];
@@ -163,5 +205,38 @@ export class HomeComponent implements OnInit {
       rez = this.bills.map(t => t.sumUsa).reduce((acc, value) => acc + value, 0);
     }
     return rez;
+  }
+
+  // tslint:disable-next-line:typedef
+  addBill() {
+    this.router.navigate([Redirect.BILL]);
+  }
+
+  // tslint:disable-next-line:typedef
+  addIncome() {
+    this.router.navigate([Redirect.INCOMES]);
+  }
+
+  // tslint:disable-next-line:typedef
+  addOutcome() {
+    this.router.navigate([Redirect.EXPENSES]);
+  }
+
+  // tslint:disable-next-line:typedef
+  addCategory() {
+    this.router.navigate([Redirect.CATEGORY]);
+  }
+
+  // tslint:disable-next-line:typedef
+  addSubcategory() {
+    this.router.navigate([Redirect.SUBCATEGORY]);
+  }
+
+  // tslint:disable-next-line:typedef
+  addLength() {
+    console.log(this.chageLength);
+    this.chageLength = true;
+    console.log(this.chageLength);
+    return this.chageLength;
   }
 }

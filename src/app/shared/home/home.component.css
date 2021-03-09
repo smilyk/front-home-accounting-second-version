@@ -6,7 +6,7 @@
 }
 table {
   width: 100%;
-  border: #093911 solid 3px;
+  /*border: #093911 solid 3px;*/
 }
 
 .mat-form-field {
@@ -154,4 +154,16 @@ button:active {
 }
 .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron {
   border-color: #093911;
+}
+/*
+nav-panel
+*/
+.mat-tab-nav-bar, .mat-tab-link {
+  color: #093911;
+  background: #d9c715 ;
+  /*box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0), inset 0 1px 2px rgba(0, 0, 0, 0), inset 0 0 0 60px rgba(255, 255, 0, 0);*/
+  /*transition: box-shadow .2s, border-color .2s;*/
+  /*background: #e7e39b linear-gradient(#9be7ad, #027D7C);*/
+  box-shadow: inset 0 -2px 1px rgba(0,0,0,0), inset 0 1px 2px rgba(0,0,0,0), inset 0 0 0 60px rgba(255,255,0,0);
+  transition: box-shadow .2s, border-color .2s;
 }

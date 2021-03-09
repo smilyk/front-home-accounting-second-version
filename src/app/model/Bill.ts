@@ -4,9 +4,9 @@ export class Bill{
   userUuid: string;
   billName: string;
   description: string;
-  sumIsr: number;
-  sumUsa: number;
-  sumUkr: number;
+  sumIsr: any;
+  sumUsa: any;
+  sumUkr: any;
   currencyName: string;
   mainBill: boolean;
   billUuid: string;
