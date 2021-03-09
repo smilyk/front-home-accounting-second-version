@@ -3,28 +3,28 @@
   <div class="card-body">
     <img class="logo" src="assets/new_logo.jpg" alt="logo" width="50" height="50">{{getUserName()}}
     <a mat-tab-link
-       *ngFor="let link of mainLink"
-       [routerLink]="link.path"
+       *ngIf="!isAuth()"
+       [routerLink]="mainLink.path"
        routerLinkActive #rla="routerLinkActive"
        [active]=rla.isActive>
-      <mat-icon>{{link.icon}}</mat-icon>
-      {{link.label}}
+      <mat-icon>{{mainLink.icon}}</mat-icon>
+      {{mainLink.label}}
     </a>
     <a mat-tab-link
-       *ngFor="let link of homeLink"
-       [routerLink]="link.path"
+       *ngIf="isAuth()"
+       [routerLink]="homeLink.path"
        routerLinkActive #rla="routerLinkActive"
        [active]=rla.isActive>
-      <mat-icon>{{link.icon}}</mat-icon>
-      {{link.label}}
+      <mat-icon>{{homeLink.icon}}</mat-icon>
+      {{homeLink.label}}
     </a>
     <a mat-tab-link
        *ngIf="!isAuth()"
-       [routerLink]="loginLink[0].path"
+       [routerLink]="loginLink.path"
        routerLinkActive #rla="routerLinkActive"
        [active]="rla.isActive">
-      <mat-icon>{{loginLink[0].icon}}</mat-icon>
-      {{loginLink[0].label}}
+      <mat-icon>{{loginLink.icon}}</mat-icon>
+      {{loginLink.label}}
     </a>
     <a mat-tab-link
        *ngIf="!isAuth()"
