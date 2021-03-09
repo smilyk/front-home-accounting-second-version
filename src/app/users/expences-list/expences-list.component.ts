@@ -69,7 +69,7 @@ export class ExpencesListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (!(this.data == 'undefined')) {
+    if (!(this.data === '')) {
       this.details(this.data);
     }
     this.incomes$ = this.cardService.getAllOutputCard().pipe(map(

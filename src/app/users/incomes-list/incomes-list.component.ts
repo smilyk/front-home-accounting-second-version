@@ -66,7 +66,8 @@ export class IncomesListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (!(this.data == 'undefined')) {
+    console.log(this.data);
+    if (!(this.data === '')) {
       this.details(this.data);
     }
     this.incomes$ = this.cardService.getAllIncomesCard().pipe(map(
