@@ -11,9 +11,7 @@ export class TransfereService {
 
   // tslint:disable-next-line:typedef
   ngOninit(){
-    console.log(this.data + ' 1');
     this.data = '';
-    console.log(this.data + ' 2');
   }
   // tslint:disable-next-line:typedef
   setData(data){
