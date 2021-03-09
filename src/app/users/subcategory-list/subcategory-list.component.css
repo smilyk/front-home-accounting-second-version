@@ -1,94 +1,94 @@
-table {
-  width: 100%;
-}
-
-.mat-form-field {
-  font-size: 4vh;
-  width: 100%;
-}
-
-/*td, th {*/
-/*  width: 18%;*/
+/*table {*/
+/*  width: 100%;*/
 /*}*/
 
-.actions{
-  cursor: pointer
-}
+/*.mat-form-field {*/
+/*  font-size: 4vh;*/
+/*  width: 100%;*/
+/*}*/
 
-.filter{
-  color: #093911;
-}
+/*!*td, th {*!*/
+/*!*  width: 18%;*!*/
+/*!*}*!*/
 
-.mat-form-field-appearance-legacy .mat-form-field-underline {
-  background-color: #093911;
-  color: #093911;
-}
+/*.actions{*/
+/*  cursor: pointer*/
+/*}*/
 
-:host /deep/ .mat-form-field-label-wrapper .mat-form-field-label {
-  color: black !important;
-}
+/*.filter{*/
+/*  color: #093911;*/
+/*}*/
 
-/*Change text in autofill textbox*/
-input:-webkit-autofill {
-  -webkit-text-fill-color: #093911 !important;
-}
-/* Change the white to any color ;) */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active  {
-  -webkit-box-shadow: 0 0 0 30px #9be7ad inset !important;
-}
-.mat-focused .mat-form-field-label {
-  color: #027D7C !important;
-}
+/*.mat-form-field-appearance-legacy .mat-form-field-underline {*/
+/*  background-color: #093911;*/
+/*  color: #093911;*/
+/*}*/
 
-.mat-form-field-label{
-  color: #093911 !important;
-}
-.mat-form-field-underline {
-  background-color: #093911 !important;;
-}
-.mat-form-field-ripple {
-  background-color: #093911 !important;
-}
-.mat-paginator-container {
-  color: #093911;
-  background: #e7e39b;
-}
-.mat-select-value {
-  color: #093911;
-}
-.mat-select-arrow {
-  color: #093911;
-}
-.mat-cell, .mat-footer-cell {
-  color: #093911;
-  background: #9be7ad;
-}
-.mat-header-cell {
-  color: #093911;
-  background: #e7e39b;
-}
-.mat-tooltip {
-  color: #093911 !important;
-  background: #e7e39b;
+/*:host /deep/ .mat-form-field-label-wrapper .mat-form-field-label {*/
+/*  color: black !important;*/
+/*}*/
 
-}
+/*!*Change text in autofill textbox*!*/
+/*input:-webkit-autofill {*/
+/*  -webkit-text-fill-color: #093911 !important;*/
+/*}*/
+/*!* Change the white to any color ;) *!*/
+/*input:-webkit-autofill,*/
+/*input:-webkit-autofill:hover,*/
+/*input:-webkit-autofill:focus,*/
+/*input:-webkit-autofill:active  {*/
+/*  -webkit-box-shadow: 0 0 0 30px #9be7ad inset !important;*/
+/*}*/
+/*.mat-focused .mat-form-field-label {*/
+/*  color: #027D7C !important;*/
+/*}*/
 
-.mat-option-text {
+/*.mat-form-field-label{*/
+/*  color: #093911 !important;*/
+/*}*/
+/*.mat-form-field-underline {*/
+/*  background-color: #093911 !important;;*/
+/*}*/
+/*.mat-form-field-ripple {*/
+/*  background-color: #093911 !important;*/
+/*}*/
+/*.mat-paginator-container {*/
+/*  color: #093911;*/
+/*  background: #e7e39b;*/
+/*}*/
+/*.mat-select-value {*/
+/*  color: #093911;*/
+/*}*/
+/*.mat-select-arrow {*/
+/*  color: #093911;*/
+/*}*/
+/*.mat-cell, .mat-footer-cell {*/
+/*  color: #093911;*/
+/*  background: #9be7ad;*/
+/*}*/
+/*.mat-header-cell {*/
+/*  color: #093911;*/
+/*  background: #e7e39b;*/
+/*}*/
+/*.mat-tooltip {*/
+/*  color: #093911 !important;*/
+/*  background: #e7e39b;*/
 
-  background: #e7e39b;
-  color: #093911;
-}
-.mat-select-panel .mat-optgroup-label, .mat-select-panel .mat-option {
+/*}*/
 
-  background: #9be7ad;
-}
-.mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
-  background: #e7e39b;
-}
-.mat-paginator-icon {
-  color: #093911;
-}
+/*.mat-option-text {*/
+
+/*  background: #e7e39b;*/
+/*  color: #093911;*/
+/*}*/
+/*.mat-select-panel .mat-optgroup-label, .mat-select-panel .mat-option {*/
+
+/*  background: #9be7ad;*/
+/*}*/
+/*.mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {*/
+/*  background: #e7e39b;*/
+/*}*/
+/*.mat-paginator-icon {*/
+/*  color: #093911;*/
+/*}*/
 

@@ -1,99 +1,99 @@
 
-table {
-  width: 100%;
-  color: #093911;
-}
+/*table {*/
+/*  width: 100%;*/
+/*  color: #093911;*/
+/*}*/
 
-.mat-form-field {
-  font-size: 14px;
-  width: 100%;
-  color: #093911;
-}
+/*.mat-form-field {*/
+/*  font-size: 14px;*/
+/*  width: 100%;*/
+/*  color: #093911;*/
+/*}*/
 
-td, th {
-  width: 75%;
-  color: #093911;
-}
+/*td, th {*/
+/*  width: 75%;*/
+/*  color: #093911;*/
+/*}*/
 
-.mat-input-element {
-  font: inherit;
-  background: #9be7ad;
-  color: #093911;
-  border: none;
-  outline: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  max-width: 100%;
-  vertical-align: bottom;
-  text-align: inherit;
-}
+/*.mat-input-element {*/
+/*  font: inherit;*/
+/*  background: #9be7ad;*/
+/*  color: #093911;*/
+/*  border: none;*/
+/*  outline: none;*/
+/*  padding: 0;*/
+/*  margin: 0;*/
+/*  width: 100%;*/
+/*  max-width: 100%;*/
+/*  vertical-align: bottom;*/
+/*  text-align: inherit;*/
+/*}*/
 
-.mat-form-field-appearance-legacy .mat-form-field-underline {
-  background-color: #093911;
-  color: #093911;
-}
+/*.mat-form-field-appearance-legacy .mat-form-field-underline {*/
+/*  background-color: #093911;*/
+/*  color: #093911;*/
+/*}*/
 
-:host /deep/ .mat-form-field-label-wrapper .mat-form-field-label {
-  color: black !important;
-}
+/*:host /deep/ .mat-form-field-label-wrapper .mat-form-field-label {*/
+/*  color: black !important;*/
+/*}*/
 
-/*Change text in autofill textbox*/
-input:-webkit-autofill {
-  -webkit-text-fill-color: #093911 !important;
-}
+/*!*Change text in autofill textbox*!*/
+/*input:-webkit-autofill {*/
+/*  -webkit-text-fill-color: #093911 !important;*/
+/*}*/
 
-/* Change the white to any color ;) */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px #9be7ad inset !important;
-}
+/*!* Change the white to any color ;) *!*/
+/*input:-webkit-autofill,*/
+/*input:-webkit-autofill:hover,*/
+/*input:-webkit-autofill:focus,*/
+/*input:-webkit-autofill:active {*/
+/*  -webkit-box-shadow: 0 0 0 30px #9be7ad inset !important;*/
+/*}*/
 
-.mat-focused .mat-form-field-label {
-  color: #027D7C !important;
-}
+/*.mat-focused .mat-form-field-label {*/
+/*  color: #027D7C !important;*/
+/*}*/
 
-.mat-form-field-label {
-  color: #093911 !important;
-}
+/*.mat-form-field-label {*/
+/*  color: #093911 !important;*/
+/*}*/
 
-.mat-form-field-underline {
-  background-color: #093911 !important;;
-}
+/*.mat-form-field-underline {*/
+/*  background-color: #093911 !important;;*/
+/*}*/
 
-.mat-form-field-ripple {
-  background-color: #093911 !important;
-}
+/*.mat-form-field-ripple {*/
+/*  background-color: #093911 !important;*/
+/*}*/
 
 
-.mat-card {
-  background: #e7e39b;
-  color: #093911;
-}
+/*.mat-card {*/
+/*  background: #e7e39b;*/
+/*  color: #093911;*/
+/*}*/
 
-.mat-checkbox-inner-container {
-  background: #9be7ad;
-  border: 3px solid #093911;
+/*.mat-checkbox-inner-container {*/
+/*  background: #9be7ad;*/
+/*  border: 3px solid #093911;*/
 
-}
+/*}*/
 
-.mat-select-value {
-  color: #093911;
-}
+/*.mat-select-value {*/
+/*  color: #093911;*/
+/*}*/
 
-button{
-  background: #e7e39b;
-}
-.mat-option.mat-active {
-  color: #093911;
+/*button{*/
+/*  background: #e7e39b;*/
+/*}*/
+/*.mat-option.mat-active {*/
+/*  color: #093911;*/
 
-}
-.mat-option{
-  background: #e7e39b !important;
-  color: #093911;
-}
-.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
-  color: #027D7C;
-}
+/*}*/
+/*.mat-option{*/
+/*  background: #e7e39b !important;*/
+/*  color: #093911;*/
+/*}*/
+/*.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {*/
+/*  color: #027D7C;*/
+/*}*/

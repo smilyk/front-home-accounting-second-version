@@ -1,68 +1,69 @@
 <div class="nav-list">
 
-    <div class="card-body">
-      <button  style="float: right; color: #093911; background: #9be7ad" mat-raised-button class="addAuthorButton"
-               (click)="addBill()">add new bill</button>
-    </div>
-
-
   <div class="card-body">
-    <h1 class="mat-card-title" style="text-align: center">Bills</h1>
+    <button class="right-button"
+            (click)="addBill()">add new bill
+    </button>
+  </div>
+
+  <h1 class="mat-card-title" style="text-align: center">Bills</h1>
+  <div class="card-body">
     <mat-form-field>
       <input class="filter" matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
     </mat-form-field>
 
-    <div class="mat-elevation-z8" style=" border: 3px solid #093911"  >
+    <div class="mat-elevation-z8" style=" border: 3px solid #093911">
       <table mat-table [dataSource]="dataSource" matSort>
-<!--MAin bill-->
-        <ng-container  matColumnDef="main">
+        <!--MAin bill-->
+        <ng-container matColumnDef="main">
           <th mat-header-cell *matHeaderCellDef></th>
           <td mat-cell *matCellDef="let row">
             <mat-icon matTooltip="This is main bill" *ngIf="isMain(row)" style="color: #ff180a; display: inline-block;
 fill: currentColor;
 height: 5px;
-width: 5px; ">call_missed_outgoing</mat-icon>
+width: 5px; ">call_missed_outgoing
+            </mat-icon>
           </td>
         </ng-container>
 
         <!-- Name Column -->
-        <ng-container  matColumnDef="billName">
+        <ng-container matColumnDef="billName">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>| name |</th>
-          <td mat-cell *matCellDef="let row" > {{row.billName}} </td>
-          <td mat-cell *matCellDef="let row" > {{row}}</td>
+          <td mat-cell *matCellDef="let row"> {{row.billName}} </td>
+          <td mat-cell *matCellDef="let row"> {{row}}</td>
         </ng-container>
 
         <!-- currencyName Column -->
         <ng-container matColumnDef="currencyName">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>| currency |</th>
-          <td mat-cell *matCellDef="let row" > {{row.currencyName}} </td>
+          <td mat-cell *matCellDef="let row"> {{row.currencyName}} </td>
         </ng-container>
 
         <!-- currency ISR Column -->
-        <ng-container  matColumnDef="isr_money">
+        <ng-container matColumnDef="isr_money">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>| isr_money |</th>
-          <td mat-cell *matCellDef="let row" > {{row.sumIsr}} ₪</td>
+          <td mat-cell *matCellDef="let row"> {{row.sumIsr}} ₪</td>
         </ng-container>
 
         <!-- currency USA Column -->
-        <ng-container  matColumnDef="usa_money">
+        <ng-container matColumnDef="usa_money">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>| usa_money |</th>
-          <td mat-cell *matCellDef="let row" > {{row.sumUsa}} $</td>
+          <td mat-cell *matCellDef="let row"> {{row.sumUsa}} $</td>
         </ng-container>
 
         <!-- currency Ukr Column -->
-        <ng-container  matColumnDef="ukr_money">
+        <ng-container matColumnDef="ukr_money">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>| ukr_money |</th>
-          <td mat-cell *matCellDef="let row" > {{row.sumUkr}} ₴</td>
+          <td mat-cell *matCellDef="let row"> {{row.sumUkr}} ₴</td>
         </ng-container>
 
         <!-- description Column -->
         <ng-container matColumnDef="description">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>| description |</th>
-          <td mat-cell *matCellDef="let row" > {{row.description}} </td>
+          <td mat-cell *matCellDef="let row"> {{row.description}} </td>
         </ng-container>
 
-<!--column details -->
+        <!--column details -->
         <ng-container matColumnDef="details">
           <th mat-header-cell *matHeaderCellDef>details</th>
           <td mat-cell *matCellDef="let row" class="actions" (click)="details(row.billName)">
@@ -71,8 +72,8 @@ width: 5px; ">call_missed_outgoing</mat-icon>
         </ng-container>
         <!-- Delete Column -->
         <ng-container matColumnDef="delete">
-          <th mat-header-cell  *matHeaderCellDef class="icons">| delete |</th>
-          <td mat-cell *matCellDef="let row" class="actions"  (click)="openDialog(row.billName)">
+          <th mat-header-cell *matHeaderCellDef class="icons">| delete |</th>
+          <td mat-cell *matCellDef="let row" class="actions" (click)="openDialog(row.billName)">
             <mat-icon>delete</mat-icon>
           </td>
         </ng-container>
