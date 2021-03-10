@@ -1,5 +1,8 @@
 # Homeacc
 
+Documentation for QA
+https://docs.google.com/presentation/d/1mE5zkANH5Fm5DvgKfl652rzCJKwP21rL1O0zMhhh0Jc/edit?usp=sharing
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.7.
 
 https://smilyk.github.io/homeacc/
