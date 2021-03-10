@@ -22,6 +22,11 @@ export class ErrorDialogComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   goToLogin() {
-    this.router.navigate([Redirect.HOME]);
+    console.log(this.data.message);
+    if (this.data.message === 'Authorization is failed. Please confirm your email or check your email and password') {
+      this.router.navigate([Redirect.LOGIN]);
+    } else {
+      this.router.navigate([Redirect.HOME]);
+    }
   }
 }
