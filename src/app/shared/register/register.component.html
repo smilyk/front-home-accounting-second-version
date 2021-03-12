@@ -17,17 +17,16 @@
                        #email=ngModel
                        placeholder="user@user.com"
                        required
-                       email
-                       appUserUnique>
+                       email>
                 <!--              <mat-error >-->
                 <!--                email is required-->
                 <!--              </mat-error>-->
-<!--                <mat-error>-->
-<!--                  email {{email.value}} not valid-->
-<!--                </mat-error>-->
-                <mat-error *ngIf="email.errors?.unique">
-                  user with email {{email.value}} exists in the database
+                <mat-error>
+                  email {{email.value}} not valid
                 </mat-error>
+<!--                <mat-error *ngIf="email.errors?.unique">-->
+<!--                  user with email {{email.value}} exists in the database-->
+<!--                </mat-error>-->
               </mat-form-field>
             </div>
 

@@ -17,9 +17,12 @@ export class ErrorDialogService {
     }
     this.isDialogOpen = true;
     if (data.status === 403) {
-        data.message = 'Authorization is failed. Please confirm your email or check your email and password';
+      data.message = 'Authorization is failed. Please confirm your email or check your email and password';
     }
-    if (data.status === 0){
+    if (data.message === ' user not unique ') {
+      data.message = 'User with this email exists in DB. Email should be unique';
+    }
+    if (data.status === 0) {
       data.message = 'Something wrong with server. Try one more time';
     }
     const dialogRef = this.dialog.open(ErrorDialogComponent, {
@@ -32,6 +35,7 @@ export class ErrorDialogService {
       animal = result;
     });
   }
+
 //   public handleAuthError(error: any) {
 //     console.log("error ", error);
 //     let msg = "";

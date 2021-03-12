@@ -25,9 +25,9 @@ export class HttpConfigInterceptor implements HttpInterceptor {
     }
 
     if (!request.headers.has('Content-Type')) {
-      request = request.clone({headers: request.headers.set('Content-Type', 'application/json')});
+      // request = request.clone({headers: request.headers.set('Content-Type', '*/*')});
     }
-    request = request.clone({headers: request.headers.set('Accept', 'application/json')});
+    request = request.clone({headers: request.headers.set('Accept', '*/*')});
 
     return next.handle(request).pipe(
       map((event: HttpEvent<any>) => {
